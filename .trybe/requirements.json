@@ -1,0 +1,48 @@
+{
+  "requirements": [
+    {
+      "description": "1- Crie uma tela para que a pessoa usuária se identifique",
+      "bonus": false
+    },
+    {
+      "description": "2- Crie uma página para pesquisar artistas",
+      "bonus": false
+    },
+    {
+      "description": "3- Faça a requisição para pesquisar artistas",
+      "bonus": false
+    },
+    {
+      "description": "4- Crie a requisição que busca as músicas do álbum",
+      "bonus": false
+    },
+    {
+      "description": "5- Crie a página de listagem das músicas do álbum selecionado",
+      "bonus": false
+    },
+    {
+      "description": "6- Crie o mecanismo de favoritar músicas",
+      "bonus": false
+    },
+    {
+      "description": "7- Crie a página de listagem de músicas favoritas",
+      "bonus": false
+    },
+    {
+      "description": "8- Crie a página de exibição de perfil",
+      "bonus": false
+    },
+    {
+      "description": "9- Crie a página de edição de perfil",
+      "bonus": false
+    },
+    {
+      "description": "10- Crie uma rota de 'Página não encontrada' e valide o acesso das rotas para pessoas logadas",
+      "bonus": false
+    },
+    {
+      "description": "11- Destaque a página atual nos links de navegação",
+      "bonus": false
+    }
+  ]
+}
