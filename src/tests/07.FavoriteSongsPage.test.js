@@ -138,6 +138,7 @@ describe('7- Crie a página de listagem de músicas favoritas', () => {
 
       await waitForElementToBeRemoved(
         () => screen.getAllByText('Carregando...'),
+        { timeout: 3000 },
       );
 
       expect(screen.queryByText('Track Name 1')).not.toBeInTheDocument();
