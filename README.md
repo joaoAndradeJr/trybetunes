@@ -49,17 +49,17 @@ Neste projeto, verificamos se voce é capaz de:
 
   * Utilizar os ciclos de vida de um componente React;
 
-  * Utilizar a função `setState` de forma a garantir que um determinado código só é executado após o estado ser atualizado
+  * Utilizar a função `setState` de forma a garantir que um determinado código só é executado após o estado ser atualizado;
   
   * Utilizar o componente `BrowserRouter` corretamente;
 
   * Criar rotas, mapeando o caminho da URL com o componente correspondente, via `Route`;
 
-  * Utilizar o `Switch` do `React Router`
+  * Utilizar o `Switch` do `React Router`;
 
   * Usar o componente `Redirect` pra redirecionar para uma rota específica;
 
-  * Criar links de navegação na aplicação com o componente `Link`;
+  * Criar links de navegação na aplicação com o componente `Link`.
 
 
 ---
@@ -91,7 +91,7 @@ Nos últimos projetos, por mais que o app tenha sido desenvolvido utilizando mú
 
 Uma rota define o que deve ser renderizado na página ao abri-la. Cada rota está associada a um caminho. O caminho é a parte da URL após o domínio (nome do site, de forma simplificada). Por exemplo, em `www.site.com/projetos/meu-jogo`, o caminho é `/projetos/meu-jogo`. Até agora, todos os apps React que você desenvolveu possuíam somente uma rota, a raiz (`/`).
 
-Outra diferença importante neste projeto em relação aos anteriores é que os dados virão de uma API (simulada) e não mais de um arquivo estático. Você utilizará essa API para criar, ler, atualizar e apagar filmes. Logo, você terá que lidar com requisições assíncronas e promises. Também deverá fazer uso de lifecycle methods e de estados para controlar o que é renderizado por seus componentes a depender de em que momento as requisições se encontram.
+Outra diferença importante neste projeto em relação aos anteriores é que os dados virão de uma API (simulada) e não mais de um arquivo estático. Você utilizará essa API para criar, ler, atualizar e apagar filmes. Logo, você terá que lidar com requisições assíncronas e promises. Também deverá fazer uso de lifecycle methods e de estados para controlar o que é renderizado por seus componentes, a depender de que momento as requisições se encontram.
 
 ## Data de Entrega
 
@@ -184,7 +184,7 @@ Para atualizar as informações da pessoa logada, utilize a função `updateUser
 
 ## `searchAlbumsAPI.js`
 
-O arquivo `searchAlbuns.js` contém uma função que faz uma requisição à uma API e retorna os álbuns de uma banda ou artista. Para essa função funcionar, ela recebe como parâmetro uma string, que deve ser o nome da banda ou artista que você queira pesquisar os álbuns. O retorno dessa função quando encontra as informações é um array com cada álbum da banda ou artista dentro de um objeto. **Mas atenção:** caso não encontre nenhuma informação da banda ou artista, a API retornará um array vazio.
+O arquivo `searchAlbuns.js` contém uma função que faz uma requisição a uma API e retorna os álbuns de uma banda ou artista. Para essa função funcionar, ela recebe como parâmetro uma string, que deve ser o nome da banda ou artista que você queira pesquisar os álbuns. O retorno dessa função quando encontra as informações é um array com cada álbum da banda ou artista dentro de um objeto. **Mas atenção:** caso não encontre nenhuma informação da banda ou artista, a API retornará um array vazio.
 
 ## `favoriteSongsAPI.js`
 
@@ -194,9 +194,9 @@ A função `getFavoriteSongs` retorna um array com as músicas favoritas ou um a
 
 A função `addSong` recebe um objeto que representa a música que você quer salvar como favorita e adiciona ao array já existente das músicas que já foram favoritadas.
 
-A função `removeSong` também recebe um objeto que representa a música que você deseja remover da lista de músicas favoritas. 
+A função `removeSong` também recebe um objeto que representa a música que você deseja remover da lista de músicas favoritas.
 
-**Atenção:** os objetos de música precisam ter a chave `trackId` para que as músicas seja adicionads e removidas corretamente.
+**Atenção:** os objetos de música precisam ter a chave `trackId` para que as músicas seja adicionadas e removidas corretamente.
 
 ## `musicsAPI.js`
 
@@ -204,13 +204,13 @@ Esse arquivo estará vazio inicialmente e você irá preencher ele com a requisi
 
 ## Linter
 
-Para garantir a qualidade do código, vamos utilizar neste projeto o linter ESLint. Assim o código estará alinhado com as boas práticas de desenvolvimento, sendo mais legível e de fácil manutenção! Para rodar o *linter* localmente no projeto, execute o comando abaixo: 
+Para garantir a qualidade do código, vamos utilizar neste projeto o linter ESLint. Assim o código estará alinhado com as boas práticas de desenvolvimento, sendo mais legível e de fácil manutenção! Para rodar o *linter* localmente no projeto, execute o comando abaixo:
 
 `npm run lint`
 
 ⚠️ **PULL REQUESTS COM ISSUES DE LINTER NÃO SERÃO AVALIADAS. ATENTE-SE PARA RESOLVÊ-LAS ANTES DE FINALIZAR O DESENVOLVIMENTO!** ⚠
 
-Os testes foram desenvolvidos dessa forma para permitir uma maior liberdade para estruturar e estilizar a página, portanto, abusem da criatividade! 😉
+Os testes foram desenvolvidos para permitir uma maior liberdade para estruturar e estilizar a página, portanto, abusem da criatividade! 😉
 
 ---
 
@@ -353,7 +353,7 @@ Com a estrutura da tela de pesquisa criada, agora é hora de fazer uma requisiç
 
   * Após receber a resposta da requisição exibir na tela o texto `"Pesquisando álbuns de: <artista>"`, onde `<artista>` é o nome que foi digitado no input.
 
-  * Lste os álbuns retornados. A API irá retorna um *array* de objetos. Cada objeto terá a seguinte estrutura: 
+  * Liste os álbuns retornados. A API irá retorna um *array* de objetos. Cada objeto terá a seguinte estrutura: 
   ```
   [
     {
@@ -381,7 +381,7 @@ Com a estrutura da tela de pesquisa criada, agora é hora de fazer uma requisiç
 ### O que será verificado:
   - Será validado se ao clicar em "pesquisar", a requisição é feita usando a `searchAlbumsAPI`;
 
-  - Será validado se ao receber o retorno da API, o texto `"Pesquisando álbuns de: <artista>"` esta na tela e os álbuns são listados;
+  - Será validado se ao receber o retorno da API, o texto `"Pesquisando álbuns de: <artista>"` está na tela e os álbuns são listados;
 
   - Será validado se caso a API não retorne nenhum álbum, a mensagem `Nenhum álbum foi encontrado` é exibida;
 
@@ -390,11 +390,11 @@ Com a estrutura da tela de pesquisa criada, agora é hora de fazer uma requisiç
 ## 4. Crie a requisição que busca as músicas do álbum':
 Até o momento você estava utilizando as funções fornecidas na pasta `src/services`, mas agora você irá criar sua própria chamada para a API, dentro do arquivo `musicsAPI.js`.
 
-A sua missão é usar a função `fetch` para fazer uma requisição para a API `https://itunes.apple.com/lookup?id=${id}&entity=song`, onde `${id}` é o `collectionId` do Álbum. Lembre-se de que requisições são assíncronas e o `fetch` retorna uma promise. 
+A sua missão é usar a função `fetch` para fazer uma requisição para a API `https://itunes.apple.com/lookup?id=${id}&entity=song`, onde `${id}` é o `collectionId` do Álbum. Lembre-se de que requisições são assíncronas e o `fetch` retorna uma promise.
 
 Além disso, ao receber o retorno da API, você irá precisar chamar a função `json()`, que também retorna uma promise. E no objeto retornado pela função `json()`, você encontrará o array com as música dentro a chave `results`.
 
-**Dica: ** você pode dar uma olhada no arquivo `serachAlbums.js`, a implementação dessa função é bastante semelhante com o que você precisa implementar aqui ;) 
+**Dica:** você pode dar uma olhada no arquivo `serachAlbums.js`, a implementação dessa função é bastante semelhante com o que você precisa implementar aqui ;) 
 
 A função `getMusics` deverá retornar um array com as músicas do álbum selecionado.
 
@@ -420,9 +420,9 @@ Agora que está tudo pronto, você poderá exibir a lista de músicas do álbum 
 
   * Exiba o nome do álbum e nome da banda ou artista na tela. Você pode usar qualquer tag HTML que faça sentido, desde que ela tenha o atributo `data-testid="album-name"`.
 
-  * Liste todas as músicas do álbum na tela. Para isso, crie um componente `Music` que deverá exibir nome da música (propriedade `trackName` no objeto recebido pela API) e um player para tocar o preview da música (propriedade `previewUrl` no objeto recebido pela API).
+  * Liste todas as músicas do álbum na tela. Para isso, utilize o componente `MusicCard` que está no `src/components`, o mesmo deverá exibir o nome da música (propriedade `trackName` no objeto recebido pela API) e um player para tocar o preview da música (propriedade `previewUrl` no objeto recebido pela API).
 
-  Para tocar o preview, você deve usar a tag `audio` do próprio HTML. Sua implementação é assim: 
+  Para tocar o preview, você deve usar a tag `audio` do próprio HTML. Sua implementação é assim:
   ```javascript
   <audio data-testid="audio-component" src={ previewUrl } controls>
     <track kind="captions" />
@@ -446,7 +446,7 @@ Agora que está tudo pronto, você poderá exibir a lista de músicas do álbum 
 ## 6. Crie o mecanismo de favoritar músicas:
 Você já consegue listar as músicas dos álbuns, nessa etapa você irá poder marcar quais são as músicas que você mais gosta.
 
-  * No componente Music, crie um input do tipo `checkbox` para marcar as músicas favoritas. Esse input deve conter uma `label`, e a `label` deve ter o atributo ```data-testid={`checkbox-music-${trackId}`}```, onde `trackId` é a propriedade `trackId` do objeto recebido pela API.
+  * No componente `MusicCard`, crie um input do tipo `checkbox` para marcar as músicas favoritas. Esse input deve conter uma `label`, e a `label` deve ter o atributo ```data-testid={`checkbox-music-${trackId}`}```, onde `trackId` é a propriedade `trackId` do objeto recebido pela API.
 
   * Para adicionar uma música a lista de favoritas, utilize a função `addSong` da `favoriteSongsAPI`. Você pode passar para essa função um objeto no mesmo formato que você recebe da API `getMusics`.
 
@@ -466,6 +466,8 @@ Você já consegue listar as músicas dos álbuns, nessa etapa você irá poder 
 ## 7. Crie a página de listagem de músicas favoritas:
 
   * A rota para esta página deve ser `/favorites`.
+
+  * Utileze o arquivo `FavoriteSongs` da pasta `src/pages`.
 
   * Utilize a função `getUser` da `userAPI` para recuperar o nome da pessoa logada e exiba essa informação na tela. Você pode usar qualquer tag HTML que faça sentido, desde que ela tenha o atributo `data-testid="header-user-name"`.
   
@@ -506,6 +508,8 @@ Você já consegue listar as músicas dos álbuns, nessa etapa você irá poder 
 
   * A rota para esta página deve ser `/profile`.
 
+  * Utiliza o arquivo `Profile.js`, da pasta `src/pages`.
+
   * Utilize a função `getUser` da `userAPI` para recuperar o nome da pessoa logada e exiba essa informação na tela. Você pode usar qualquer tag HTML que faça sentido, desde que ela tenha o atributo `data-testid="header-user-name"`.
   
   * Enquanto estiver aguardando a resposta da `getUser`, exiba apenas a mensagem de `Carregando...`.
@@ -520,6 +524,8 @@ Você já consegue listar as músicas dos álbuns, nessa etapa você irá poder 
 
   * Enquanto aguarda a resposta da API, exiba a mensagem "Carregando...".
 
+  * Exiba uma tag `img` para mostrar a foto da pessoa usuária. Este campo precisa ter o atributo `data-testid="profile-image"`;
+
 ![requisito-8](images/requisito8.gif)
 
 ### O que será verificado:
@@ -529,7 +535,9 @@ Você já consegue listar as músicas dos álbuns, nessa etapa você irá poder 
 
   - Será validado se existe um link para a página de perfil no cabeçalho;
 
-  - Será validado se é feita a requisição `getUser` para recuperar e exibir informações do usuário
+  - Será validado se é feita a requisição `getUser` para recuperar e exibir informações do usuário;
+
+  - Será validado se existe uma tag `img` com um texto alternativo.
 
 ## 9. Crie a página de edição de perfil:
 
@@ -592,7 +600,7 @@ Você já consegue listar as músicas dos álbuns, nessa etapa você irá poder 
 
 - Será validado se foi criado um link para a rota de edição de perfil na página de exibição de perfil;
 
-- Será validado se é feita a requisição para `getUser` para recuperar as informações da pessoa logada; 
+- Será validado se é feita a requisição para `getUser` para recuperar as informações da pessoa logada;
 
 - Será validado se o formulário é renderizado já preenchido com as informações da pessoa logada;
 
