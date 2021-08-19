@@ -91,7 +91,7 @@ Nos últimos projetos, por mais que o app tenha sido desenvolvido utilizando mú
 
 Uma rota define o que deve ser renderizado na página ao abri-la. Cada rota está associada a um caminho. O caminho é a parte da URL após o domínio (nome do site, de forma simplificada). Por exemplo, em `www.site.com/projetos/meu-jogo`, o caminho é `/projetos/meu-jogo`. Até agora, todos os apps React que você desenvolveu possuíam somente uma rota, a raiz (`/`).
 
-Outra diferença importante neste projeto em relação aos anteriores é que os dados virão de uma API (simulada) e não mais de um arquivo estático. Você utilizará essa API para criar, ler, atualizar e apagar filmes. Logo, você terá que lidar com requisições assíncronas e promises. Também deverá fazer uso de lifecycle methods e de estados para controlar o que é renderizado por seus componentes a depender de em que momento as requisições se encontram.
+Outra diferença importante neste projeto em relação aos anteriores é que os dados virão de uma API (simulada) e não mais de um arquivo estático. Você utilizará essa API para criar, ler, atualizar e apagar filmes. Logo, você terá que lidar com requisições assíncronas e promises. Também deverá fazer uso dos métodos de ciclo de vida (lifecycle methods) e de estados para controlar o que é renderizado por seus componentes a depender de em que momento as requisições se encontram.
 
 ## Data de Entrega
 
@@ -184,7 +184,7 @@ Para atualizar as informações da pessoa logada, utilize a função `updateUser
 
 ## `searchAlbumsAPI.js`
 
-O arquivo `searchAlbuns.js` contém uma função que faz uma requisição à uma API e retorna os álbuns de uma banda ou artista. Para essa função funcionar, ela recebe como parâmetro uma string, que deve ser o nome da banda ou artista que você queira pesquisar os álbuns. O retorno dessa função quando encontra as informações é um array com cada álbum da banda ou artista dentro de um objeto. **Mas atenção:** caso não encontre nenhuma informação da banda ou artista, a API retornará um array vazio.
+O arquivo `searchAlbumsAPI.js` contém uma função que faz uma requisição à uma API e retorna os álbuns de uma banda ou artista. Para essa função funcionar, ela recebe como parâmetro uma string, que deve ser o nome da banda ou artista que você queira pesquisar os álbuns. O retorno dessa função quando encontra as informações é um array com cada álbum da banda ou artista dentro de um objeto. **Mas atenção:** caso não encontre nenhuma informação da banda ou artista, a API retornará um array vazio.
 
 ## `favoriteSongsAPI.js`
 
@@ -347,13 +347,13 @@ Essa página deve conter um input e um botão para que seja possível pesquisar 
 ## 3. Faça a requisição para pesquisar artistas:
 Com a estrutura da tela de pesquisa criada, agora é hora de fazer uma requisição e receber a lista de álbums da banda ou artista pesquisada.
 
-  * Ao clicar no botão de "Pesquisar", limpe o valor do input e faça uma requisição utilizando a função do arquivo `searchAlbuns.js`. Lembre-se que essa função espera receber uma string com o nome da banda ou artista.
+  * Ao clicar no botão de "Pesquisar", limpe o valor do input e faça uma requisição utilizando a função do arquivo `searchAlbumAPIs.js`. Lembre-se que essa função espera receber uma string com o nome da banda ou artista.
 
   * Enquanto aguarda a resposta da API, esconda o input e o botão de pesquisa e exiba a mensagem `Carregando...` na tela.
 
   * Após receber a resposta da requisição exibir na tela o texto `"Pesquisando álbuns de: <artista>"`, onde `<artista>` é o nome que foi digitado no input.
 
-  * Lste os álbuns retornados. A API irá retorna um *array* de objetos. Cada objeto terá a seguinte estrutura: 
+  * Liste os álbuns retornados. A API irá retorna um *array* de objetos. Cada objeto terá a seguinte estrutura: 
   ```
   [
     {
