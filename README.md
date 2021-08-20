@@ -14,6 +14,8 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
 
 # Sumário
 
+- [Boas vindas ao repositório do projeto TrybeTunes!](#boas-vindas-ao-repositório-do-projeto-trybetunes)
+- [Sumário](#sumário)
 - [Habilidades](#habilidades)
 - [Entregáveis](#entregáveis)
   - [O que deverá ser desenvolvido](#o-que-deverá-ser-desenvolvido)
@@ -24,20 +26,36 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
   - [Durante o desenvolvimento](#durante-o-desenvolvimento)
   - [Depois de terminar o desenvolvimento (opcional)](#depois-de-terminar-o-desenvolvimento-opcional)
 - [Como desenvolver](#como-desenvolver)
+  - [`userAPI.js`](#userapijs)
+  - [`searchAlbumsAPI.js`](#searchalbumsapijs)
+  - [`favoriteSongsAPI.js`](#favoritesongsapijs)
+  - [`musicsAPI.js`](#musicsapijs)
   - [Linter](#linter)
   - [Execução de testes unitários](#execução-de-testes-unitários)
+    - [Dica: desativando testes](#dica-desativando-testes)
 - [Requisitos do projeto](#requisitos-do-projeto)
-  - [1. Crie uma tela para que a pessoa usuária se identifique](#1-crie-uma-tela-para-que-a-pessoa-usuaria-se-identifique)
-  - [2. Crie uma página para pesquisar artistas](#2-crie-uma-pagina-para-pesquisar-artistas)
-  - [3. Faça a requisição para pesquisar artistas](#3-faça-a-requisicao-para-pesquisar-artistas)
-  - [4. Crie a requisição que busca as músicas do álbum](#4-crie-a-requisicao-que-busca-as-musicas-do-album)
-  - [5. Crie a página de listagem das músicas do álbum selecionado](#5-crie-a-pagina-de-listagem-das-musicas-do-album-selecionado)
-  - [6. Crie o mecanismo de favoritar músicas](#6-crie-o-mecanismo-de-favoritar-musicas)
-  - [7. Crie a página de listagem de músicas favoritas](#7-crie-a-pagina-de-listagem-de-musicas-favoritas)
-  - [8. Crie a página de exibição de perfil](#8-crie-a-pagina-de-exibicao-de-perfil)
-  - [9. Crie a página de edição de perfil](#9-crie-a-pagina-de-edicao-de-perfil)
-  - [10. Crie uma rota de "Página não encontrada" e valide o acesso das rotas para pessoas logadas](#10-crie-uma-rota-de-pagina-nao-encontrada-e-valide-o-acesso-das-rotas-para-pessoas-logadas)
-  - [11. Destaque a página atual nos links de navegação](#11-destaque-a-pagina-atual-nos-links-de-navegacao)
+  - [1. Crie uma tela para que a pessoa usuária se identifique](#1-crie-uma-tela-para-que-a-pessoa-usuária-se-identifique)
+    - [O que será verificado](#o-que-será-verificado)
+  - [2. Crie uma página para pesquisar artistas](#2-crie-uma-página-para-pesquisar-artistas)
+    - [O que será verificado](#o-que-será-verificado-1)
+  - [3. Faça a requisição para pesquisar artistas](#3-faça-a-requisição-para-pesquisar-artistas)
+    - [O que será verificado](#o-que-será-verificado-2)
+  - [4. Crie a requisição que busca as músicas do álbum'](#4-crie-a-requisição-que-busca-as-músicas-do-álbum)
+    - [O que será verificado](#o-que-será-verificado-3)
+  - [5. Crie a página de listagem das músicas do álbum selecionado](#5-crie-a-página-de-listagem-das-músicas-do-álbum-selecionado)
+    - [O que será verificado](#o-que-será-verificado-4)
+  - [6. Crie o mecanismo de favoritar músicas](#6-crie-o-mecanismo-de-favoritar-músicas)
+    - [O que será verificado](#o-que-será-verificado-5)
+  - [7. Crie a página de listagem de músicas favoritas](#7-crie-a-página-de-listagem-de-músicas-favoritas)
+    - [O que será verificado](#o-que-será-verificado-6)
+  - [8. Crie a página de exibição de perfil](#8-crie-a-página-de-exibição-de-perfil)
+    - [O que será verificado](#o-que-será-verificado-7)
+  - [9. Crie a página de edição de perfil](#9-crie-a-página-de-edição-de-perfil)
+    - [O que será verificado](#o-que-será-verificado-8)
+  - [10. Crie uma rota de "Página não encontrada" e valide o acesso das rotas para pessoas logadas](#10-crie-uma-rota-de-página-não-encontrada-e-valide-o-acesso-das-rotas-para-pessoas-logadas)
+    - [O que será verificado](#o-que-será-verificado-9)
+  - [11. Destaque a página atual nos links de navegação](#11-destaque-a-página-atual-nos-links-de-navegação)
+    - [O que será verificado](#o-que-será-verificado-10)
 - [Avisos Finais](#avisos-finais)
 
 ---
@@ -89,9 +107,9 @@ Lembre-se que você pode consultar nosso conteúdo sobre [Git & GitHub](https://
 
 Nos últimos projetos, por mais que o app tenha sido desenvolvido utilizando múltiplos componentes, o que é uma boa prática, todas as funcionalidades eram acessadas ao mesmo tempo, no mesmo lugar, utilizando apenas uma URL (`localhost:3000`, normalmente). À medida que seus apps se tornarem maiores e mais complexos, isso se tornará inviável. Desta vez, as funcionalidades do app serão agrupadas e organizadas em rotas.
 
-Uma rota define o que deve ser renderizado na página ao abri-la. Cada rota está associada a um caminho. O caminho é a parte da URL após o domínio (nome do site, de forma simplificada). Por exemplo, em `www.site.com/projetos/meu-jogo`, o caminho é `/projetos/meu-jogo`. Até agora, todos os apps React que você desenvolveu possuíam somente uma rota, a raiz (`/`).
+Uma rota define o que deve ser renderizado na página ao abri-la. Cada rota está associada a um caminho. O caminho é a parte da URL após o domínio (nome do site, de forma simplificada). Por exemplo, em `www.site.com/projetos/meu-jogo`, o caminho é `/projetos/meu-jogo`. Até agora, todos os apps React que você desenvolveu possuíam somente uma rota, a raíz (`/`).
 
-Outra diferença importante neste projeto em relação aos anteriores é que os dados virão de uma API (simulada) e não mais de um arquivo estático. Você utilizará essa API para criar, ler, atualizar e apagar filmes. Logo, você terá que lidar com requisições assíncronas e promises. Também deverá fazer uso de lifecycle methods e de estados para controlar o que é renderizado por seus componentes a depender de em que momento as requisições se encontram.
+Outra diferença importante neste projeto em relação aos anteriores é que os dados virão de uma API (simulada) e não mais de um arquivo estático. Você utilizará essa API para criar, ler, atualizar e apagar filmes. Dessa forma, você terá que lidar com requisições assíncronas e promises. Também deverá fazer uso dos métodos de ciclo de vida (lifecycle methods) e de estados para controlar o que é renderizado por seus componentes dependendo do momento em que as requisições se encontram.
 
 ## Data de Entrega
 
@@ -167,7 +185,7 @@ Também já existe no projeto um diretório `src/services`, que contém os arqui
 
 O arquivo `userAPI.js` será utilizado para manipular as informações da pessoa logada, dentro dele estarão as funções para recuperar as informações da pessoa usuária, criar um novo perfil e atualizar as informações da pessoa logada já existente. Todas essas funções simulam o funcionamento de uma API.
 
-Para recuperar as informações da pessoa usuária,  utilize a função `getUser`. Ela retornará um objeto com as informações da pessoa logado caso exista, caso não exista retornará um objeto vazio.
+Para recuperar as informações da pessoa usuária,  utilize a função `getUser`. Ela retornará um objeto com as informações da pessoa logada caso exista e, caso não exista, retornará um objeto vazio.
 
 Para criar um novo perfil, utilize a função `createUser`, ela recebe como parâmetro o objeto que contém as informações da pessoa usuária. Esse objeto deverá conter a seguinte estrutura:
 
@@ -184,7 +202,7 @@ Para atualizar as informações da pessoa logada, utilize a função `updateUser
 
 ## `searchAlbumsAPI.js`
 
-O arquivo `searchAlbuns.js` contém uma função que faz uma requisição à uma API e retorna os álbuns de uma banda ou artista. Para essa função funcionar, ela recebe como parâmetro uma string, que deve ser o nome da banda ou artista que você queira pesquisar os álbuns. O retorno dessa função quando encontra as informações é um array com cada álbum da banda ou artista dentro de um objeto. **Mas atenção:** caso não encontre nenhuma informação da banda ou artista, a API retornará um array vazio.
+O arquivo `searchAlbumsAPI.js` contém uma função que faz uma requisição à uma API e retorna os álbuns de uma banda ou artista. Para essa função funcionar, ela recebe como parâmetro uma string, que deve ser o nome da banda ou artista que você queira pesquisar os álbuns. O retorno dessa função quando encontra as informações é um array com cada álbum da banda ou artista dentro de um objeto. **Mas atenção:** caso não encontre nenhuma informação da banda ou artista, a API retornará um array vazio.
 
 ## `favoriteSongsAPI.js`
 
@@ -196,7 +214,7 @@ A função `addSong` recebe um objeto que representa a música que você quer sa
 
 A função `removeSong` também recebe um objeto que representa a música que você deseja remover da lista de músicas favoritas. 
 
-**Atenção:** os objetos de música precisam ter a chave `trackId` para que as músicas seja adicionads e removidas corretamente.
+**Atenção:** os objetos de música precisam ter a chave `trackId` para que as músicas sejam adicionadas e removidas corretamente.
 
 ## `musicsAPI.js`
 
@@ -204,7 +222,7 @@ Esse arquivo estará vazio inicialmente e você irá preencher ele com a requisi
 
 ## Linter
 
-Para garantir a qualidade do código, vamos utilizar neste projeto o linter ESLint. Assim o código estará alinhado com as boas práticas de desenvolvimento, sendo mais legível e de fácil manutenção! Para rodar o *linter* localmente no projeto, execute o comando abaixo: 
+Para garantir a qualidade do código, vamos utilizar neste projeto o linter ESLint. Assim, o código estará alinhado com as boas práticas de desenvolvimento, sendo mais legível e de fácil manutenção! Para rodar o *linter* localmente no projeto, execute o comando abaixo: 
 
 `npm run lint`
 
@@ -221,7 +239,7 @@ Vamos utilizar [React Testing Library](https://testing-library.com/docs/react-te
 
 Esse _framework_ de testes utiliza algumas marcações no código para verificar a solução proposta, uma dessas marcações é o atributo `data-testid` e faremos uso dele aqui.
 
-Na descrição dos requisitos (logo abaixo) será pedido que seja feita a adição de atributos `data-testid` nos elementos _HTML_. Vamos a um exemplo para deixar claro essa configuração:
+Na descrição dos requisitos (logo abaixo) será pedido que seja feita a adição de atributos `data-testid` nos elementos _HTML_. Vamos a um exemplo para deixar essa configuração nítida:
 
 Se o requisito pedir "crie um botão e adicione o id de teste (ou `data-testid`) com o valor `my-action`, você pode criar:
 
@@ -235,11 +253,11 @@ ou
 <a data-testid="my-action"></a>
 ```
 
-ou seja, o atributo `data-testid="my-action"` servirá para o React Testing Library(RTL) identificar o elemento e dessa forma, conseguiremos realizar testes unitários focados no comportamento da aplicação.
+Ou seja, o atributo `data-testid="my-action"` servirá para o React Testing Library (RTL) identificar o elemento e, dessa forma, conseguiremos realizar testes unitários focados no comportamento da aplicação.
 
 **ATENÇÃO!** Muito cuidado com os nomes especificados nos requisitos! O conteúdo deve ser exatamente igual ao texto descrito no requisito.
 
-Afim de verificar a solução proposta, você pode executar todos os testes unitários localmente, basta executar:
+Para verificar a solução proposta, você pode executar todos os testes unitários localmente, basta executar:
 
 ```bash
 npm test
@@ -247,7 +265,7 @@ npm test
 
 ### Dica: desativando testes
 
-Especialmente no início, quando a maioria dos testes está falhando, a saída após executar os testes é bastante poluída. Você pode desabilitar temporariamente um teste utilizando a função `skip` junto à função `it`. Como o nome indica, esta função "pula" um teste:
+Especialmente no início, quando a maioria dos testes está falhando, a saída após executar os testes é extensa. Você pode desabilitar temporariamente um teste utilizando a função `skip` junto à função `it`. Como o nome indica, esta função "pula" um teste:
 
 ```js
 it.skip('Será validado se existe uma página para rotas não mapeadas', () => {
@@ -266,6 +284,12 @@ Você também pode rodar apenas um arquivo de teste, por exemplo:
 npm test 01.LoginPage.test.js
 ```
 
+ou
+
+```bash
+npm test 01.LoginPage
+```
+
 Uma outra forma para driblar esse problema é a utilização da função `.only` após o `it`. Com isso, será possível que apenas um requisito rode localmente e seja avaliado.
 
 ```js
@@ -281,7 +305,7 @@ it.only('Será validado se existe uma página para rotas não mapeadas', () => {
 
 # Requisitos do projeto
 :warning: **PULL REQUESTS COM ISSUES DE LINTER NÃO SERÃO AVALIADAS.** :warning:
-## 1. Crie uma tela para que a pessoa usuária se identifique:
+## 1. Crie uma tela para que a pessoa usuária se identifique
 
 Crie uma página para que a pessoa usuária se identifique com um nome. Esta página deve ser a página inicial de sua aplicação.
 
@@ -300,7 +324,7 @@ Crie uma página para que a pessoa usuária se identifique com um nome. Esta pá
   * Após a informação ter sido salva, faça um redirect para a rota `/search`.
 
   ![requisito-1](images/requisito1.gif)
-  ### O que será verificado:
+  ### O que será verificado
 
   - Será validado se ao navegar para a rota `/`, o input e o botão especificados estão presentes;
 
@@ -320,7 +344,7 @@ Crie uma página para que a pessoa usuária se identifique com um nome. Esta pá
   - Será validado se ao clicar no botão, a mensagem `Carregando...` é exibida e após a resposta da API acontece o redirecionamento para a rota `/search`.
   
 
-## 2. Crie uma página para pesquisar artistas:
+## 2. Crie uma página para pesquisar artistas
 Essa página deve conter um input e um botão para que seja possível pesquisar os álbums de uma banda ou artista.
 
   * A rota para esta página deve ser `/search`.
@@ -336,7 +360,7 @@ Essa página deve conter um input e um botão para que seja possível pesquisar 
   * O botão só deve estar habilitado caso o nome do artista tenha 2 ou mais caracteres.
 
   ![requisito-2](images/requisito2.gif)
-  ### O que será verificado:
+  ### O que será verificado
 
   - Será validado se ao navegar para a rota `/search`, o nome da pessoa usuária está presente na tela;
 
@@ -344,16 +368,16 @@ Essa página deve conter um input e um botão para que seja possível pesquisar 
 
   - Será validado se o botão está habilitado somente se o input de nome tiver 2 ou mais caracteres;
 
-## 3. Faça a requisição para pesquisar artistas:
+## 3. Faça a requisição para pesquisar artistas
 Com a estrutura da tela de pesquisa criada, agora é hora de fazer uma requisição e receber a lista de álbums da banda ou artista pesquisada.
 
-  * Ao clicar no botão de "Pesquisar", limpe o valor do input e faça uma requisição utilizando a função do arquivo `searchAlbuns.js`. Lembre-se que essa função espera receber uma string com o nome da banda ou artista.
+  * Ao clicar no botão de "Pesquisar", limpe o valor do input e faça uma requisição utilizando a função do arquivo `searchAlbumsAPIs.js`. Lembre-se que essa função espera receber uma string com o nome da banda ou artista.
 
   * Enquanto aguarda a resposta da API, esconda o input e o botão de pesquisa e exiba a mensagem `Carregando...` na tela.
 
   * Após receber a resposta da requisição exibir na tela o texto `"Pesquisando álbuns de: <artista>"`, onde `<artista>` é o nome que foi digitado no input.
 
-  * Lste os álbuns retornados. A API irá retorna um *array* de objetos. Cada objeto terá a seguinte estrutura: 
+  * Liste os álbuns retornados. A API irá retorna um *array* de objetos. Cada objeto terá a seguinte estrutura: 
   ```
   [
     {
@@ -378,7 +402,7 @@ Com a estrutura da tela de pesquisa criada, agora é hora de fazer uma requisiç
 
   ![requisito-3](images/requisito3.gif)
 
-### O que será verificado:
+### O que será verificado
   - Será validado se ao clicar em "pesquisar", a requisição é feita usando a `searchAlbumsAPI`;
 
   - Será validado se ao receber o retorno da API, o texto `"Pesquisando álbuns de: <artista>"` esta na tela e os álbuns são listados;
@@ -387,23 +411,23 @@ Com a estrutura da tela de pesquisa criada, agora é hora de fazer uma requisiç
 
   - Será validado se existe um link para cada álbum listado que redirecione para a rota `/album/:id`.
 
-## 4. Crie a requisição que busca as músicas do álbum':
-Até o momento você estava utilizando as funções fornecidas na pasta `src/services`, mas agora você irá criar sua própria chamada para a API, dentro do arquivo `musicsAPI.js`.
+## 4. Crie a requisição que busca as músicas do álbum'
+Até o momento você estava utilizando as funções fornecidas na pasta `src/services`, mas agora você irá criar sua própria chamada para a API, dentro da função `getMusics`, que se encontra no arquivo `musicsAPI.js`.
 
 A sua missão é usar a função `fetch` para fazer uma requisição para a API `https://itunes.apple.com/lookup?id=${id}&entity=song`, onde `${id}` é o `collectionId` do Álbum. Lembre-se de que requisições são assíncronas e o `fetch` retorna uma promise. 
 
-Além disso, ao receber o retorno da API, você irá precisar chamar a função `json()`, que também retorna uma promise. E no objeto retornado pela função `json()`, você encontrará o array com as música dentro a chave `results`.
+Ao receber o retorno da API, você precisará chamar a função `json()`, que também retorna uma promise. É dentro do objeto retornado pela função `json()`, na chave `results`, que você encontrará o array com as músicas.
 
-**Dica: ** você pode dar uma olhada no arquivo `serachAlbums.js`, a implementação dessa função é bastante semelhante com o que você precisa implementar aqui ;) 
+**Dica:** você pode dar uma olhada no arquivo `searchAlbumsAPI.js`, a implementação dessa função é bastante semelhante com o que você precisa implementar aqui ;) 
 
 A função `getMusics` deverá retornar um array com as músicas do álbum selecionado.
 
-### O que será verificado:
+### O que será verificado
   - Será validado se a função recebe o id do álbum e chama a API do iTunes;
 
   - Será validado se a função retorna o valor recebido pela API do iTunes'.
 
-## 5. Crie a página de listagem das músicas do álbum selecionado:
+## 5. Crie a página de listagem das músicas do álbum selecionado
 Agora que está tudo pronto, você poderá exibir a lista de músicas do álbum selecionado.
 
   * A rota para esta página deve ser `/album/:id`.
@@ -412,7 +436,7 @@ Agora que está tudo pronto, você poderá exibir a lista de músicas do álbum 
   
   * Enquanto estiver aguardando a resposta da `getUser`, exiba apenas a mensagem de `Carregando...`.
 
-  * Ao entrar na página,  utilize a função `getMusics` da `musicsAPI` (criada no requisito anterior) para fazer a requisição das músicas do álbum selecionado. Lembre-se que você deve pegar o id do álbum através do parâmetro `:id` passado pela URL.
+  * Ao entrar na página, utilize a função `getMusics` da `musicsAPI` (criada no requisito anterior) para fazer a requisição das músicas do álbum selecionado. Lembre-se que você deve pegar o id do álbum através do parâmetro `:id` passado pela URL.
 
   * Enquanto estiver aguardando a resposta da `getMusics`, exiba apenas a mensagem de `Carregando...` onde as músicas serão listadas. O elemento que mostra o nome da pessoa usuária logada deve permanecer na tela.
 
@@ -435,7 +459,7 @@ Agora que está tudo pronto, você poderá exibir a lista de músicas do álbum 
 
 ![requisito-5](images/requisito5.gif)
 
-### O que será verificado:
+### O que será verificado
   - Será validado se a rota `/album/:id` é uma rota existente';
   - Será validado se o nome da pessoa usuária está presente na tela;
   - Será validado se existe um link para a página de pesquisa no cabeçalho;
@@ -443,7 +467,7 @@ Agora que está tudo pronto, você poderá exibir a lista de músicas do álbum 
   - Será validado se o nome da banda ou artista e o nome do álbum são exibidos;
   - Será validado se todas músicas retornadas pela API são listadas.
 
-## 6. Crie o mecanismo de favoritar músicas:
+## 6. Crie o mecanismo de favoritar músicas
 Você já consegue listar as músicas dos álbuns, nessa etapa você irá poder marcar quais são as músicas que você mais gosta.
 
   * No componente Music, crie um input do tipo `checkbox` para marcar as músicas favoritas. Esse input deve conter uma `label`, e a `label` deve ter o atributo ```data-testid={`checkbox-music-${trackId}`}```, onde `trackId` é a propriedade `trackId` do objeto recebido pela API.
@@ -456,14 +480,14 @@ Você já consegue listar as músicas dos álbuns, nessa etapa você irá poder 
 
   * Enquanto aguarda o retorno da função `removeSong`, renderize a mensagem de `Carregando...`.
 
-### O que será verificado:
+### O que será verificado
 - Será validado se existe o checkbox para adicionar músicas na lista de favoritas;
 
 - Será validado se é possível remover músicas da lista de favoritas.
 
 ![requisito-6](images/requisito6.gif)
 
-## 7. Crie a página de listagem de músicas favoritas:
+## 7. Crie a página de listagem de músicas favoritas
 
   * A rota para esta página deve ser `/favorites`.
 
@@ -487,7 +511,7 @@ Você já consegue listar as músicas dos álbuns, nessa etapa você irá poder 
 
   * Após remover a música, atualize a lista usando a função `getFavoriteSongs`. Lembre-se de exibir a mensagem "Carregando..." enquanto aguarda o retorno da API.
 
-### O que será verificado:
+### O que será verificado
 - Será validado se a rota `/favorites` é uma rota existente;
 
 - Será validado se o nome da pessoa usuária e o link para página de pesquisa são exibidos na tela;
@@ -502,7 +526,7 @@ Você já consegue listar as músicas dos álbuns, nessa etapa você irá poder 
 
 ![requisito-7](images/requisito7.gif)
 
-## 8. Crie a página de exibição de perfil:
+## 8. Crie a página de exibição de perfil
 
   * A rota para esta página deve ser `/profile`.
 
@@ -522,7 +546,7 @@ Você já consegue listar as músicas dos álbuns, nessa etapa você irá poder 
 
 ![requisito-8](images/requisito8.gif)
 
-### O que será verificado:
+### O que será verificado
   - Será validado se a rota `/profile` é uma rota existente;
 
   - Será validado se o nome da pessoa usuária, o link para página de pesquisa e o link para a página de músicas favoritas são exibidos na tela;
@@ -531,7 +555,7 @@ Você já consegue listar as músicas dos álbuns, nessa etapa você irá poder 
 
   - Será validado se é feita a requisição `getUser` para recuperar e exibir informações do usuário
 
-## 9. Crie a página de edição de perfil:
+## 9. Crie a página de edição de perfil
 
   * A rota para esta página deve ser `/profile`.
 
@@ -585,7 +609,7 @@ Você já consegue listar as músicas dos álbuns, nessa etapa você irá poder 
 
 ![requisito-9](images/requisito9.gif)
 
-### O que será verificado:
+### O que será verificado
 - Será validado se a rota `/profile/edit` é uma rota existente;
 
 - Será validado se o nome da pessoa usuária, o link para página de pesquisa, o link para a página de músicas favoritas e o link para a página de perfil são exibidos na tela;
@@ -604,7 +628,7 @@ Você já consegue listar as músicas dos álbuns, nessa etapa você irá poder 
 
 - Será validado se após salvar as informações a pessoa é redirecionada para a página de exibição de perfil.
 
-## 10. Crie uma rota de "Página não encontrada" e valide o acesso das rotas para pessoas logadas:
+## 10. Crie uma rota de "Página não encontrada" e valide o acesso das rotas para pessoas logadas
 
   * Crie uma página para as rotas não mapeadas, ou seja, quando a pessoa tentar uma rota que não existe, é exibida a mensagem "Página não encontrada".
 
@@ -618,14 +642,14 @@ Você já consegue listar as músicas dos álbuns, nessa etapa você irá poder 
   * Após receber o retorno da `getUser`, verifique se a pessoa está logada (se não houver nenhuma pessoa logada, a `getUser` irá retornar um objeto vazio). Se ela **não estiver logada** faça um redirecionamento para a rota `/search`.
 
 ![requisito-10](images/requisito10.gif)
-### O que será verificado:
+### O que será verificado
   - Será validado se existe uma página para rotas não mapeadas e que o texto "Página não encontrada" é exibido;
 
   - Será validado se quando a pessoa logada acessa a rota `/` ela é redirecionada para a rota `/search`;
 
   - Será validado se a pessoa é redirecionada para a rota `/` se ela não estiver logada e tentar acessar outra rota válida.
 
-## 11. Destaque a página atual nos links de navegação:
+## 11. Destaque a página atual nos links de navegação
 Ao navegar entre as páginas, é importante que a pessoa usuária saiba com facilidade em qual página está. Uma boa técnica para alcançar esse objetivo é dar destaque para o link da página atual no menu de navegação.
 Você pode estilizar o link da maneira que achar melhor, desde que o link destacado possua a classe `active`.
 
@@ -636,7 +660,7 @@ Você pode estilizar o link da maneira que achar melhor, desde que o link destac
   * Caso a pessoa usuária esteja na página de perfil (rota `/profile`), o link para a página de perfil precisa estar destacado com a classe "active".
 
 ![requisito-11](images/requisito11.gif)
-### O que será verificado:
+### O que será verificado
   - Será validado se o link para página de músicas favoritas é destacado na rota `/favorites`;
 
   - Será validado se o link para página de pesquisar é destacado na rota `/search`;
