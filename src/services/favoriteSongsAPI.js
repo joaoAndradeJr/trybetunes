@@ -2,8 +2,9 @@ const FAVORITE_SONGS_KEY = 'favorite_songs';
 const TIMEOUT = 500;
 const SUCCESS_STATUS = 'OK';
 
-localStorage.setItem(FAVORITE_SONGS_KEY, JSON.stringify([]));
-
+if (!JSON.parse(localStorage.getItem(FAVORITE_SONGS_KEY))) {
+  localStorage.setItem(FAVORITE_SONGS_KEY, JSON.stringify([]));
+}
 const readFavoriteSongs = () => JSON.parse(localStorage.getItem(FAVORITE_SONGS_KEY));
 
 const saveFavoriteSongs = (favoriteSongs) => localStorage
@@ -13,7 +14,7 @@ const saveFavoriteSongs = (favoriteSongs) => localStorage
 // A função simulateRequest simula uma requisição para uma API externa
 // Esse tipo de função que "chama outra função" é chamada de
 // "currying function" https://javascript.info/currying-partials
-// não se preocupe, estudaremos isso mais futuramente
+// não se preocupe, estudaremos isso futuramente.
 // --------------------------------------------------------------------
 
 const simulateRequest = (response) => (callback) => {
