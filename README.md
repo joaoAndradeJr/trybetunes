@@ -491,7 +491,7 @@ Você já consegue listar as músicas dos álbuns, nessa etapa você irá poder 
 
   * A rota para esta página deve ser `/favorites`.
 
-  * Utileze o arquivo `FavoriteSongs` da pasta `src/pages`.
+  * Utilize o arquivo `FavoriteSongs` da pasta `src/pages`.
 
   * Utilize a função `getUser` da `userAPI` para recuperar o nome da pessoa logada e exiba essa informação na tela. Você pode usar qualquer tag HTML que faça sentido, desde que ela tenha o atributo `data-testid="header-user-name"`.
   
@@ -532,7 +532,7 @@ Você já consegue listar as músicas dos álbuns, nessa etapa você irá poder 
 
   * A rota para esta página deve ser `/profile`.
 
-  * Utiliza o arquivo `Profile.js`, da pasta `src/pages`.
+  * Utilize o arquivo `Profile.js`, da pasta `src/pages`.
 
   * Utilize a função `getUser` da `userAPI` para recuperar o nome da pessoa logada e exiba essa informação na tela. Você pode usar qualquer tag HTML que faça sentido, desde que ela tenha o atributo `data-testid="header-user-name"`.
   
