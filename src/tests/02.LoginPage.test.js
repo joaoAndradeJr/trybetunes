@@ -7,15 +7,15 @@ import userEvent from '@testing-library/user-event';
 import * as userAPI from '../services/userAPI';
 import renderPath from './helpers/renderPath';
 
-describe('1- Crie uma tela para que a pessoa usuária se identifique', () => {
+describe('2 - Crie um formulário para identificação', () => {
   beforeEach(() => {
     localStorage.clear();
     jest.restoreAllMocks();
   });
 
-  it('Será validado se ao navegar para a rota "/", o input e o botão especificados estão presentes',
+  it('Será validado se ao navegar para a rota /, o input e o botão especificados estão presentes',
     async () => {
-      renderPath('/');
+      renderPath("/");
 
       await waitFor(
         () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
@@ -28,7 +28,7 @@ describe('1- Crie uma tela para que a pessoa usuária se identifique', () => {
 
   it('Será validado se o botão só é habilitado se o input de nome tiver 3 ou mais caracteres',
     async () => {
-      renderPath('/');
+      renderPath("/");
 
       await waitFor(
         () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
@@ -43,16 +43,28 @@ describe('1- Crie uma tela para que a pessoa usuária se identifique', () => {
       expect(loginSubmitButton).toBeInTheDocument();
       expect(loginSubmitButton).toBeDisabled();
       
-      userEvent.type(loginNameInput, 'Name');
+      userEvent.type(loginNameInput, 'N');
+      expect(loginNameInput.value).toBe('N');
+      expect(loginSubmitButton).toBeDisabled();
+
+      userEvent.type(loginNameInput, 'a');
+      expect(loginNameInput.value).toBe('Na');
+      expect(loginSubmitButton).toBeDisabled();
+
+      userEvent.type(loginNameInput, 'm');
+      expect(loginNameInput.value).toBe('Nam');
+      expect(loginSubmitButton).toBeEnabled();
+
+      userEvent.type(loginNameInput, 'e');
       expect(loginNameInput.value).toBe('Name');
       expect(loginSubmitButton).toBeEnabled();
     });
 
-  it('Será validado se ao clicar no botão habilitado, a função `createUser` da `userAPI` é chamada',
+  it('Será validado se ao clicar no botão habilitado, a função createUser da userAPI é chamada',
     async () => {
       const spy = jest.spyOn(userAPI, 'createUser');
 
-      renderPath('/');
+      renderPath("/");
 
       await waitFor(
         () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
@@ -67,9 +79,9 @@ describe('1- Crie uma tela para que a pessoa usuária se identifique', () => {
       expect(spy).toBeCalled();
     });
 
-  it('Será validado se ao clicar no botão, a mensagem `Carregando...` é exibida e após a resposta da API acontece o redirecionamento para a rota "/search"',
+  it('Será validado se ao clicar no botão, a mensagem Carregando... é exibida e após a resposta da API acontece o redirecionamento para a rota /search',
     async () => {
-      renderPath('/');
+      renderPath("/");
 
       await waitFor(
         () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),

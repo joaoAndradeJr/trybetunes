@@ -4,82 +4,79 @@ import userEvent from '@testing-library/user-event';
 import * as musicsAPI from '../services/musicsAPI';
 import * as favoriteSongsAPI from '../services/favoriteSongsAPI';
 import renderPath from './helpers/renderPath';
-import { defaultUser, musicAPIDefaultResponse } from './mocks';
+import { 
+  defaultUser,
+  musicAPIDefaultResponse,
+  favoriteSongsList
+} from './mocks';
 
-describe('6- Crie o mecanismo de favoritar músicas', () => {
+describe('10 - Crie o mecanismo para remover músicas na lista de músicas favoritas', () => {
   beforeEach(() => {
     jest.restoreAllMocks();
     localStorage.setItem('user', JSON.stringify(defaultUser));
+    localStorage.setItem('favorite_songs', JSON.stringify(favoriteSongsList));
   });
 
   afterEach(() => localStorage.clear());
 
-  it('Será validado se existe o checkbox para adicionar músicas na lista de favoritas',
+
+  it('Será validado se a função removeSong é chamada quando algum checkbox que já esteja marcado é clicado',
     async () => {
       jest.spyOn(musicsAPI, 'default').mockImplementation(
         () => Promise.resolve(musicAPIDefaultResponse),
       );
 
-      const spy = jest.spyOn(favoriteSongsAPI, 'addSong');
+      const spy = jest.spyOn(favoriteSongsAPI, 'removeSong');
 
-      renderPath('/album/123');
+      renderPath("/album/12");
 
       await waitForElementToBeRemoved(
         () => screen.getAllByText('Carregando...'),
         { timeout: 3000 },
       );
 
-      expect(screen.queryAllByRole('checkbox', { checked: true })).toHaveLength(0);
-      expect(screen.getAllByRole('checkbox', { checked: false })).toHaveLength(4);
-
+    
       userEvent.click(screen.getByTestId('checkbox-music-12'));
       await waitForElementToBeRemoved(
         () => screen.getAllByText('Carregando...'),
         { timeout: 3000 },
       );
 
-      expect(screen.queryAllByRole('checkbox', { checked: true })).toHaveLength(1);
-      expect(screen.queryAllByRole('checkbox', { checked: false })).toHaveLength(3);
-
-      userEvent.click(screen.getByTestId('checkbox-music-31'));
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
-      );
-
-      expect(screen.queryAllByRole('checkbox', { checked: true })).toHaveLength(2);
-      expect(screen.queryAllByRole('checkbox', { checked: false })).toHaveLength(2);
-
       expect(spy).toHaveBeenCalled();
     });
 
-  it('Será validado se é possível remover músicas da lista de favoritas',
+  it('Será validado se a mensagem Carregando... é exibida após clicar no checkbox e removida depois do retorno da API',
     async () => {
       jest.spyOn(musicsAPI, 'default').mockImplementation(
         () => Promise.resolve(musicAPIDefaultResponse),
       );
 
-      localStorage.setItem('favorite_songs', JSON.stringify(
-        [
-          {
-            trackId: 12,
-            trackName: 'Track Name 1',
-            previewUrl: 'preview-url-1',
-            kind: 'song',
-          },
-          {
-            trackId: 31,
-            trackName: 'Track Name 3',
-            previewUrl: 'preview-url-3',
-            kind: 'song',
-          },
-        ],
+      renderPath("/album/12");
 
-      ));
+      await waitForElementToBeRemoved(
+        () => screen.getAllByText('Carregando...'),
+        { timeout: 3000 },
+      );
 
-      const spy = jest.spyOn(favoriteSongsAPI, 'removeSong');
+      userEvent.click(screen.getByTestId('checkbox-music-12'));
 
-      renderPath('/album/:id');
+      expect(screen.getByText("Carregando...")).toBeInTheDocument();
+
+      await waitForElementToBeRemoved(
+        () => screen.getAllByText('Carregando...'),
+        { timeout: 3000 },
+      );
+
+      expect(screen.queryByText("Carregando...")).not.toBeInTheDocument();
+    });
+
+  it('Será validado se o número de checkboxes marcados como checked diminui quando um checkbox marcado é clicado',
+    async () => {
+      jest.spyOn(musicsAPI, 'default').mockImplementation(
+        () => Promise.resolve(musicAPIDefaultResponse),
+      );
+
+      renderPath("/album/12");
 
       await waitForElementToBeRemoved(
         () => screen.getAllByText('Carregando...'),
@@ -106,7 +103,5 @@ describe('6- Crie o mecanismo de favoritar músicas', () => {
 
       expect(screen.queryAllByRole('checkbox', { checked: true })).toHaveLength(0);
       expect(screen.queryAllByRole('checkbox', { checked: false })).toHaveLength(4);
-
-      expect(spy).toHaveBeenCalled();
     });
 });

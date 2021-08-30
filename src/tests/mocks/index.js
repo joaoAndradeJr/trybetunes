@@ -90,3 +90,18 @@ export const musicAPIDefaultResponse = [
     kind: 'song',
   },
 ];
+
+export const favoriteSongsList = [
+  {
+    trackId: 12,
+    trackName: 'Track Name 1',
+    previewUrl: 'preview-url-1',
+    kind: 'song',
+  },
+  {
+    trackId: 31,
+    trackName: 'Track Name 3',
+    previewUrl: 'preview-url-3',
+    kind: 'song',
+  },
+];

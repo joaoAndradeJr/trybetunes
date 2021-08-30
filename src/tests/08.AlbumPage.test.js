@@ -1,11 +1,10 @@
 import { screen, waitForElementToBeRemoved } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 
 import * as musicsAPI from '../services/musicsAPI';
 import renderPath from './helpers/renderPath';
 import { defaultUser, musicAPIDefaultResponse } from './mocks';
 
-describe('5- Crie a página de listagem das músicas do álbum selecionado', () => {
+describe('8 - Crie a lista de músicas do álbum selecionado', () => {
   beforeEach(() => {
     jest.restoreAllMocks();
     localStorage.setItem('user', JSON.stringify(defaultUser));
@@ -14,68 +13,12 @@ describe('5- Crie a página de listagem das músicas do álbum selecionado', () 
 
   afterEach(() => localStorage.clear());
 
-  it('Será validado se a rota `/album/:id` é uma rota existente', async () => {
-    jest.spyOn(musicsAPI, 'default').mockImplementation(
-      () => Promise.resolve(musicAPIDefaultResponse),
-    );
-    renderPath('/album/123');
-
-    await waitForElementToBeRemoved(
-      () => screen.getAllByText('Carregando...'),
-      { timeout: 3000 },
-    );
-
-    expect(screen.queryByText('Página não encontrada')).not.toBeInTheDocument();
-    expect(window.location.pathname).toBe('/album/123');
-  });
-
-  it('Será validado se o nome da pessoa usuária está presente na tela',
-    async () => {
-      jest.spyOn(musicsAPI, 'default').mockImplementation(
-        () => Promise.resolve(musicAPIDefaultResponse),
-      );
-
-      renderPath('/album/12');
-
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
-      );
-
-      expect(screen.getByTestId('header-user-name')).toBeInTheDocument();
-      expect(screen.getByTestId('header-user-name').textContent).toBe('User Test');
-    });
-
-  it('Será validado se existe um link para a página de pesquisa no cabeçalho',
-    async () => {
-      jest.spyOn(musicsAPI, 'default').mockImplementation(
-        () => Promise.resolve(musicAPIDefaultResponse),
-      );
-
-      renderPath('/album/12');
-
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
-      );
-
-      expect(screen.getByTestId('header-user-name')).toBeInTheDocument();
-      expect(screen.getByTestId('link-to-search')).toBeInTheDocument();
-
-      userEvent.click(screen.getByTestId('link-to-search'));
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
-      );
-      expect(window.location.pathname).toBe('/search');
-    });
-
-  it('Será validado se o serviço de `musicsAPI` está sendo chamado', async () => {
+  it('Será validado se o serviço de musicsAPI está sendo chamado', async () => {
     const spy = jest.spyOn(musicsAPI, 'default').mockImplementation(
       () => Promise.resolve(musicAPIDefaultResponse),
     );
 
-    renderPath('/album/12');
+    renderPath("/album/12");
 
     await waitForElementToBeRemoved(
       () => screen.getAllByText('Carregando...'),
@@ -91,7 +34,7 @@ describe('5- Crie a página de listagem das músicas do álbum selecionado', () 
       () => Promise.resolve(musicAPIDefaultResponse),
     );
 
-    renderPath('/album/12');
+    renderPath("/album/12");
 
     await waitForElementToBeRemoved(
       () => screen.getAllByText('Carregando...'),
@@ -112,7 +55,7 @@ describe('5- Crie a página de listagem das músicas do álbum selecionado', () 
       () => Promise.resolve(musicAPIDefaultResponse),
     );
 
-    renderPath('/album/12');
+    renderPath("/album/12");
 
     await waitForElementToBeRemoved(
       () => screen.getAllByText('Carregando...'),
