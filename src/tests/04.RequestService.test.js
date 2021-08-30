@@ -5,7 +5,7 @@ import {
   musicAPIDefaultResponse 
 } from './mocks';
 
-describe('4- Crie a requisição que busca as músicas do álbum', () => {
+describe('7 - Crie a requisição que busca as músicas do álbum', () => {
   beforeEach(() => {
     jest.restoreAllMocks();
   });

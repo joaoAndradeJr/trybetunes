@@ -5,7 +5,7 @@ import * as favoriteSongsAPI from '../services/favoriteSongsAPI';
 import renderPath from './helpers/renderPath';
 import { defaultUser } from './mocks';
 
-describe('7- Crie a página de listagem de músicas favoritas', () => {
+describe('11 - Crie a lista de músicas favoritas', () => {
   beforeEach(() => {
     jest.restoreAllMocks();
     localStorage.setItem('user', JSON.stringify(defaultUser));
@@ -14,52 +14,11 @@ describe('7- Crie a página de listagem de músicas favoritas', () => {
 
   afterEach(() => localStorage.clear());
 
-  it('Será validado se a rota `/favorites` é uma rota existente', async () => {
-    renderPath('/favorites');
-
-    await waitForElementToBeRemoved(
-      () => screen.getAllByText('Carregando...'),
-      { timeout: 3000 },
-    );
-
-    expect(screen.queryByText('Página não encontrada')).not.toBeInTheDocument();
-    expect(window.location.pathname).toBe('/favorites');
-  });
-
-  it('Será validado se o nome da pessoa usuária e o link para página de pesquisa são exibidos na tela',
-    async () => {
-      renderPath('/favorites');
-
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
-      );
-
-      expect(screen.getByTestId('header-user-name')).toBeInTheDocument();
-      expect(screen.getByTestId('header-user-name').textContent).toBe('User Test');
-
-      expect(screen.getByTestId('link-to-search')).toBeInTheDocument();
-    });
-
-  it('Será validado se exite um link para a página de músicas favoritas no cabeçalho',
-    async () => {
-      renderPath('/favorites');
-
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
-      );
-
-      expect(screen.getByTestId('header-user-name')).toBeInTheDocument();
-      expect(screen.getByTestId('link-to-search')).toBeInTheDocument();
-      expect(screen.getByTestId('link-to-favorites')).toBeInTheDocument();
-    });
-
-  it('Será validado se a requisição para `getFavoriteSongs` é feita para  recuperar as músicas favoritas',
+  it('Será validado se a requisição para getFavoriteSongs é feita para recuperar as músicas favoritas',
     async () => {
       const spy = jest.spyOn(favoriteSongsAPI, 'getFavoriteSongs');
 
-      renderPath('/favorites');
+      renderPath("/favorites");
 
       await waitForElementToBeRemoved(
         () => screen.getAllByText('Carregando...'),
@@ -85,7 +44,7 @@ describe('7- Crie a página de listagem de músicas favoritas', () => {
       ];
       localStorage.setItem('favorite_songs', JSON.stringify(favoriteSongs));
 
-      renderPath('/favorites');
+      renderPath("/favorites");
 
       await waitForElementToBeRemoved(
         () => screen.getAllByText('Carregando...'),
@@ -118,7 +77,7 @@ describe('7- Crie a página de listagem de músicas favoritas', () => {
       ];
       localStorage.setItem('favorite_songs', JSON.stringify(favoriteSongs));
 
-      renderPath('/favorites');
+      renderPath("/favorites");
 
       await waitForElementToBeRemoved(
         () => screen.getAllByText('Carregando...'),

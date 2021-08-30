@@ -1,47 +1,67 @@
 {
   "requirements": [
     {
-      "description": "1- Crie uma tela para que a pessoa usuária se identifique",
+      "description": "1 - Crie as rotas necessárias para a aplicação",
       "bonus": false
     },
     {
-      "description": "2- Crie uma página para pesquisar artistas",
+      "description": "2 - Crie um formulário para identificação",
       "bonus": false
     },
     {
-      "description": "3- Faça a requisição para pesquisar artistas",
+      "description": "3 - Crie um componente de cabeçalho",
       "bonus": false
     },
     {
-      "description": "4- Crie a requisição que busca as músicas do álbum",
+      "description": "4 - Crie os links de navegação no cabeçalho",
       "bonus": false
     },
     {
-      "description": "5- Crie a página de listagem das músicas do álbum selecionado",
+      "description": "5 - Crie o formulário para pesquisar artistas",
       "bonus": false
     },
     {
-      "description": "6- Crie o mecanismo de favoritar músicas",
+      "description": "6 - Faça a requisição para pesquisar artistas",
       "bonus": false
     },
     {
-      "description": "7- Crie a página de listagem de músicas favoritas",
+      "description": "7 - Crie a requisição que busca as músicas do álbum",
       "bonus": false
     },
     {
-      "description": "8- Crie a página de exibição de perfil",
+      "description": "8 - Crie a lista de músicas do álbum selecionado",
       "bonus": false
     },
     {
-      "description": "9- Crie a página de edição de perfil",
+      "description": "9 - Crie o mecanismo para adicionar músicas na lista de músicas favoritas",
       "bonus": false
     },
     {
-      "description": "10- Crie uma rota de 'Página não encontrada' e valide o acesso das rotas para pessoas logadas",
+      "description": "10 - Crie o mecanismo para remover músicas na lista de músicas favoritas",
       "bonus": false
     },
     {
-      "description": "11- Destaque a página atual nos links de navegação",
+      "description": "11 - Crie a lista de músicas favoritas",
+      "bonus": false
+    },
+    {
+      "description": "12 - Crie a exibição de perfil",
+      "bonus": false
+    },
+    {
+      "description": "13 - Crie o formulário de edição de perfil",
+      "bonus": false
+    },
+    {
+      "description": "14 - Crie uma validação de acesso na rota raíz",
+      "bonus": true
+    },
+    {
+      "description": "15 - Crie uma validação de acesso nas rotas",
+      "bonus": true
+    },
+    {
+      "description": "16 - Destaque a página atual nos links de navegação",
       "bonus": false
     }
   ]

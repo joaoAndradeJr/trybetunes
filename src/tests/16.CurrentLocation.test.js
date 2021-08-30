@@ -3,14 +3,14 @@ import { screen, waitForElementToBeRemoved } from '@testing-library/react';
 import renderPath from './helpers/renderPath';
 import { defaultUser } from './mocks';
 
-describe('11- Destaque a página atual nos links de navegação', () => {
+describe('16 - Destaque a página atual nos links de navegação', () => {
   beforeEach(() => localStorage.setItem('user', JSON.stringify(defaultUser)));
 
   afterEach(() => localStorage.clear());
 
-  it('Será validado se o link para página de músicas favoritas é destacado na rota "/favorites"',
+  it('Será validado se o link para página de músicas favoritas é destacado na rota /favorites',
     async () => {
-      renderPath('/favorites');
+      renderPath("/favorites");
 
       await waitForElementToBeRemoved(
         () => screen.getAllByText('Carregando...'),
@@ -31,9 +31,9 @@ describe('11- Destaque a página atual nos links de navegação', () => {
       expect(profileLink).not.toHaveClass('active');
     });
 
-  it('Será validado se o link para página de pesquisar é destacado na rota "/search"',
+  it('Será validado se o link para página de pesquisar é destacado na rota /search',
     async () => {
-      renderPath('/search');
+      renderPath("/search");
 
       await waitForElementToBeRemoved(
         () => screen.getAllByText('Carregando...'),
@@ -54,9 +54,9 @@ describe('11- Destaque a página atual nos links de navegação', () => {
       expect(profileLink).not.toHaveClass('active');
     });
 
-  it('Será validado se o link para página de perfil é destacado na rota "/profile"',
+  it('Será validado se o link para página de perfil é destacado na rota /profile',
     async () => {
-      renderPath('/profile');
+      renderPath("/profile");
 
       await waitForElementToBeRemoved(
         () => screen.getAllByText('Carregando...'),
