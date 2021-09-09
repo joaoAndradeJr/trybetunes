@@ -112,6 +112,10 @@ Para entregar o seu projeto você deverá criar um Pull Request neste repositór
 
 Lembre-se que você pode consultar nosso conteúdo sobre [Git & GitHub](https://course.betrybe.com/intro/git/) sempre que precisar!
 
+### Protótipo do projeto
+Você pode acessar um protótipo no link abaixo:
+
+https://www.figma.com/file/BDQgAJvOe4KNUjmrYh5t68/TrybeTunes-Figma
 
 ## Desenvolvimento
 
@@ -371,7 +375,7 @@ Dentro do componente `Login`, que é renderizado na rota `/`, crie um formulári
 
   * Após a informação ter sido salva, faça um redirect para a rota `/search`.
 
-  ![requisito-1](images/requisito1.gif)
+  ![requisito-2](images/requisito2.gif)
   ### O que será verificado
 
   - Será validado se ao navegar para a rota `/`, o input e o botão especificados estão presentes;
@@ -465,7 +469,7 @@ Este formulário deve conter um input e um botão para que seja possível pesqui
   * O botão só deve estar habilitado caso o nome do artista tenha 2 ou mais caracteres.
 
 
-  ![requisito-2](images/requisito2.gif)
+  ![requisito-5](images/requisito5.png)
 ### O que será verificado
 
   - Será validado se ao navegar para a rota `/search`, o input e o botão estão presentes na tela;
@@ -504,7 +508,8 @@ Com a estrutura da tela de pesquisa criada, agora é hora de fazer uma requisiç
 
   * Se nenhum álbum for encontrado para o nome pesquisado, a API irá retornar um array vazio. Nesse caso, a mensagem `Nenhum álbum foi encontrado` deverá ser exibida.
 
-  ![requisito-3](images/requisito3.gif)
+  ![requisito-6_1](images/requisito6_1.gif)
+  ![requisito-6_2](images/requisito6_2.gif)
 
 ### O que será verificado
   - Será validado se ao clicar em `pesquisar`, a requisição é feita usando a `searchAlbumsAPI`;
@@ -551,7 +556,7 @@ Agora que está tudo pronto, você poderá exibir a lista de músicas do álbum 
   ```
   **Importante:** lembre-se de colocar o atributo `data-testid="audio-component"` na tag `audio` de cada música listada.
 
-![requisito-5](images/requisito5.gif)
+![requisito-8](images/requisito8.gif)
 
 ### O que será verificado
   
@@ -583,7 +588,7 @@ Você já consegue listar as músicas dos álbuns, nessa etapa você poderá mar
 
 - Será validado se o número de checkboxes marcados como `checked` aumenta quando um checkbox é clicado;
 
-![requisito-6](images/requisito6.gif)
+![requisito-9](images/requisito9.gif)
 
 
 ## 10. Crie o mecanismo para remover músicas na lista de músicas favoritas
@@ -601,7 +606,7 @@ Depois de listar e favoritar as músicas de um álbum, você também deve poder 
 
 - Será validado se o número de checkboxes marcados como `checked` diminui quando um checkbox marcado é clicado;
 
-![requisito-6](images/requisito6.gif)
+![requisito-10](images/requisito10.gif)
 
 
 ## 11. Crie a lista de músicas favoritas
@@ -627,7 +632,7 @@ Crie a lista dentro do componente `Favorites`, que é renderizado na rota `/favo
 
 - Será validado se a lista de músicas favoritas é atualizada ao remover uma música da lista.
 
-![requisito-7](images/requisito7.gif)
+![requisito-11](images/requisito11.gif)
 
 # Requisitos bônus
 
@@ -644,7 +649,7 @@ Crie a exibição do perfil dentro do componente `Profile`, que é renderizado n
 
   * Crie um link que redirecione para a página de edição de perfil (rota `/profile/edit`). Este link deve ter o texto `Editar perfil`.
 
-![requisito-8](images/requisito8.gif)
+![requisito-12](images/requisito12.gif)
 
 ### O que será verificado
 
@@ -695,7 +700,7 @@ Crie o formulário de edição de perfil dentro do componente `ProfileEdit`, que
 
   * Ao finalizar o processo de edição, redirecione a pessoa logada para a página de exibição de perfil (rota `/profile`).
 
-![requisito-9](images/requisito9.gif)
+![requisito-13](images/requisito13.gif)
 
 ### O que será verificado
 
@@ -721,7 +726,6 @@ Você pode estilizar o link da maneira que preferir, desde que o link destacado 
   
   * Caso a pessoa usuária esteja na página de perfil (rota `/profile`), o link para a página de perfil precisa estar destacado com a classe `active`.
 
-![requisito-11](images/requisito11.gif)
 ### O que será verificado
   - Será validado se o link para página de músicas favoritas é destacado na rota `/favorites`;
 
