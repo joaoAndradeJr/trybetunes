@@ -10,7 +10,7 @@ import {
   favoriteSongsList
 } from './mocks';
 
-describe('10 - Crie o mecanismo para remover músicas na lista de músicas favoritas', () => {
+describe('9 - Crie o mecanismo para remover músicas na lista de músicas favoritas', () => {
   beforeEach(() => {
     jest.restoreAllMocks();
     localStorage.setItem('user', JSON.stringify(defaultUser));

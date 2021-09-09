@@ -83,9 +83,9 @@ describe('3 - Crie um componente de cabeçalho', () => {
 
   it('Será validado se a função getUser é chamada ao renderizar o componente',
     async () => {
+      const spy = jest.spyOn(userAPI, 'getUser');
       renderPath("/search");
 
-      const spy = jest.spyOn(userAPI, 'getUser');
 
       await waitFor(
         () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
