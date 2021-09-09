@@ -47,24 +47,19 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
 
   - [6. Faça a requisição para pesquisar artistas](#6-faca-a-requisicao-para-pesquisar-artistas)
 
-  - [7. Crie a requisição que busca as músicas do álbum](#7-crie-a-requisicao-que-busca-as-musicas-do-album)
-
-  - [8. Crie a lista de músicas do álbum selecionado](#8-crie-a-lista-de-musicas-do-album-selecionado)
+  - [7. Crie a lista de músicas do álbum selecionado](#7-crie-a-lista-de-musicas-do-album-selecionado)
   
-  - [9. Crie o mecanismo para adicionar músicas na lista de músicas favoritas](#9-crie-o-mecanismo-para-adicionar-musicas-na-lista-de-musicas-favoritas)
+  - [8. Crie o mecanismo para adicionar músicas na lista de músicas favoritas](#8-crie-o-mecanismo-para-adicionar-musicas-na-lista-de-musicas-favoritas)
 
-  - [10. Crie o mecanismo para remover músicas na lista de músicas favoritas](#10-crie-o-mecanismo-para-remover-musicas-na-lista-de-musicas-favoritas)
+  - [9. Crie o mecanismo para remover músicas na lista de músicas favoritas](#9-crie-o-mecanismo-para-remover-musicas-na-lista-de-musicas-favoritas)
 
-  - [11. Crie a lista de músicas favoritas](#11-crie-a-lista-de-musicas-favoritas)
+  - [10. Crie a lista de músicas favoritas](#10-crie-a-lista-de-musicas-favoritas)
 
 - [Requisitos bônus](#requisitos-bonus)
 
-  - [12. Crie a exibição de perfil](#12-crie-a-exibição-de-perfil)
+  - [11. Crie a exibição de perfil](#11-crie-a-exibição-de-perfil)
 
-  - [13. Crie o formulário de edição de perfil](#13-crie-o-formulario-de-edicao-de-perfil)
-
-  - [14. Destaque a página atual nos links de navegação](#14-destaque-a-pagina-atual-nos-links-de-navegacao)
-
+  - [12. Crie o formulário de edição de perfil](#12-crie-o-formulario-de-edicao-de-perfil)
 
 - [Avisos Finais](#avisos-finais)
 
@@ -140,9 +135,9 @@ Outra diferença importante neste projeto em relação aos anteriores é que voc
 ## Antes de começar a desenvolver
 
 1. Clone o repositório
-  * `git clone git@github.com:tryber/sd-0x-project-trybetunes.git`.
+  * `git clone git@github.com:tryber/sd-0x-project-trybetunes-staging-test.git`.
   * Entre na pasta do repositório que você acabou de clonar:
-    * `cd sd-0x-project-trybetunes`
+    * `cd sd-0x-project-trybetunes-staging-test`
 
 2. Instale as dependências e inicialize o projeto
   * Instale as dependências:
@@ -234,7 +229,8 @@ A função `removeSong` também recebe um objeto que representa a música que vo
 
 ## `musicsAPI.js`
 
-Inicialmente esse arquivo estará vazio e você irá preencher ele com a requisição para a API, durante a resolução dos requisitos.
+O arquivo `musicsAPI.js` contém uma função que faz uma requisição à uma API e retorna os as músicas de um álbum, ela recebe como parâmetro uma string, que deve ser o id do álbum. O retorno dessa função, quando encontra as informações, é um array onde o primeiro elemento é um objeto com informações do álbum e o restante dos elementos são as músicas do álbum.
+**Atenção:** caso não encontre nenhuma informação, a API retornará um array vazio.
 
 ## Linter
 
@@ -522,25 +518,11 @@ Com a estrutura da tela de pesquisa criada, agora é hora de fazer uma requisiç
 
   - Será validado se existe um link para cada álbum listado que redirecione para a rota `/album/:id`.
 
-## 7. Crie a requisição que busca as músicas do álbum
-Até o momento você estava utilizando as funções fornecidas na pasta `src/services`, mas agora você irá criar sua própria chamada para a API, dentro da função `getMusics`, que se encontra no arquivo `musicsAPI.js`.
-
-A sua missão é usar a função `fetch` para fazer uma requisição para a API `https://itunes.apple.com/lookup?id=${id}&entity=song`, onde `${id}` é o `collectionId` do Álbum. Lembre-se de que requisições são assíncronas e o `fetch` retorna uma promise. 
-
-Ao receber o retorno da API, você precisará chamar a função `json()`, que também retorna uma promise. É dentro do objeto retornado pela função `json()`, na chave `results`, que você encontrará o array com as músicas.
-
-**Dica:** você pode dar uma olhada no arquivo `searchAlbumsAPI.js`, a implementação dessa função é bastante semelhante com o que você precisa implementar aqui ;) 
-
-A função `getMusics` deverá retornar um array com as músicas do álbum selecionado.
-
-### O que será verificado
-  - Será validado se a função recebe o id do álbum e chama a API do iTunes;
-
-  - Será validado se a função retorna o valor recebido pela API do iTunes'.
-
-## 8. Crie a lista de músicas do álbum selecionado
+## 7. Crie a lista de músicas do álbum selecionado
 Agora que está tudo pronto, você poderá exibir a lista de músicas do álbum selecionado. Crie a lista dentro do componente `Album`, que é renderizado na rota `/album/:id`.
   
+  * Ao entrar na página, faça uma requisição utilizando a função `getMusics` do arquivo `musicsAPI.js`. Lembre-se que essa função espera receber uma string com o id do álbum.
+
   * Exiba o nome da banda ou artista na tela. Você pode usar qualquer tag HTML que faça sentido, desde que ela tenha o atributo `data-testid="artist-name"`.
 
   * Exiba o nome do álbum e nome da banda ou artista na tela. Você pode usar qualquer tag HTML que faça sentido, desde que ela tenha o atributo `data-testid="album-name"`.
@@ -556,7 +538,7 @@ Agora que está tudo pronto, você poderá exibir a lista de músicas do álbum 
   ```
   **Importante:** lembre-se de colocar o atributo `data-testid="audio-component"` na tag `audio` de cada música listada.
 
-![requisito-8](images/requisito8.gif)
+![requisito-7](images/requisito7.gif)
 
 ### O que será verificado
   
@@ -566,7 +548,7 @@ Agora que está tudo pronto, você poderá exibir a lista de músicas do álbum 
   
   - Será validado se todas músicas retornadas pela API são listadas.
 
-## 9. Crie o mecanismo para adicionar músicas na lista de músicas favoritas
+## 8. Crie o mecanismo para adicionar músicas na lista de músicas favoritas
 Você já consegue listar as músicas dos álbuns, nessa etapa você poderá marcar quais são as músicas que você mais gosta.
 
   * No componente `MusicCard`, crie um input do tipo `checkbox` para marcar as músicas favoritas. Esse input deve conter uma `label`, e a `label` deve ter o atributo ```data-testid={`checkbox-music-${trackId}`}```, onde `trackId` é a propriedade `trackId` do objeto recebido pela API.
@@ -588,10 +570,10 @@ Você já consegue listar as músicas dos álbuns, nessa etapa você poderá mar
 
 - Será validado se o número de checkboxes marcados como `checked` aumenta quando um checkbox é clicado;
 
-![requisito-9](images/requisito9.gif)
+![requisito-8](images/requisito8.gif)
 
 
-## 10. Crie o mecanismo para remover músicas na lista de músicas favoritas
+## 9. Crie o mecanismo para remover músicas na lista de músicas favoritas
 Depois de listar e favoritar as músicas de um álbum, você também deve poder remover uma música da lista de favoritas.
 
   * Ao clicar em uma música que já está marcada como favorita, ela deve ser removida da lista de músicas favoritas. Para isso você deve usar a função `removeSong` da `favoriteSongsAPI`. Essa API espera receber um objeto no mesmo formato que foi passado anteriormente para a função `addSong`.
@@ -606,10 +588,10 @@ Depois de listar e favoritar as músicas de um álbum, você também deve poder 
 
 - Será validado se o número de checkboxes marcados como `checked` diminui quando um checkbox marcado é clicado;
 
-![requisito-10](images/requisito10.gif)
+![requisito-9](images/requisito9.gif)
 
 
-## 11. Crie a lista de músicas favoritas
+## 10. Crie a lista de músicas favoritas
 Crie a lista dentro do componente `Favorites`, que é renderizado na rota `/favorites`.
 
   * Ao entrar na página, utilize a função `getFavoriteSongs` da `favoriteSongsAPI` para recuperar a lista de músicas favoritas.
@@ -632,11 +614,11 @@ Crie a lista dentro do componente `Favorites`, que é renderizado na rota `/favo
 
 - Será validado se a lista de músicas favoritas é atualizada ao remover uma música da lista.
 
-![requisito-11](images/requisito11.gif)
+![requisito-10](images/requisito10.gif)
 
 # Requisitos bônus
 
-## 12. Crie a exibição de perfil
+## 11. Crie a exibição de perfil
 Crie a exibição do perfil dentro do componente `Profile`, que é renderizado na rota `/profile`.
 
   * Utilize a função `getUser` da `userAPI` para recuperar as informações da pessoa logada.
@@ -649,7 +631,7 @@ Crie a exibição do perfil dentro do componente `Profile`, que é renderizado n
 
   * Crie um link que redirecione para a página de edição de perfil (rota `/profile/edit`). Este link deve ter o texto `Editar perfil`.
 
-![requisito-12](images/requisito12.gif)
+![requisito-11](images/requisito11.gif)
 
 ### O que será verificado
 
@@ -661,7 +643,7 @@ Crie a exibição do perfil dentro do componente `Profile`, que é renderizado n
 
   - Será validado se ao clicar no link `Editar perfil`, a navegação acontece corretamente.
 
-## 13. Crie o formulário de edição de perfil
+## 12. Crie o formulário de edição de perfil
 Crie o formulário de edição de perfil dentro do componente `ProfileEdit`, que é renderizado na rota `/profile/edit`.
 
   * Utilize a função `getUser` da `userAPI` para recuperar as informações da pessoa logada.
@@ -700,7 +682,7 @@ Crie o formulário de edição de perfil dentro do componente `ProfileEdit`, que
 
   * Ao finalizar o processo de edição, redirecione a pessoa logada para a página de exibição de perfil (rota `/profile`).
 
-![requisito-13](images/requisito13.gif)
+![requisito-12](images/requisito12.gif)
 
 ### O que será verificado
 
@@ -715,23 +697,6 @@ Crie o formulário de edição de perfil dentro do componente `ProfileEdit`, que
 - Será validado se as informações são enviadas usando a API `updateUser`;
 
 - Será validado se após salvar as informações a pessoa é redirecionada para a página de exibição de perfil.
-
-## 14. Destaque a página atual nos links de navegação
-Ao navegar entre as páginas, é importante que a pessoa que está usando o sistema saiba com facilidade em qual página está. Uma boa técnica para alcançar esse objetivo é dar destaque para o link da página atual no menu de navegação.
-Você pode estilizar o link da maneira que preferir, desde que o link destacado possua a classe `active`.
-
-  * Caso a pessoa usuária esteja na página de pesquisa (rota `/search`), o link para a página de pesquisa precisa estar destacado com a classe `active`.
-
-  * Caso a pessoa usuária esteja na página de músicas favoritas (rota `/favorites`), o link para a página de músicas favoritas precisa estar destacado com a classe `active`.
-  
-  * Caso a pessoa usuária esteja na página de perfil (rota `/profile`), o link para a página de perfil precisa estar destacado com a classe `active`.
-
-### O que será verificado
-  - Será validado se o link para página de músicas favoritas é destacado na rota `/favorites`;
-
-  - Será validado se o link para página de pesquisar é destacado na rota `/search`;
-
-  - Será validado se o link para página de perfil é destacado na rota `/profile`.
 
 ---
 

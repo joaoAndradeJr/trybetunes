@@ -25,35 +25,27 @@
       "bonus": false
     },
     {
-      "description": "7 - Crie a requisição que busca as músicas do álbum",
+      "description": "7 - Crie a lista de músicas do álbum selecionado",
       "bonus": false
     },
     {
-      "description": "8 - Crie a lista de músicas do álbum selecionado",
+      "description": "8 - Crie o mecanismo para adicionar músicas na lista de músicas favoritas",
       "bonus": false
     },
     {
-      "description": "9 - Crie o mecanismo para adicionar músicas na lista de músicas favoritas",
+      "description": "9 - Crie o mecanismo para remover músicas na lista de músicas favoritas",
       "bonus": false
     },
     {
-      "description": "10 - Crie o mecanismo para remover músicas na lista de músicas favoritas",
+      "description": "10 - Crie a lista de músicas favoritas",
       "bonus": false
     },
     {
-      "description": "11 - Crie a lista de músicas favoritas",
-      "bonus": false
-    },
-    {
-      "description": "12 - Crie a exibição de perfil",
+      "description": "11 - Crie a exibição de perfil",
       "bonus": true
     },
     {
-      "description": "13 - Crie o formulário de edição de perfil",
-      "bonus": true
-    },
-    {
-      "description": "14 - Destaque a página atual nos links de navegação",
+      "description": "12 - Crie o formulário de edição de perfil",
       "bonus": true
     }
   ]
