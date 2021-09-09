@@ -30,7 +30,7 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
   - [`searchAlbumsAPI.js`](#searchalbumsapijs)
   - [`favoriteSongsAPI.js`](#favoritesongsapijs)
   - [`musicsAPI.js`](#musicsapijs)
-  - [Linter](#linter)
+  - [ESLint e Stylelint](#eslint-e-stylelint)
   - [Execução de testes unitários](#execução-de-testes-unitários)
     - [Dica: desativando testes](#dica-desativando-testes)
 - [Requisitos do projeto](#requisitos-do-projeto)
@@ -232,15 +232,19 @@ A função `removeSong` também recebe um objeto que representa a música que vo
 O arquivo `musicsAPI.js` contém uma função que faz uma requisição à uma API e retorna os as músicas de um álbum, ela recebe como parâmetro uma string, que deve ser o id do álbum. O retorno dessa função, quando encontra as informações, é um array onde o primeiro elemento é um objeto com informações do álbum e o restante dos elementos são as músicas do álbum.
 **Atenção:** caso não encontre nenhuma informação, a API retornará um array vazio.
 
-## Linter
+## ESLint e Stylelint
 
-Para garantir a qualidade do código, vamos utilizar neste projeto o linter ESLint. Assim, o código estará alinhado com as boas práticas de desenvolvimento, sendo mais legível e de fácil manutenção! Para rodar o *linter* localmente no projeto, execute o comando abaixo: 
+Para garantir a qualidade do código, vamos utilizar neste projeto os linters `ESLint` e `Stylelint`.
+Assim o código estará alinhado com as boas práticas de desenvolvimento, sendo mais legível e de fácil manutenção! Para rodá-los localmente no projeto, execute os comandos abaixo:
 
-`npm run lint`
+```bash
+npm run lint
+npm run lint:styles
+```
 
-⚠️ **PULL REQUESTS COM ISSUES DE LINTER NÃO SERÃO AVALIADAS. ATENTE-SE PARA RESOLVÊ-LAS ANTES DE FINALIZAR O DESENVOLVIMENTO!** ⚠
+Em caso de dúvidas, confira o material do course sobre [ESLint e Stylelint](https://app.betrybe.com/course/real-life-engineer/eslint).
 
-Os testes foram desenvolvidos dessa forma para permitir uma maior liberdade para estruturar e estilizar a página, portanto, abusem da criatividade! 😉
+⚠️ Lembre-se que o seu projeto só será avaliado se estiver passando pelos **checks** dos **linters**.
 
 ---
 
