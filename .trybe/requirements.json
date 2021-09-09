@@ -46,23 +46,15 @@
     },
     {
       "description": "12 - Crie a exibição de perfil",
-      "bonus": false
+      "bonus": true
     },
     {
       "description": "13 - Crie o formulário de edição de perfil",
-      "bonus": false
-    },
-    {
-      "description": "14 - Crie uma validação de acesso na rota raíz",
       "bonus": true
     },
     {
-      "description": "15 - Crie uma validação de acesso nas rotas",
+      "description": "14 - Destaque a página atual nos links de navegação",
       "bonus": true
-    },
-    {
-      "description": "16 - Destaque a página atual nos links de navegação",
-      "bonus": false
     }
   ]
 }
