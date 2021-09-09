@@ -35,31 +35,31 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
     - [Dica: desativando testes](#dica-desativando-testes)
 - [Requisitos do projeto](#requisitos-do-projeto)
 
-  - [1. Crie as rotas necessárias para a aplicação](#1-crie-as-rotas-necessarias-para-a-aplicacao)
+  - [1. Crie as rotas necessárias para a aplicação](#1-crie-as-rotas-necessárias-para-a-aplicação)
 
-  - [2. Crie um formulário para identificação](#2-crie-um-formulario-para-identificacao)
+  - [2. Crie um formulário para identificação](#2-crie-um-formulário-para-identificação)
 
-  - [3. Crie um componente de cabeçalho](#3-crie-um-componente-de-cabecalho)
+  - [3. Crie um componente de cabeçalho](#3-crie-um-componente-de-cabeçalho)
 
-  - [4. Crie os links de navegação no cabeçalho](#4-crie-os-links-de-navegacao-no-cabecalho)
+  - [4. Crie os links de navegação no cabeçalho](#4-crie-os-links-de-navegação-no-cabeçalho)
 
-  - [5. Crie o formulário para pesquisar artistas](#5-crie-o-formulario-para-pesquisar-artistas)
+  - [5. Crie o formulário para pesquisar artistas](#5-crie-o-formulário-para-pesquisar-artistas)
 
-  - [6. Faça a requisição para pesquisar artistas](#6-faca-a-requisicao-para-pesquisar-artistas)
+  - [6. Faça a requisição para pesquisar artistas](#6-faça-a-requisição-para-pesquisar-artistas)
 
-  - [7. Crie a lista de músicas do álbum selecionado](#7-crie-a-lista-de-musicas-do-album-selecionado)
-  
-  - [8. Crie o mecanismo para adicionar músicas na lista de músicas favoritas](#8-crie-o-mecanismo-para-adicionar-musicas-na-lista-de-musicas-favoritas)
+  - [7. Crie a lista de músicas do álbum selecionado](#7-crie-a-lista-de-músicas-do-álbum-selecionado)
 
-  - [9. Crie o mecanismo para remover músicas na lista de músicas favoritas](#9-crie-o-mecanismo-para-remover-musicas-na-lista-de-musicas-favoritas)
+  - [8. Crie o mecanismo para adicionar músicas na lista de músicas favoritas](#8-crie-o-mecanismo-para-adicionar-músicas-na-lista-de-músicas-favoritas)
 
-  - [10. Crie a lista de músicas favoritas](#10-crie-a-lista-de-musicas-favoritas)
+  - [9. Crie o mecanismo para remover músicas na lista de músicas favoritas](#9-crie-o-mecanismo-para-remover-músicas-na-lista-de-músicas-favoritas)
 
-- [Requisitos bônus](#requisitos-bonus)
+  - [10. Crie a lista de músicas favoritas](#10-crie-a-lista-de-músicas-favoritas)
+
+- [Requisitos bônus](#requisitos-bônus)
 
   - [11. Crie a exibição de perfil](#11-crie-a-exibição-de-perfil)
 
-  - [12. Crie o formulário de edição de perfil](#12-crie-o-formulario-de-edicao-de-perfil)
+  - [12. Crie o formulário de edição de perfil](#12-crie-o-formulário-de-edição-de-perfil)
 
 - [Avisos Finais](#avisos-finais)
 
