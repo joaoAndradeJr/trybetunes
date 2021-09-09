@@ -30,36 +30,36 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
   - [`searchAlbumsAPI.js`](#searchalbumsapijs)
   - [`favoriteSongsAPI.js`](#favoritesongsapijs)
   - [`musicsAPI.js`](#musicsapijs)
-  - [Linter](#linter)
+  - [ESLint e Stylelint](#eslint-e-stylelint)
   - [Execução de testes unitários](#execução-de-testes-unitários)
     - [Dica: desativando testes](#dica-desativando-testes)
 - [Requisitos do projeto](#requisitos-do-projeto)
 
-  - [1. Crie as rotas necessárias para a aplicação](#1-crie-as-rotas-necessarias-para-a-aplicacao)
+  - [1. Crie as rotas necessárias para a aplicação](#1-crie-as-rotas-necessárias-para-a-aplicação)
 
-  - [2. Crie um formulário para identificação](#2-crie-um-formulario-para-identificacao)
+  - [2. Crie um formulário para identificação](#2-crie-um-formulário-para-identificação)
 
-  - [3. Crie um componente de cabeçalho](#3-crie-um-componente-de-cabecalho)
+  - [3. Crie um componente de cabeçalho](#3-crie-um-componente-de-cabeçalho)
 
-  - [4. Crie os links de navegação no cabeçalho](#4-crie-os-links-de-navegacao-no-cabecalho)
+  - [4. Crie os links de navegação no cabeçalho](#4-crie-os-links-de-navegação-no-cabeçalho)
 
-  - [5. Crie o formulário para pesquisar artistas](#5-crie-o-formulario-para-pesquisar-artistas)
+  - [5. Crie o formulário para pesquisar artistas](#5-crie-o-formulário-para-pesquisar-artistas)
 
-  - [6. Faça a requisição para pesquisar artistas](#6-faca-a-requisicao-para-pesquisar-artistas)
+  - [6. Faça a requisição para pesquisar artistas](#6-faça-a-requisição-para-pesquisar-artistas)
 
-  - [7. Crie a lista de músicas do álbum selecionado](#7-crie-a-lista-de-musicas-do-album-selecionado)
-  
-  - [8. Crie o mecanismo para adicionar músicas na lista de músicas favoritas](#8-crie-o-mecanismo-para-adicionar-musicas-na-lista-de-musicas-favoritas)
+  - [7. Crie a lista de músicas do álbum selecionado](#7-crie-a-lista-de-músicas-do-álbum-selecionado)
 
-  - [9. Crie o mecanismo para remover músicas na lista de músicas favoritas](#9-crie-o-mecanismo-para-remover-musicas-na-lista-de-musicas-favoritas)
+  - [8. Crie o mecanismo para adicionar músicas na lista de músicas favoritas](#8-crie-o-mecanismo-para-adicionar-músicas-na-lista-de-músicas-favoritas)
 
-  - [10. Crie a lista de músicas favoritas](#10-crie-a-lista-de-musicas-favoritas)
+  - [9. Crie o mecanismo para remover músicas na lista de músicas favoritas](#9-crie-o-mecanismo-para-remover-músicas-na-lista-de-músicas-favoritas)
 
-- [Requisitos bônus](#requisitos-bonus)
+  - [10. Crie a lista de músicas favoritas](#10-crie-a-lista-de-músicas-favoritas)
+
+- [Requisitos bônus](#requisitos-bônus)
 
   - [11. Crie a exibição de perfil](#11-crie-a-exibição-de-perfil)
 
-  - [12. Crie o formulário de edição de perfil](#12-crie-o-formulario-de-edicao-de-perfil)
+  - [12. Crie o formulário de edição de perfil](#12-crie-o-formulário-de-edição-de-perfil)
 
 - [Avisos Finais](#avisos-finais)
 
@@ -232,15 +232,19 @@ A função `removeSong` também recebe um objeto que representa a música que vo
 O arquivo `musicsAPI.js` contém uma função que faz uma requisição à uma API e retorna os as músicas de um álbum, ela recebe como parâmetro uma string, que deve ser o id do álbum. O retorno dessa função, quando encontra as informações, é um array onde o primeiro elemento é um objeto com informações do álbum e o restante dos elementos são as músicas do álbum.
 **Atenção:** caso não encontre nenhuma informação, a API retornará um array vazio.
 
-## Linter
+## ESLint e Stylelint
 
-Para garantir a qualidade do código, vamos utilizar neste projeto o linter ESLint. Assim, o código estará alinhado com as boas práticas de desenvolvimento, sendo mais legível e de fácil manutenção! Para rodar o *linter* localmente no projeto, execute o comando abaixo: 
+Para garantir a qualidade do código, vamos utilizar neste projeto os linters `ESLint` e `Stylelint`.
+Assim o código estará alinhado com as boas práticas de desenvolvimento, sendo mais legível e de fácil manutenção! Para rodá-los localmente no projeto, execute os comandos abaixo:
 
-`npm run lint`
+```bash
+npm run lint
+npm run lint:styles
+```
 
-⚠️ **PULL REQUESTS COM ISSUES DE LINTER NÃO SERÃO AVALIADAS. ATENTE-SE PARA RESOLVÊ-LAS ANTES DE FINALIZAR O DESENVOLVIMENTO!** ⚠
+Em caso de dúvidas, confira o material do course sobre [ESLint e Stylelint](https://app.betrybe.com/course/real-life-engineer/eslint).
 
-Os testes foram desenvolvidos dessa forma para permitir uma maior liberdade para estruturar e estilizar a página, portanto, abusem da criatividade! 😉
+⚠️ Lembre-se que o seu projeto só será avaliado se estiver passando pelos **checks** dos **linters**.
 
 ---
 
