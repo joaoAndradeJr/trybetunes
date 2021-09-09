@@ -92,7 +92,7 @@ describe('3 - Crie um componente de cabeçalho', () => {
         { timeout: 3000 }
       );
 
-      expect(spy).toHaveBeenCalledTimes(1);
+      expect(spy).toHaveBeenCalled();
     });
 
   it('Será validado se a mensagem de Carregando... é exibida ao renderizar o componente e é removida após o retorno da API',
