@@ -49,7 +49,7 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
 
   - [7. Crie a requisição que busca as músicas do álbum](#7-crie-a-requisicao-que-busca-as-musicas-do-album)
 
-  - [8. Crie a lista de músicas do álbum selecionado](#8-crie a-lista-de-musicas-do-album-selecionado)
+  - [8. Crie a lista de músicas do álbum selecionado](#8-crie-a-lista-de-musicas-do-album-selecionado)
   
   - [9. Crie o mecanismo para adicionar músicas na lista de músicas favoritas](#9-crie-o-mecanismo-para-adicionar-musicas-na-lista-de-musicas-favoritas)
 
