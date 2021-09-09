@@ -57,17 +57,15 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
 
   - [11. Crie a lista de músicas favoritas](#11-crie-a-lista-de-musicas-favoritas)
 
+- [Requisitos bônus](#requisitos-bonus)
+
   - [12. Crie a exibição de perfil](#12-crie-a-exibição-de-perfil)
 
   - [13. Crie o formulário de edição de perfil](#13-crie-o-formulario-de-edicao-de-perfil)
 
-  - [14. Crie uma validação de acesso na rota raíz](#14-crie-uma-validacao-de-acesso-na-rota-raiz)
+  - [14. Destaque a página atual nos links de navegação](#14-destaque-a-pagina-atual-nos-links-de-navegacao)
 
-  - [15. Crie uma validação de acesso nas rotas válidas](#15-crie-uma-validacao-de-acesso-nas-rotas-validas)
 
-  - [16. Destaque a página atual nos links de navegação](#16-destaque-a-pagina-atual-nos-links-de-navegacao)
-
-- [Requisitos bônus](#requisitos-bonus)
 - [Avisos Finais](#avisos-finais)
 
 ---
@@ -631,6 +629,8 @@ Crie a lista dentro do componente `Favorites`, que é renderizado na rota `/favo
 
 ![requisito-7](images/requisito7.gif)
 
+# Requisitos bônus
+
 ## 12. Crie a exibição de perfil
 Crie a exibição do perfil dentro do componente `Profile`, que é renderizado na rota `/profile`.
 
@@ -711,53 +711,7 @@ Crie o formulário de edição de perfil dentro do componente `ProfileEdit`, que
 
 - Será validado se após salvar as informações a pessoa é redirecionada para a página de exibição de perfil.
 
-# Requisitos bônus
-## 14. Crie uma validação de acesso na rota raíz
-
-  * Quando a rota `/` for acessada, utilize a função `getUser` da `userAPI` para recuperar as informações da pessoa usuária. Enquanto estiver aguardando a resposta da `getUser`, exiba apenas a mensagem de `Carregando...`.
-
-  * Após receber o retorno da `getUser`, verifique se a pessoa está logada (se não houver nenhuma pessoa logada, a `getUser` irá retornar um objeto vazio). Se ela **já estiver logada** faça um redirecionamento para a rota `/search`.
-
-![requisito-10](images/requisito10.gif)
-### O que será verificado
-
-  - Será validado se quando a pessoa logada acessa a rota `/`, ela é redirecionada para a rota `/search`;
-
-  - Será validado se quando a pessoa não logada acessa a rota `/`, ela não é redirecionada.
-
-
-## 15. Crie uma validação de acesso nas rotas válidas
-Lembre-se de que as rotas válidas são:
-`/search`, `/album/:id`, `/favorites`, `/profile` e `/profile/edit`.
-
-  * Quando alguma rota válida for acessada, utilize a função `getUser` da `userAPI` para recuperar as informações da pessoa usuária. Enquanto estiver aguardando a resposta da `getUser`, exiba apenas a mensagem de `Carregando...`. 
-
-  * Após receber o retorno da `getUser`, verifique se a pessoa está logada (se não houver nenhuma pessoa logada, a `getUser` irá retornar um objeto vazio). Se ela **não estiver logada** faça um redirecionamento para a rota `/`.
-
-![requisito-10](images/requisito10.gif)
-### O que será verificado
-
-  - Será validado se quando a pessoa não logada acessa a rota `/search`, ela é redirecionada para a rota `/`;
-
-  - Será validado se quando a pessoa logada acessa a rota `/search`, ela não é redirecionada;
-
-  - Será validado se quando a pessoa não logada acessa a rota `/album/:id`, ela é redirecionada para a rota `/`;
-
-  - Será validado se quando a pessoa logada acessa a rota `/album/id`, ela não é redirecionada;
-
-  - Será validado se quando a pessoa não logada acessa a rota `/favorites`, ela é redirecionada para a rota `/`;
-
-  - Será validado se quando a pessoa logada acessa a rota `/favorites`, ela não é redirecionada;
-
-  - Será validado se quando a pessoa não logada acessa a rota `/profile`, ela é redirecionada para a rota `/`;
-
-  - Será validado se quando a pessoa logada acessa a rota `/profile`, ela não é redirecionada;
-
-  - Será validado se quando a pessoa não logada acessa a rota `/profile/edit`, ela é redirecionada para a rota `/`;
-
-  - Será validado se quando a pessoa logada acessa a rota `/profile/edit`, ela não é redirecionada;
-
-## 16. Destaque a página atual nos links de navegação
+## 14. Destaque a página atual nos links de navegação
 Ao navegar entre as páginas, é importante que a pessoa que está usando o sistema saiba com facilidade em qual página está. Uma boa técnica para alcançar esse objetivo é dar destaque para o link da página atual no menu de navegação.
 Você pode estilizar o link da maneira que preferir, desde que o link destacado possua a classe `active`.
 

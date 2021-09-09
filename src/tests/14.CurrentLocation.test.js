@@ -3,7 +3,7 @@ import { screen, waitForElementToBeRemoved } from '@testing-library/react';
 import renderPath from './helpers/renderPath';
 import { defaultUser } from './mocks';
 
-describe('16 - Destaque a página atual nos links de navegação', () => {
+describe('14 - Destaque a página atual nos links de navegação', () => {
   beforeEach(() => localStorage.setItem('user', JSON.stringify(defaultUser)));
 
   afterEach(() => localStorage.clear());
