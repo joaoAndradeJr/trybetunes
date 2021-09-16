@@ -561,9 +561,7 @@ Você já consegue listar as músicas dos álbuns, nessa etapa você poderá mar
 
   * Enquanto aguarda o retorno da função `addSong`, renderize a mensagem de `Carregando...`.
 
-  * Ao clicar em uma música que já está marcada como favorita, ela deve ser removida da lista de músicas favoritas. Para isso você deve usar a função `removeSong` da `favoriteSongsAPI`. Essa API espera receber um objeto no mesmo formato que foi passado anteriormente para a função `addSong`.
-
-  * Enquanto aguarda o retorno da função `removeSong`, renderize a mensagem de `Carregando...`.
+  * Ao entrar na página, utilize a função `getFavoriteSongs` da `favoriteSongsAPI` para recuperar a lista de músicas favoritas e marque as músicas que já foram favoritadas.
 
 ### O que será verificado
 - Será validado se existe um checkbox para cada música da lista;
