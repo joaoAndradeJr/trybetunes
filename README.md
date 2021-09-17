@@ -186,9 +186,7 @@ Para **"entregar"** seu projeto, siga os passos a seguir:
 
 Este repositório já contém um template com um App React criado. Após clonar o projeto e instalar as dependências (mais sobre isso abaixo), você deverá completar este template implementando os requisitos listados na sessão [Requisitos do Projeto](#requisitos-do-projeto).
 
-Além do componente `App.js`, você irá encontrar um diretório chamado `pages`, onde estarão os componentes que você irá utilizar para renderizar cada página em sua respectiva rota.
-
-Também já existe no projeto um diretório `src/services`, que contém os arquivos `favoriteSongsAPI.js`, `searchAlbumsAPI.js`, `userAPI.js` e `musicsAPI.js`. Esses arquivos serão resposáveis por lidar com as requisições simuladas que serão usadas no desenvolvimento.
+Também já existe no projeto um diretório `src/services`, que contém os arquivos `favoriteSongsAPI.js`, `searchAlbumsAPI.js`, `userAPI.js` e `musicsAPI.js`. Esses arquivos serão responsáveis por lidar com as requisições simuladas que serão usadas durante o desenvolvimento.
 
 ## `userAPI.js`
 
