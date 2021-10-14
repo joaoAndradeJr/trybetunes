@@ -1,4 +1,4 @@
-import { screen, waitForElementToBeRemoved } from '@testing-library/react';
+import { screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import * as musicsAPI from '../services/musicsAPI';
@@ -23,9 +23,9 @@ describe('8 - Crie o mecanismo para adicionar músicas na lista de músicas favo
 
       renderPath("/album/123");
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       expect(screen.getByTestId('checkbox-music-12')).toBeInTheDocument();
@@ -44,15 +44,15 @@ describe('8 - Crie o mecanismo para adicionar músicas na lista de músicas favo
 
       renderPath("/album/123");
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       userEvent.click(screen.getByTestId('checkbox-music-12'));
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       expect(spy).toHaveBeenCalled();
@@ -67,17 +67,17 @@ describe('8 - Crie o mecanismo para adicionar músicas na lista de músicas favo
       
       renderPath("/album/123");
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       userEvent.click(screen.getByTestId('checkbox-music-12'));
       expect(screen.getByText("Carregando...")).toBeInTheDocument();
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       expect(screen.queryByText("Carregando...")).not.toBeInTheDocument();
@@ -92,27 +92,27 @@ describe('8 - Crie o mecanismo para adicionar músicas na lista de músicas favo
 
       renderPath("/album/123");
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       expect(screen.queryAllByRole('checkbox', { checked: true })).toHaveLength(0);
       expect(screen.getAllByRole('checkbox', { checked: false })).toHaveLength(4);
 
       userEvent.click(screen.getByTestId('checkbox-music-12'));
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       expect(screen.queryAllByRole('checkbox', { checked: true })).toHaveLength(1);
       expect(screen.queryAllByRole('checkbox', { checked: false })).toHaveLength(3);
 
       userEvent.click(screen.getByTestId('checkbox-music-31'));
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       expect(screen.queryAllByRole('checkbox', { checked: true })).toHaveLength(2);

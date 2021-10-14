@@ -1,7 +1,6 @@
 import { 
   screen,
-  waitFor,
-  waitForElementToBeRemoved 
+  waitFor
 } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
@@ -24,9 +23,9 @@ describe('4 - Crie os links de navegação no cabeçalho', () => {
     async () => {
       renderPath("/search");
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       expect(screen.getByTestId('link-to-search')).toBeInTheDocument();
@@ -40,9 +39,9 @@ describe('4 - Crie os links de navegação no cabeçalho', () => {
     async () => {
       renderPath("/search");
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       userEvent.click(screen.getByTestId('link-to-favorites'));
@@ -58,9 +57,9 @@ describe('4 - Crie os links de navegação no cabeçalho', () => {
     async () => {
       renderPath("/search");
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       userEvent.click(screen.getByTestId('link-to-profile'));
@@ -80,9 +79,9 @@ describe('4 - Crie os links de navegação no cabeçalho', () => {
       );
       renderPath("/album/12");
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       expect(screen.getByTestId('link-to-search')).toBeInTheDocument();
@@ -99,9 +98,9 @@ describe('4 - Crie os links de navegação no cabeçalho', () => {
       );
       renderPath("/album/12");
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       userEvent.click(screen.getByTestId('link-to-search'));
@@ -120,9 +119,9 @@ describe('4 - Crie os links de navegação no cabeçalho', () => {
       );
       renderPath("/album/12");
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       userEvent.click(screen.getByTestId('link-to-favorites'));
@@ -141,9 +140,9 @@ describe('4 - Crie os links de navegação no cabeçalho', () => {
       );
       renderPath("/album/12");
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       userEvent.click(screen.getByTestId('link-to-profile'));
@@ -160,9 +159,9 @@ describe('4 - Crie os links de navegação no cabeçalho', () => {
     async () => {
       renderPath("/favorites");
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       expect(screen.getByTestId('link-to-search')).toBeInTheDocument();
@@ -176,9 +175,9 @@ describe('4 - Crie os links de navegação no cabeçalho', () => {
     async () => {
       renderPath("/favorites");
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       userEvent.click(screen.getByTestId('link-to-search'));
@@ -194,9 +193,9 @@ describe('4 - Crie os links de navegação no cabeçalho', () => {
     async () => {
       renderPath("/favorites");
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       userEvent.click(screen.getByTestId('link-to-profile'));
@@ -213,9 +212,9 @@ describe('4 - Crie os links de navegação no cabeçalho', () => {
     async () => {
       renderPath("/profile");
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       expect(screen.getByTestId('link-to-search')).toBeInTheDocument();
@@ -229,9 +228,9 @@ describe('4 - Crie os links de navegação no cabeçalho', () => {
     async () => {
       renderPath("/profile");
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       userEvent.click(screen.getByTestId('link-to-search'));
@@ -247,9 +246,9 @@ describe('4 - Crie os links de navegação no cabeçalho', () => {
     async () => {
       renderPath("/profile");
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       userEvent.click(screen.getByTestId('link-to-favorites'));
@@ -266,9 +265,9 @@ describe('4 - Crie os links de navegação no cabeçalho', () => {
     async () => {
       renderPath("/profile/edit");
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       expect(screen.getByTestId('link-to-search')).toBeInTheDocument();
@@ -282,9 +281,9 @@ describe('4 - Crie os links de navegação no cabeçalho', () => {
     async () => {
       renderPath("/profile/edit");
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       userEvent.click(screen.getByTestId('link-to-search'));
@@ -300,9 +299,9 @@ describe('4 - Crie os links de navegação no cabeçalho', () => {
     async () => {
       renderPath("/profile/edit");
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       userEvent.click(screen.getByTestId('link-to-favorites'));
@@ -318,9 +317,9 @@ describe('4 - Crie os links de navegação no cabeçalho', () => {
     async () => {
       renderPath("/profile/edit");
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       userEvent.click(screen.getByTestId('link-to-profile'));

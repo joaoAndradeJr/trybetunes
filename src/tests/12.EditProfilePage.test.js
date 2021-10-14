@@ -1,4 +1,4 @@
-import { screen, waitForElementToBeRemoved } from '@testing-library/react';
+import { screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import * as userAPI from '../services/userAPI';
@@ -19,9 +19,9 @@ describe('12 - Crie o formulário de edição de perfil', () => {
 
       renderPath("/profile/edit");
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       expect(spy).toBeCalled();
@@ -31,9 +31,9 @@ describe('12 - Crie o formulário de edição de perfil', () => {
     async () => {
       renderPath("/profile/edit");
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       expect(screen.getByTestId('edit-input-name')).toHaveValue('User Test');
@@ -47,9 +47,9 @@ describe('12 - Crie o formulário de edição de perfil', () => {
     async () => {
       renderPath("/profile/edit");
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       const nameInput = screen.getByTestId('edit-input-name');
@@ -84,9 +84,9 @@ describe('12 - Crie o formulário de edição de perfil', () => {
       }));
       renderPath("/profile/edit");
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       const saveButton = screen.getByTestId('edit-button-save');
@@ -123,9 +123,9 @@ describe('12 - Crie o formulário de edição de perfil', () => {
       const spy = jest.spyOn(userAPI, 'updateUser');
       renderPath("/profile/edit");
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       const nameInput = screen.getByTestId('edit-input-name');
@@ -158,16 +158,16 @@ describe('12 - Crie o formulário de edição de perfil', () => {
     async () => {
       renderPath("/profile/edit");
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       userEvent.click(screen.getByTestId('edit-button-save'));
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3500 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3500 }
       );
 
       expect(screen.getByText('Editar perfil')).toBeInTheDocument();

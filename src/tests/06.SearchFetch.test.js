@@ -1,4 +1,4 @@
-import { screen, waitForElementToBeRemoved } from '@testing-library/react';
+import { screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import * as searchAlbumsAPI from '../services/searchAlbumsAPI';
@@ -20,17 +20,17 @@ describe('6 - Faça a requisição para pesquisar artistas', () => {
       );
       renderPath("/search");
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       userEvent.type(screen.getByTestId('search-artist-input'), 'Artist Name');
       userEvent.click(screen.getByTestId('search-artist-button'));
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 1000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       expect(spy).toBeCalledWith('Artist Name');
@@ -43,9 +43,9 @@ describe('6 - Faça a requisição para pesquisar artistas', () => {
     );
     renderPath("/search");
 
-    await waitForElementToBeRemoved(
-      () => screen.getAllByText('Carregando...'),
-      { timeout: 3000 },
+    await waitFor(
+      () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+      { timeout: 3000 }
     );
 
     const searchArtistInput = screen.getByTestId('search-artist-input');
@@ -53,9 +53,9 @@ describe('6 - Faça a requisição para pesquisar artistas', () => {
     userEvent.type(searchArtistInput, 'U2');
     userEvent.click(screen.getByTestId('search-artist-button'));
 
-    await waitForElementToBeRemoved(
-      () => screen.getAllByText('Carregando...'),
-      { timeout: 3000 },
+    await waitFor(
+      () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+      { timeout: 3000 }
     );
 
     const searchMessage = screen.getByText(/Resultado de álbuns de: U2/i);
@@ -71,17 +71,17 @@ describe('6 - Faça a requisição para pesquisar artistas', () => {
       );
       renderPath("/search");
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       userEvent.type(screen.getByTestId('search-artist-input'), 'Artist Name');
       userEvent.click(screen.getByTestId('search-artist-button'));
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 1000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       expect(screen.getByText('Album Name 1')).toBeInTheDocument();
@@ -96,17 +96,17 @@ describe('6 - Faça a requisição para pesquisar artistas', () => {
       );
       renderPath("/search");
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       userEvent.type(screen.getByTestId('search-artist-input'), 'Artist Name');
       userEvent.click(screen.getByTestId('search-artist-button'));
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 1000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       expect(screen.queryByText('Nenhum álbum foi encontrado')).toBeInTheDocument();
@@ -119,17 +119,17 @@ describe('6 - Faça a requisição para pesquisar artistas', () => {
       );
       renderPath("/search");
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       userEvent.type(screen.getByTestId('search-artist-input'), 'Artist Name');
       userEvent.click(screen.getByTestId('search-artist-button'));
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 1000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       expect(screen.getByTestId('link-to-album-101')).toBeInTheDocument();
