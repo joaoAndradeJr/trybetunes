@@ -53,19 +53,19 @@ describe('12 - Crie o formulário de edição de perfil', () => {
       );
 
       const nameInput = screen.getByTestId('edit-input-name');
-      nameInput.setSelectionRange(0, nameInput.value.length);
+      userEvent.clear(nameInput);
       userEvent.type(nameInput, 'New user test');
 
       const emailInput = screen.getByTestId('edit-input-email');
-      emailInput.setSelectionRange(0, emailInput.value.length);
+      userEvent.clear(emailInput);
       userEvent.type(emailInput, 'newemail@test.com');
 
       const descriptionInput = screen.getByTestId('edit-input-description');
-      descriptionInput.setSelectionRange(0, descriptionInput.value.length);
+      userEvent.clear(descriptionInput);
       userEvent.type(descriptionInput, 'Dolor sit amet');
 
       const imageInput = screen.getByTestId('edit-input-image');
-      imageInput.setSelectionRange(0, imageInput.value.length);
+      userEvent.clear(imageInput);
       userEvent.type(imageInput, 'new-url-to-image');
 
       expect(nameInput).toHaveValue('New user test');
@@ -92,25 +92,25 @@ describe('12 - Crie o formulário de edição de perfil', () => {
       const saveButton = screen.getByTestId('edit-button-save');
 
       const nameInput = screen.getByTestId('edit-input-name');
-      nameInput.setSelectionRange(0, nameInput.value.length);
+      userEvent.clear(nameInput);
       userEvent.type(nameInput, '');
 
       const emailInput = screen.getByTestId('edit-input-email');
-      emailInput.setSelectionRange(0, emailInput.value.length);
+      userEvent.clear(emailInput);
       userEvent.type(emailInput, 'not-an-email');
 
       const descriptionInput = screen.getByTestId('edit-input-description');
-      descriptionInput.setSelectionRange(0, descriptionInput.value.length);
+      userEvent.clear(descriptionInput);
       userEvent.type(descriptionInput, '');
 
       const imageInput = screen.getByTestId('edit-input-image');
-      imageInput.setSelectionRange(0, imageInput.value.length);
+      userEvent.clear(imageInput);
       userEvent.type(imageInput, '');
 
       expect(saveButton).toBeDisabled();
 
       userEvent.type(nameInput, 'User test');
-      emailInput.setSelectionRange(0, emailInput.value.length);
+      userEvent.clear(emailInput);
       userEvent.type(emailInput, 'valid@email.com');
       userEvent.type(descriptionInput, 'User description');
       userEvent.type(imageInput, 'image-url');
@@ -129,19 +129,19 @@ describe('12 - Crie o formulário de edição de perfil', () => {
       );
 
       const nameInput = screen.getByTestId('edit-input-name');
-      nameInput.setSelectionRange(0, nameInput.value.length);
+      userEvent.clear(nameInput);
       userEvent.type(nameInput, 'New user test');
 
       const emailInput = screen.getByTestId('edit-input-email');
-      emailInput.setSelectionRange(0, emailInput.value.length);
+      userEvent.clear(emailInput);
       userEvent.type(emailInput, 'newemail@test.com');
 
       const descriptionInput = screen.getByTestId('edit-input-description');
-      descriptionInput.setSelectionRange(0, descriptionInput.value.length);
+      userEvent.clear(descriptionInput);
       userEvent.type(descriptionInput, 'Dolor sit amet');
 
       const imageInput = screen.getByTestId('edit-input-image');
-      imageInput.setSelectionRange(0, imageInput.value.length);
+      userEvent.clear(imageInput);
       userEvent.type(imageInput, 'new-url-to-image');
 
       userEvent.click(screen.getByTestId('edit-button-save'));
