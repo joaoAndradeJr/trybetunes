@@ -1,4 +1,8 @@
-import { screen, waitForElementToBeRemoved } from '@testing-library/react';
+import { 
+  screen,
+  waitFor,
+  waitForElementToBeRemoved 
+} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import * as musicsAPI from '../services/musicsAPI';
@@ -10,7 +14,7 @@ import {
   favoriteSongsList
 } from './mocks';
 
-describe('9 - Crie o mecanismo para remover músicas na lista de músicas favoritas', () => {
+describe('11 - Crie o mecanismo para remover músicas na lista de músicas favoritas', () => {
   beforeEach(() => {
     jest.restoreAllMocks();
     localStorage.setItem('user', JSON.stringify(defaultUser));
@@ -30,9 +34,9 @@ describe('9 - Crie o mecanismo para remover músicas na lista de músicas favori
 
       renderPath("/album/12");
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
     
@@ -53,11 +57,10 @@ describe('9 - Crie o mecanismo para remover músicas na lista de músicas favori
 
       renderPath("/album/12");
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
-
       userEvent.click(screen.getByTestId('checkbox-music-12'));
 
       expect(screen.getByText("Carregando...")).toBeInTheDocument();
@@ -78,9 +81,9 @@ describe('9 - Crie o mecanismo para remover músicas na lista de músicas favori
 
       renderPath("/album/12");
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       expect(screen.queryAllByRole('checkbox', { checked: true })).toHaveLength(2);

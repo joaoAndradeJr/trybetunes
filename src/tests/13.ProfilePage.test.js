@@ -1,15 +1,11 @@
-import { 
-  screen, 
-  waitFor, 
-  waitForElementToBeRemoved } 
-from '@testing-library/react';
+import { screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import * as userAPI from '../services/userAPI';
 import renderPath from './helpers/renderPath';
 import { defaultUser } from './mocks';
 
-describe('11 - Crie a exibição de perfil', () => {
+describe('13 - Crie a exibição de perfil', () => {
   beforeEach(() => {
     jest.restoreAllMocks();
     localStorage.setItem('user', JSON.stringify(defaultUser));
@@ -23,9 +19,9 @@ describe('11 - Crie a exibição de perfil', () => {
 
       renderPath("/profile");
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       expect(spy).toBeCalled();
@@ -35,9 +31,9 @@ describe('11 - Crie a exibição de perfil', () => {
     async () => {
       renderPath("/profile");
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       expect(screen.getAllByText('User Test')).toHaveLength(2);
@@ -50,9 +46,9 @@ describe('11 - Crie a exibição de perfil', () => {
     async () => {
       renderPath("/profile");
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       expect(screen.getByText("Editar perfil")).toBeInTheDocument();
@@ -62,9 +58,9 @@ describe('11 - Crie a exibição de perfil', () => {
     async () => {
       renderPath("/profile");
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       userEvent.click(screen.getByText("Editar perfil"));

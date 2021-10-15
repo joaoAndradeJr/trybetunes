@@ -6,7 +6,7 @@ import * as favoriteSongsAPI from '../services/favoriteSongsAPI';
 import renderPath from './helpers/renderPath';
 import { defaultUser, musicAPIDefaultResponse } from './mocks';
 
-describe('8 - Crie o mecanismo para adicionar músicas na lista de músicas favoritas', () => {
+describe('10 - Faça a requisição para recuperar as músicas favoritas e atualizar a lista após favoritar uma música', () => {
   beforeEach(() => {
     jest.restoreAllMocks();
     localStorage.setItem('user', JSON.stringify(defaultUser));
@@ -15,32 +15,13 @@ describe('8 - Crie o mecanismo para adicionar músicas na lista de músicas favo
 
   afterEach(() => localStorage.clear());
 
-  it('Será validado se existe um checkbox para cada música da lista',
-    async () => {
-      jest.spyOn(musicsAPI, 'default').mockImplementation(
-        () => Promise.resolve(musicAPIDefaultResponse),
-      );
-
-      renderPath("/album/123");
-
-      await waitFor(
-        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
-        { timeout: 3000 }
-      );
-
-      expect(screen.getByTestId('checkbox-music-12')).toBeInTheDocument();
-      expect(screen.getByTestId('checkbox-music-21')).toBeInTheDocument();
-      expect(screen.getByTestId('checkbox-music-31')).toBeInTheDocument();
-      expect(screen.getByTestId('checkbox-music-42')).toBeInTheDocument();
-    });
-
-  it('Será validado se a função addSong é chamada quando algum checkbox é clicado',
+  it('Será validado se a requisição para `getFavoriteSongs` é feita após favoritar uma música',
     async () => {
       jest.spyOn(musicsAPI, 'default').mockImplementation(
         () => Promise.resolve(musicAPIDefaultResponse),
       );
       
-      const spy = jest.spyOn(favoriteSongsAPI, 'addSong');
+      const spy = jest.spyOn(favoriteSongsAPI, 'getFavoriteSongs');
 
       renderPath("/album/123");
 
@@ -59,29 +40,6 @@ describe('8 - Crie o mecanismo para adicionar músicas na lista de músicas favo
     });
 
 
-  it('Será validado se a mensagem Carregando... é exibida após clicar no checkbox e removida depois do retorno da API',
-    async () => {
-      jest.spyOn(musicsAPI, 'default').mockImplementation(
-        () => Promise.resolve(musicAPIDefaultResponse),
-      );
-      
-      renderPath("/album/123");
-
-      await waitFor(
-        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
-        { timeout: 3000 }
-      );
-
-      userEvent.click(screen.getByTestId('checkbox-music-12'));
-      expect(screen.getByText("Carregando...")).toBeInTheDocument();
-
-      await waitFor(
-        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
-        { timeout: 3000 }
-      );
-
-      expect(screen.queryByText("Carregando...")).not.toBeInTheDocument();
-    });
 
   it('Será validado se o número de checkboxes marcados como checked aumenta quando um checkbox é clicado',
     async () => {

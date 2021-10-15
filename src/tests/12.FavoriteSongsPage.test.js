@@ -1,11 +1,15 @@
-import { screen, waitForElementToBeRemoved } from '@testing-library/react';
+import { 
+  screen,
+  waitFor,
+  waitForElementToBeRemoved 
+} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import * as favoriteSongsAPI from '../services/favoriteSongsAPI';
 import renderPath from './helpers/renderPath';
 import { defaultUser } from './mocks';
 
-describe('10 - Crie a lista de músicas favoritas', () => {
+describe('12 - Crie a lista de músicas favoritas', () => {
   beforeEach(() => {
     jest.restoreAllMocks();
     localStorage.setItem('user', JSON.stringify(defaultUser));
@@ -20,9 +24,9 @@ describe('10 - Crie a lista de músicas favoritas', () => {
 
       renderPath("/favorites");
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       expect(spy).toBeCalled();
@@ -46,11 +50,10 @@ describe('10 - Crie a lista de músicas favoritas', () => {
 
       renderPath("/favorites");
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
-
       expect(screen.getByText('Track Name 1')).toBeInTheDocument();
       expect(screen.getByText('Track Name 2')).toBeInTheDocument();
       expect(screen.getAllByTestId('audio-component')).toHaveLength(2);
@@ -79,10 +82,9 @@ describe('10 - Crie a lista de músicas favoritas', () => {
 
       renderPath("/favorites");
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
-
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       const checkboxes = screen.getAllByLabelText('Favorita');

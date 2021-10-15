@@ -1,11 +1,11 @@
-import { screen, waitForElementToBeRemoved } from '@testing-library/react';
+import { screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import * as userAPI from '../services/userAPI';
 import renderPath from './helpers/renderPath';
 import { defaultUser } from './mocks';
 
-describe('12 - Crie o formulário de edição de perfil', () => {
+describe('14 - Crie o formulário de edição de perfil', () => {
   beforeEach(() => {
     jest.restoreAllMocks();
     localStorage.setItem('user', JSON.stringify(defaultUser));
@@ -19,9 +19,9 @@ describe('12 - Crie o formulário de edição de perfil', () => {
 
       renderPath("/profile/edit");
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       expect(spy).toBeCalled();
@@ -31,9 +31,9 @@ describe('12 - Crie o formulário de edição de perfil', () => {
     async () => {
       renderPath("/profile/edit");
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       expect(screen.getByTestId('edit-input-name')).toHaveValue('User Test');
@@ -47,25 +47,25 @@ describe('12 - Crie o formulário de edição de perfil', () => {
     async () => {
       renderPath("/profile/edit");
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       const nameInput = screen.getByTestId('edit-input-name');
-      nameInput.setSelectionRange(0, nameInput.value.length);
+      userEvent.clear(nameInput);
       userEvent.type(nameInput, 'New user test');
 
       const emailInput = screen.getByTestId('edit-input-email');
-      emailInput.setSelectionRange(0, emailInput.value.length);
+      userEvent.clear(emailInput);
       userEvent.type(emailInput, 'newemail@test.com');
 
       const descriptionInput = screen.getByTestId('edit-input-description');
-      descriptionInput.setSelectionRange(0, descriptionInput.value.length);
+      userEvent.clear(descriptionInput);
       userEvent.type(descriptionInput, 'Dolor sit amet');
 
       const imageInput = screen.getByTestId('edit-input-image');
-      imageInput.setSelectionRange(0, imageInput.value.length);
+      userEvent.clear(imageInput);
       userEvent.type(imageInput, 'new-url-to-image');
 
       expect(nameInput).toHaveValue('New user test');
@@ -84,33 +84,33 @@ describe('12 - Crie o formulário de edição de perfil', () => {
       }));
       renderPath("/profile/edit");
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       const saveButton = screen.getByTestId('edit-button-save');
 
       const nameInput = screen.getByTestId('edit-input-name');
-      nameInput.setSelectionRange(0, nameInput.value.length);
+      userEvent.clear(nameInput);
       userEvent.type(nameInput, '');
 
       const emailInput = screen.getByTestId('edit-input-email');
-      emailInput.setSelectionRange(0, emailInput.value.length);
+      userEvent.clear(emailInput);
       userEvent.type(emailInput, 'not-an-email');
 
       const descriptionInput = screen.getByTestId('edit-input-description');
-      descriptionInput.setSelectionRange(0, descriptionInput.value.length);
+      userEvent.clear(descriptionInput);
       userEvent.type(descriptionInput, '');
 
       const imageInput = screen.getByTestId('edit-input-image');
-      imageInput.setSelectionRange(0, imageInput.value.length);
+      userEvent.clear(imageInput);
       userEvent.type(imageInput, '');
 
       expect(saveButton).toBeDisabled();
 
       userEvent.type(nameInput, 'User test');
-      emailInput.setSelectionRange(0, emailInput.value.length);
+      userEvent.clear(emailInput);
       userEvent.type(emailInput, 'valid@email.com');
       userEvent.type(descriptionInput, 'User description');
       userEvent.type(imageInput, 'image-url');
@@ -123,25 +123,25 @@ describe('12 - Crie o formulário de edição de perfil', () => {
       const spy = jest.spyOn(userAPI, 'updateUser');
       renderPath("/profile/edit");
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       const nameInput = screen.getByTestId('edit-input-name');
-      nameInput.setSelectionRange(0, nameInput.value.length);
+      userEvent.clear(nameInput);
       userEvent.type(nameInput, 'New user test');
 
       const emailInput = screen.getByTestId('edit-input-email');
-      emailInput.setSelectionRange(0, emailInput.value.length);
+      userEvent.clear(emailInput);
       userEvent.type(emailInput, 'newemail@test.com');
 
       const descriptionInput = screen.getByTestId('edit-input-description');
-      descriptionInput.setSelectionRange(0, descriptionInput.value.length);
+      userEvent.clear(descriptionInput);
       userEvent.type(descriptionInput, 'Dolor sit amet');
 
       const imageInput = screen.getByTestId('edit-input-image');
-      imageInput.setSelectionRange(0, imageInput.value.length);
+      userEvent.clear(imageInput);
       userEvent.type(imageInput, 'new-url-to-image');
 
       userEvent.click(screen.getByTestId('edit-button-save'));
@@ -158,16 +158,16 @@ describe('12 - Crie o formulário de edição de perfil', () => {
     async () => {
       renderPath("/profile/edit");
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       userEvent.click(screen.getByTestId('edit-button-save'));
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3500 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3500 }
       );
 
       expect(screen.getByText('Editar perfil')).toBeInTheDocument();

@@ -1,4 +1,4 @@
-import { screen, waitForElementToBeRemoved } from '@testing-library/react';
+import { screen, waitFor } from '@testing-library/react';
 
 import * as musicsAPI from '../services/musicsAPI';
 import renderPath from './helpers/renderPath';
@@ -20,9 +20,9 @@ describe('7 - Crie a lista de músicas do álbum selecionado', () => {
 
     renderPath("/album/12");
 
-    await waitForElementToBeRemoved(
-      () => screen.getAllByText('Carregando...'),
-      { timeout: 3000 },
+    await waitFor(
+      () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+      { timeout: 3000 }
     );
 
     expect(spy).toHaveBeenCalled();
@@ -36,9 +36,9 @@ describe('7 - Crie a lista de músicas do álbum selecionado', () => {
 
     renderPath("/album/12");
 
-    await waitForElementToBeRemoved(
-      () => screen.getAllByText('Carregando...'),
-      { timeout: 3000 },
+    await waitFor(
+      () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+      { timeout: 3000 }
     );
 
     const artistNameElement = screen.getByTestId('artist-name'); 
@@ -57,9 +57,9 @@ describe('7 - Crie a lista de músicas do álbum selecionado', () => {
 
     renderPath("/album/12");
 
-    await waitForElementToBeRemoved(
-      () => screen.getAllByText('Carregando...'),
-      { timeout: 3000 },
+    await waitFor(
+      () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+      { timeout: 3000 }
     );
 
     expect(screen.getByText('Track Name 1')).toBeInTheDocument();

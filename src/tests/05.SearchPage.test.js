@@ -1,4 +1,4 @@
-import { screen, waitForElementToBeRemoved } from '@testing-library/react';
+import { screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import renderPath from './helpers/renderPath';
@@ -16,9 +16,9 @@ describe('5 - Crie o formulário para pesquisar artistas', () => {
     async () => {
       renderPath("/search");
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       expect(screen.getByTestId('search-artist-input')).toBeInTheDocument();
@@ -29,9 +29,9 @@ describe('5 - Crie o formulário para pesquisar artistas', () => {
     async () => {
       renderPath("/search");
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
+      await waitFor(
+        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+        { timeout: 3000 }
       );
 
       const searchArtistInput = screen.getByTestId('search-artist-input');
