@@ -33,19 +33,27 @@
       "bonus": false
     },
     {
-      "description": "9 - Crie o mecanismo para remover músicas na lista de músicas favoritas",
+      "description": "9 - Faça a requisição para recuperar as músicas favoritas ao entrar na página do Álbum",
       "bonus": false
     },
     {
-      "description": "10 - Crie a lista de músicas favoritas",
+      "description": "10 - Faça a requisição para recuperar as músicas favoritas e atualizar a lista após favoritar uma música",
       "bonus": false
     },
     {
-      "description": "11 - Crie a exibição de perfil",
+      "description": "11 - Crie o mecanismo para remover músicas na lista de músicas favoritas",
+      "bonus": false
+    },
+    {
+      "description": "12 - Crie a lista de músicas favoritas",
       "bonus": true
     },
     {
-      "description": "12 - Crie o formulário de edição de perfil",
+      "description": "13 - Crie a exibição de perfil",
+      "bonus": true
+    },
+    {
+      "description": "14 - Crie o formulário de edição de perfil",
       "bonus": true
     }
   ]

@@ -51,15 +51,19 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
 
   - [8. Crie o mecanismo para adicionar músicas na lista de músicas favoritas](#8-crie-o-mecanismo-para-adicionar-músicas-na-lista-de-músicas-favoritas)
 
-  - [9. Crie o mecanismo para remover músicas na lista de músicas favoritas](#9-crie-o-mecanismo-para-remover-músicas-na-lista-de-músicas-favoritas)
+  - [9. Faça a requisição para recuperar as músicas favoritas ao entrar na página do Álbum](#9-faça-a-requisição-para-recuperar-as-músicas-favoritas-ao-entrar-na-página-do-álbum)
 
-  - [10. Crie a lista de músicas favoritas](#10-crie-a-lista-de-músicas-favoritas)
+  - [10. Faça a requisição para recuperar as músicas favoritas e atualizar a lista após favoritar uma música](#10-faça-a-requisição-para-recuperar-as-músicas-favoritas-e-atualizar-a-lista-após-favoritar-uma-música)
+
+  - [11. Crie o mecanismo para remover músicas na lista de músicas favoritas](#11-crie-o-mecanismo-para-remover-músicas-na-lista-de-músicas-favoritas)
 
 - [Requisitos bônus](#requisitos-bônus)
+  
+  - [12. Crie a lista de músicas favoritas](#12-crie-a-lista-de-músicas-favoritas)
 
-  - [11. Crie a exibição de perfil](#11-crie-a-exibição-de-perfil)
+  - [13. Crie a exibição de perfil](#13-crie-a-exibição-de-perfil)
 
-  - [12. Crie o formulário de edição de perfil](#12-crie-o-formulário-de-edição-de-perfil)
+  - [14. Crie o formulário de edição de perfil](#14-crie-o-formulário-de-edição-de-perfil)
 
 - [Avisos Finais](#avisos-finais)
 
@@ -559,7 +563,6 @@ Você já consegue listar as músicas dos álbuns, nessa etapa você poderá mar
 
   * Enquanto aguarda o retorno da função `addSong`, renderize a mensagem de `Carregando...`.
 
-  * Ao entrar na página, utilize a função `getFavoriteSongs` da `favoriteSongsAPI` para recuperar a lista de músicas favoritas e marque as músicas que já foram favoritadas.
 
 ### O que será verificado
 - Será validado se existe um checkbox para cada música da lista;
@@ -568,12 +571,46 @@ Você já consegue listar as músicas dos álbuns, nessa etapa você poderá mar
 
 - Será validado se a mensagem `Carregando...` é exibida após clicar no checkbox e removida depois do retorno da API;
 
-- Será validado se o número de checkboxes marcados como `checked` aumenta quando um checkbox é clicado;
-
 ![requisito-8](images/requisito8.gif)
 
 
-## 9. Crie o mecanismo para remover músicas na lista de músicas favoritas
+## 9. Faça a requisição para recuperar as músicas favoritas ao entrar na página do Álbum
+Ao entrar na página com a lista de músicas de um álbum, na rota `/album/:id`, as músicas que já foram favoritadas anteriormente devem estar com o checkbox marcado.
+
+  * Ao entrar na página, utilize a função `getFavoriteSongs` da `favoriteSongsAPI` para recuperar a lista de músicas favoritas.
+
+  * Enquanto aguarda a resposta da API, exiba a mensagem `Carregando...`.
+
+  * A lista recebida pela função `getFavoriteSongs` deve ser salva no estado da sua aplicação.
+  
+  * Após receber o retorno da função `getFavoriteSongs`, as músicas que já foram favoritadas devem estar com o checkbox marcado como `checked`.
+
+### O que será verificado
+- Será validado se a requisição para `getFavoriteSongs` é feita para recuperar as músicas favoritas;
+
+- Será validado se, ao entrar na página, o número de checkboxes marcados como `checked` é correspondente ao número de músicas que já foram favoritadas;
+
+![requisito-9](images/requisito9.gif)
+
+
+## 10. Faça a requisição para recuperar as músicas favoritas e atualizar a lista após favoritar uma música
+Após adicionar uma música na lista de favoritas usando a função `addSong` (requisito 8), faça uma requisição usando a função `getFavoriteSongs` para atualizar a lista de músicas favoritas.
+
+  * Ao favoritar uma música, aguarde o retorno da função `addSong` (que já foi implementada no requisito 8) e utilize a função `getFavoriteSongs` da `favoriteSongsAPI` para recuperar a lista de músicas favoritas.
+
+  * Enquanto aguarda a resposta da API, exiba a mensagem `Carregando...`.
+
+  * Atualize o estado da aplicação com o valor recebido pelo retorno da função `getFavoriteSongs`.
+  
+  * Após receber o retorno da função `getFavoriteSongs`, as músicas que já foram favoritadas devem estar com o checkbox marcado como `checked`.
+
+### O que será verificado
+- Será validado se a requisição para `getFavoriteSongs` é feita após favoritar uma música;
+
+- Será validado se o número de checkboxes marcados como `checked` aumenta quando um checkbox é clicado;
+
+
+## 11. Crie o mecanismo para remover músicas na lista de músicas favoritas
 Depois de listar e favoritar as músicas de um álbum, você também deve poder remover uma música da lista de favoritas.
 
   * Ao clicar em uma música que já está marcada como favorita, ela deve ser removida da lista de músicas favoritas. Para isso você deve usar a função `removeSong` da `favoriteSongsAPI`. Essa API espera receber um objeto no mesmo formato que foi passado anteriormente para a função `addSong`.
@@ -588,10 +625,11 @@ Depois de listar e favoritar as músicas de um álbum, você também deve poder 
 
 - Será validado se o número de checkboxes marcados como `checked` diminui quando um checkbox marcado é clicado;
 
-![requisito-9](images/requisito9.gif)
+![requisito-11](images/requisito11.gif)
 
+# Requisitos bônus
 
-## 10. Crie a lista de músicas favoritas
+## 12. Crie a lista de músicas favoritas
 Crie a lista dentro do componente `Favorites`, que é renderizado na rota `/favorites`.
 
   * Ao entrar na página, utilize a função `getFavoriteSongs` da `favoriteSongsAPI` para recuperar a lista de músicas favoritas.
@@ -614,11 +652,10 @@ Crie a lista dentro do componente `Favorites`, que é renderizado na rota `/favo
 
 - Será validado se a lista de músicas favoritas é atualizada ao remover uma música da lista.
 
-![requisito-10](images/requisito10.gif)
+![requisito-12](images/requisito12.gif)
 
-# Requisitos bônus
 
-## 11. Crie a exibição de perfil
+## 13. Crie a exibição de perfil
 Crie a exibição do perfil dentro do componente `Profile`, que é renderizado na rota `/profile`.
 
   * Utilize a função `getUser` da `userAPI` para recuperar as informações da pessoa logada.
@@ -631,7 +668,7 @@ Crie a exibição do perfil dentro do componente `Profile`, que é renderizado n
 
   * Crie um link que redirecione para a página de edição de perfil (rota `/profile/edit`). Este link deve ter o texto `Editar perfil`.
 
-![requisito-11](images/requisito11.gif)
+![requisito-13](images/requisito13.gif)
 
 ### O que será verificado
 
@@ -643,7 +680,7 @@ Crie a exibição do perfil dentro do componente `Profile`, que é renderizado n
 
   - Será validado se ao clicar no link `Editar perfil`, a navegação acontece corretamente.
 
-## 12. Crie o formulário de edição de perfil
+## 14. Crie o formulário de edição de perfil
 Crie o formulário de edição de perfil dentro do componente `ProfileEdit`, que é renderizado na rota `/profile/edit`.
 
   * Utilize a função `getUser` da `userAPI` para recuperar as informações da pessoa logada.
@@ -682,7 +719,7 @@ Crie o formulário de edição de perfil dentro do componente `ProfileEdit`, que
 
   * Ao finalizar o processo de edição, redirecione a pessoa logada para a página de exibição de perfil (rota `/profile`).
 
-![requisito-12](images/requisito12.gif)
+![requisito-14](images/requisito14.gif)
 
 ### O que será verificado
 
