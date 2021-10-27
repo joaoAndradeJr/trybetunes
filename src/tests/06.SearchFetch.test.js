@@ -84,8 +84,8 @@ describe('6 - Faça a requisição para pesquisar artistas', () => {
         { timeout: 3000 }
       );
 
-      expect(screen.getByText('Album Name 1')).toBeInTheDocument();
-      expect(screen.getByText('Album Name 2')).toBeInTheDocument();
+      expect(screen.getByText(/Album Name 1/i)).toBeInTheDocument();
+      expect(screen.getByText(/Album Name 2/i)).toBeInTheDocument();
       expect(screen.queryByText('Nenhum álbum foi encontrado')).not.toBeInTheDocument();
     });
 
