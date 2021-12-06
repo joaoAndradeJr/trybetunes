@@ -109,7 +109,7 @@ Neste projeto você irá criar o TrybeTunes, uma aplicação capaz de reproduzir
 
 Para entregar o seu projeto você deverá criar um Pull Request neste repositório.
 
-Lembre-se que você pode consultar nosso conteúdo sobre [Git & GitHub](https://course.betrybe.com/intro/git/) sempre que precisar!
+Lembre-se que você pode consultar nosso conteúdo sobre Git & GitHub no Course sempre que precisar!
 
 ### Protótipo do projeto
 Você pode acessar um protótipo no link abaixo:
