@@ -11,6 +11,11 @@
       },
       "sourceType": "module"
     },
-    "plugins": ["react"]
+    "plugins": ["react"], 
+    "rules": {
+        "react/state-in-constructor": "off",
+        "react/no-did-mount-set-state": "off",
+        "react/no-did-update-set-state": "warning",
+    }
   }
   
