@@ -191,7 +191,7 @@ Ao iniciar este projeto, você concorda com as diretrizes do Código de Conduta 
 <details>
   <summary><strong>🛠 Testes</strong></summary><br />
 
-  Vamos utilizar [React Testing Library](https://testing-library.com/docs/react-testing-library/intro) para execução dos testes unitários.
+  Vamos utilizar [React Testing Library](https://testing-library.com/docs/react-testing-library/intro) para execução dos testes.
 
   Esse _framework_ de testes utiliza algumas marcações no código para verificar a solução proposta, uma dessas marcações é o atributo `data-testid` e faremos uso dele aqui.
 
@@ -209,11 +209,11 @@ Ao iniciar este projeto, você concorda com as diretrizes do Código de Conduta 
   <a data-testid="my-action"></a>
   ```
 
-  Ou seja, o atributo `data-testid="my-action"` servirá para o React Testing Library (RTL) identificar o elemento e, dessa forma, conseguiremos realizar testes unitários focados no comportamento da aplicação.
+  Ou seja, o atributo `data-testid="my-action"` servirá para o React Testing Library (RTL) identificar o elemento e, dessa forma, conseguiremos realizar testes focados no comportamento da aplicação.
 
   **ATENÇÃO!** Muito cuidado com os nomes especificados nos requisitos! O conteúdo deve ser exatamente igual ao texto descrito no requisito.
 
-  Para verificar a solução proposta, você pode executar todos os testes unitários localmente, basta executar:
+  Para verificar a solução proposta, você pode executar todos os testes localmente, basta executar:
 
   ```bash
   npm test
