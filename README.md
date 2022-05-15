@@ -235,7 +235,7 @@ A função `removeSong` também recebe um objeto que representa a música que vo
 
 ## `musicsAPI.js`
 
-O arquivo `musicsAPI.js` contém uma função que faz uma requisição a uma API e retorna as músicas de um álbum, ela recebe como parâmetro uma string, que deve ser o id do álbum. O retorno dessa função, quando encontra as informações, é um array onde o primeiro elemento é um objeto com informações do álbum e o restante dos elementos são as músicas do álbum.
+O arquivo `musicsAPI.js` contém a função `getMusics` que faz uma requisição a uma API e retorna as músicas de um álbum. Ela recebe como parâmetro uma string, que deve ser o id do álbum. O retorno dessa função, quando encontra as informações, é um array onde o primeiro elemento é um objeto com informações do álbum e o restante dos elementos são as músicas do álbum.
 **Atenção:** caso não encontre nenhuma informação, a API retornará um array vazio.
 
 ## ESLint e Stylelint
@@ -550,6 +550,8 @@ Agora que está tudo pronto, você poderá exibir a lista de músicas do álbum 
 - Exiba o nome do álbum e nome da banda ou artista na tela. Você pode usar qualquer tag HTML que faça sentido, desde que ela tenha o atributo `data-testid="album-name"`.
 
 - Liste todas as músicas do álbum na tela. Para isso, crie um componente chamado `MusicCard` que deverá exibir o nome da música (propriedade `trackName` no objeto recebido pela API) e um player para tocar o preview da música (propriedade `previewUrl` no objeto recebido pela API).
+
+:bulb: **Dica:** Lembre-se que o retorno da função `getMusics`, quando encontra as informações, é um array onde o primeiro elemento é um objeto com informações do álbum e o restante dos elementos são as músicas do álbum.
 
 Para tocar o preview, você deve usar a tag `audio` do próprio HTML. Sua implementação é assim:
 
