@@ -205,7 +205,7 @@ O arquivo `userAPI.js` será utilizado para manipular as informações da pessoa
 
 - Para criar um novo perfil, utilize a função `createUser`, ela recebe como parâmetro o objeto que contém as informações da pessoa usuária. Esse objeto deverá conter a seguinte estrutura:
 
-```
+```javascript
 {
   name: '',
   email: '',
@@ -376,8 +376,8 @@ Dentro do componente `Login`, que é renderizado na rota `/`, crie um formulári
 
 - Ao clicar no botão `Entrar`, utilize a função `createUser` da `userAPI` para salvar o nome digitado. A função `createUser` espera receber como argumento um objeto com as informações da pessoa:
 
-```
-createUser({name: "Nome digitado"});
+```javascript
+createUser({ name: "Nome digitado" });
 ```
 
 _Obs:_ Você verá nos requisitos mais a frente que você poderá passar outras informações para a `createUser`, mas não se preocupe com isso agora. Por enquanto você pode passar somente um objeto com a propriedade `name`.
@@ -502,7 +502,7 @@ Com a estrutura da tela de pesquisa criada, agora é hora de fazer uma requisiç
 
 - Liste os álbuns retornados. A API irá retorna um _array_ de objetos. Cada objeto terá a seguinte estrutura:
 
-```
+```javascript
 [
   {
     artistId: 12,
@@ -513,9 +513,8 @@ Com a estrutura da tela de pesquisa criada, agora é hora de fazer uma requisiç
     artworkUrl100: "https://url-to-image",
     releaseDate: "2012-03-02T08:00:00Z",
     trackCount: 8,
-  }
-]
-
+  },
+];
 ```
 
 - Ao listar os álbuns, crie um link em cada card para redirecionar para a página do álbum. Este link deve ter o atributo `` data-testid={`link-to-album-${collectionId}`} ``. Onde `collectionId` é o valor da propriedade de cada álbum.
@@ -555,10 +554,10 @@ Agora que está tudo pronto, você poderá exibir a lista de músicas do álbum 
 
 Para tocar o preview, você deve usar a tag `audio` do próprio HTML. Sua implementação é assim:
 
-```javascript
-<audio data-testid="audio-component" src={previewUrl} controls>
-  <track kind="captions" />O seu navegador não suporta o elemento{" "}
-  <code>audio</code>.
+```html
+<audio data-testid="audio-component" src="{previewUrl}" controls>
+  <track kind="captions" />
+  O seu navegador não suporta o elemento{" "} <code>audio</code>.
 </audio>
 ```
 
@@ -732,7 +731,7 @@ Crie o formulário de edição de perfil dentro do componente `ProfileEdit`, que
 
 - Quando o botão estiver habiltado, utilize a função `updateUser` da `userAPI` para atualizar as informações da pessoa usuária. Essa API espera receber um objeto no seguinte formato:
 
-```
+```javascript
   {
     name: '',
     email: '',
