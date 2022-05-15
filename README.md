@@ -201,7 +201,7 @@ Também já existe no projeto um diretório `src/services`, que contém os arqui
 O arquivo `userAPI.js` será utilizado para manipular as informações da pessoa logada, dentro dele estarão as funções para recuperar e atualizar as informações da pessoa usuária, além de criar um novo perfil. Todas essas funções simulam o funcionamento de uma API.
 
 - Para recuperar as informações da pessoa usuária, utilize a função `getUser`. Ela retornará um objeto com as informações da pessoa logada caso exista.
-  **Atenção:** caso não encontre nenhuma informação da banda ou artista, a API retornará um objeto vazio.
+  **Atenção:** caso não encontre nenhuma informação da pessoa usuária, a API retornará um objeto vazio.
 
 - Para criar um novo perfil, utilize a função `createUser`, ela recebe como parâmetro o objeto que contém as informações da pessoa usuária. Esse objeto deverá conter a seguinte estrutura:
 
@@ -218,7 +218,7 @@ Para atualizar as informações da pessoa logada, utilize a função `updateUser
 
 ## `searchAlbumsAPI.js`
 
-O arquivo `searchAlbumsAPI.js` contém uma função que faz uma requisição à uma API e retorna os álbuns de uma banda ou artista. Para essa função funcionar, ela recebe como parâmetro uma string, que deve ser o nome da banda ou artista. O retorno dessa função, quando encontra as informações, é um array com cada álbum dentro de um objeto.
+O arquivo `searchAlbumsAPI.js` contém uma função que faz uma requisição a uma API e retorna os álbuns de uma banda ou artista. Para essa função funcionar, ela recebe como parâmetro uma string, que deve ser o nome da banda ou artista. O retorno dessa função, quando encontra as informações, é um array com cada álbum dentro de um objeto.
 **Atenção:** caso não encontre nenhuma informação da banda ou artista, a API retornará um array vazio.
 
 ## `favoriteSongsAPI.js`
@@ -235,7 +235,7 @@ A função `removeSong` também recebe um objeto que representa a música que vo
 
 ## `musicsAPI.js`
 
-O arquivo `musicsAPI.js` contém uma função que faz uma requisição à uma API e retorna os as músicas de um álbum, ela recebe como parâmetro uma string, que deve ser o id do álbum. O retorno dessa função, quando encontra as informações, é um array onde o primeiro elemento é um objeto com informações do álbum e o restante dos elementos são as músicas do álbum.
+O arquivo `musicsAPI.js` contém uma função que faz uma requisição a uma API e retorna as músicas de um álbum, ela recebe como parâmetro uma string, que deve ser o id do álbum. O retorno dessa função, quando encontra as informações, é um array onde o primeiro elemento é um objeto com informações do álbum e o restante dos elementos são as músicas do álbum.
 **Atenção:** caso não encontre nenhuma informação, a API retornará um array vazio.
 
 ## ESLint e Stylelint
@@ -474,9 +474,9 @@ Crie um componente chamado `Header`, dentro da pasta `src/components`.
 
 ## 5. Crie o formulário para pesquisar artistas
 
-Este formulário deve conter um input e um botão para que seja possível pesquisar os álbums de uma banda ou artista. Crie o formulário dentro do componente `Search`, que é renderizado na rota `/search`.
+Este formulário deve conter um input e um botão para que seja possível pesquisar os álbuns de uma banda ou artista. Crie o formulário dentro do componente `Search`, que é renderizado na rota `/search`.
 
-- Crie um campo para pessoa digitar o nome da banda ou artista a ser pesquisada. Esse campo deve ter o atributo `data-testid="search-artist-input"`.
+- Crie um campo para pessoa digitar o nome da banda ou artista a ser pesquisado. Esse campo deve ter o atributo `data-testid="search-artist-input"`.
 
 - Crie um botão com o texto `Pesquisar`. Esse botão deve ter o atributo `data-testid="search-artist-button"`.
 
@@ -492,13 +492,13 @@ Este formulário deve conter um input e um botão para que seja possível pesqui
 
 ## 6. Faça a requisição para pesquisar artistas
 
-Com a estrutura da tela de pesquisa criada, agora é hora de fazer uma requisição e receber a lista de álbums da banda ou artista pesquisada.
+Com a estrutura da tela de pesquisa criada, agora é hora de fazer uma requisição e receber a lista de álbuns da banda ou artista pesquisado.
 
 - Ao clicar no botão de `Pesquisar`, limpe o valor do input e faça uma requisição utilizando a função do arquivo `searchAlbumsAPIs.js`. Lembre-se que essa função espera receber uma string com o nome da banda ou artista.
 
 - Enquanto aguarda a resposta da API, esconda o input e o botão de pesquisa e exiba a mensagem `Carregando...` na tela.
 
-- Após receber a resposta da requisição exibir na tela o texto `Resultado de álbuns de: <artista>`, onde `<artista>` é o nome que foi digitado no input.
+- Após receber a resposta da requisição, exiba na tela o texto `Resultado de álbuns de: <artista>`, onde `<artista>` é o nome que foi digitado no input.
 
 - Liste os álbuns retornados. A API irá retorna um _array_ de objetos. Cada objeto terá a seguinte estrutura:
 
@@ -518,9 +518,9 @@ Com a estrutura da tela de pesquisa criada, agora é hora de fazer uma requisiç
 
 ```
 
-- Ao listar os álbuns, crie um link em cada card para redirecionar para a página do álbum. Este link deve ter o atributo `` data-testid={`link-to-album-${collectionId}`} ``. Onde `collectionId` é o valor da propriedade de cada Álbum.
+- Ao listar os álbuns, crie um link em cada card para redirecionar para a página do álbum. Este link deve ter o atributo `` data-testid={`link-to-album-${collectionId}`} ``. Onde `collectionId` é o valor da propriedade de cada álbum.
 
-- Este link deve redirecionar para a rota `/album/:id`, onde `:id` é o valor da propriedade `collectionId` de cada Álbum da lista recebida pela API.
+- Este link deve redirecionar para a rota `/album/:id`, onde `:id` é o valor da propriedade `collectionId` de cada álbum da lista recebida pela API.
 
 - Se nenhum álbum for encontrado para o nome pesquisado, a API irá retornar um array vazio. Nesse caso, a mensagem `Nenhum álbum foi encontrado` deverá ser exibida.
 
@@ -555,9 +555,8 @@ Para tocar o preview, você deve usar a tag `audio` do próprio HTML. Sua implem
 
 ```javascript
 <audio data-testid="audio-component" src={previewUrl} controls>
-  <track kind="captions" />O seu navegador não suporta o elemento <code>
-    audio
-  </code>.
+  <track kind="captions" />O seu navegador não suporta o elemento{" "}
+  <code>audio</code>.
 </audio>
 ```
 
@@ -577,9 +576,9 @@ Para tocar o preview, você deve usar a tag `audio` do próprio HTML. Sua implem
 
 Você já consegue listar as músicas dos álbuns, nessa etapa você poderá marcar quais são as músicas que você mais gosta.
 
-- No componente `MusicCard`, crie um input do tipo `checkbox` para marcar as músicas favoritas. Esse input deve conter uma `label` com o texto `Favorita` e, o input, deve possuir o atributo `` data-testid={`checkbox-music-${trackId}`} ``, onde `trackId` é a propriedade `trackId` do objeto recebido pela API.
+- No componente `MusicCard`, crie um input do tipo `checkbox` para marcar as músicas favoritas. Esse input deve conter uma `label` com o texto `Favorita` e o input deve possuir o atributo `` data-testid={`checkbox-music-${trackId}`} ``, onde `trackId` é a propriedade `trackId` do objeto recebido pela API.
 
-- Para adicionar uma música a lista de favoritas, utilize a função `addSong` da `favoriteSongsAPI`. Você deve passar para essa função um objeto no mesmo formato que você recebe da API `getMusics`.
+- Para adicionar uma música à lista de favoritas, utilize a função `addSong` da `favoriteSongsAPI`. Você deve passar para essa função um objeto no mesmo formato que você recebe da API `getMusics`.
 
 - Enquanto aguarda o retorno da função `addSong`, renderize a mensagem de `Carregando...`.
 
@@ -725,7 +724,7 @@ Crie o formulário de edição de perfil dentro do componente `ProfileEdit`, que
 
 - Para poder habilitar o botão de enviar, todos os campos precisam estar preenchidos (não podem estar vazios).
 
-- O campo de email, além de não estar vazio também precisa verificar que o email tem um formato válido, ou seja, deve seguir o padrão `test@test.com`.
+- O campo de email, além de não estar vazio, também precisa verificar que o email tem um formato válido, ou seja, deve seguir o padrão `test@test.com`.
 
 - O botão de salvar as informações só deve ser habilitado quando todos os campos estiverem válidos, ou seja, todos campos preenchidos e o campo de email com um valor em formato válido.
 
