@@ -31,7 +31,7 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
   - [`favoriteSongsAPI.js`](#favoritesongsapijs)
   - [`musicsAPI.js`](#musicsapijs)
   - [ESLint e Stylelint](#eslint-e-stylelint)
-  - [Execução de testes](#execução-dos-testes)
+  - [Execução dos testes](#execução-dos-testes)
     - [Dica: desativando testes](#dica-desativando-testes)
 - [Requisitos do projeto](#requisitos-do-projeto)
 
@@ -254,7 +254,7 @@ Em caso de dúvidas, confira o material do course sobre [ESLint e Stylelint](htt
 
 ---
 
-## Execução de testes
+## Execução dos testes
 
 Vamos utilizar [React Testing Library](https://testing-library.com/docs/react-testing-library/intro) para execução dos testes.
 
