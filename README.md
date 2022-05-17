@@ -577,7 +577,7 @@ Para tocar o preview, você deve usar a tag `audio` do próprio HTML. Sua implem
 
 Você já consegue listar as músicas dos álbuns, nessa etapa você poderá marcar quais são as músicas que você mais gosta.
 
-- No componente `MusicCard`, crie um input do tipo `checkbox` para marcar as músicas favoritas. Esse input deve conter uma `label` com o texto `Favorita` e o input deve possuir o atributo `` data-testid={`checkbox-music-${trackId}`} ``, onde `trackId` é a propriedade `trackId` do objeto recebido pela API.
+- No componente `MusicCard`, crie um input do tipo `checkbox` para marcar as músicas favoritas. A `label` desse input deve conter exatamente o texto `Favorita` e o input deve possuir o atributo `` data-testid={`checkbox-music-${trackId}`} ``, onde `trackId` é a propriedade `trackId` do objeto recebido pela API.
 
 - Para adicionar uma música à lista de favoritas, utilize a função `addSong` da `favoriteSongsAPI`. Você deve passar para essa função um objeto no mesmo formato dos objetos contidos no array que é recebido da API `getMusics`.
 
