@@ -350,19 +350,19 @@ Você deve utilizar o `BrowserRouter` pra criar as rotas da sua aplicação e ca
 
 ### O que será verificado
 
-- Será validado se a rota `/` é uma rota existente e que renderiza um componente com o `data-testid` com valor `page-login`;
+- A rota `/` é uma rota existente e que renderiza um componente com o `data-testid` com valor `page-login`;
 
-- Será validado se a rota `/search` é uma rota existente e que renderiza um componente com o `data-testid` com valor `page-search`;
+- A rota `/search` é uma rota existente e que renderiza um componente com o `data-testid` com valor `page-search`;
 
-- Será validado se a rota `/album/:id` é uma rota existente e que renderiza um componente com o `data-testid` com valor `page-album`;
+- A rota `/album/:id` é uma rota existente e que renderiza um componente com o `data-testid` com valor `page-album`;
 
-- Será validado se a rota `/favorites` é uma rota existente e que renderiza um componente com o `data-testid` com valor `page-favorites`;
+- A rota `/favorites` é uma rota existente e que renderiza um componente com o `data-testid` com valor `page-favorites`;
 
-- Será validado se a rota `/profile` é uma rota existente e que renderiza um componente com o `data-testid` com valor `page-profile`;
+- A rota `/profile` é uma rota existente e que renderiza um componente com o `data-testid` com valor `page-profile`;
 
-- Será validado se a rota `/profile/edit` é uma rota existente e que renderiza um componente com o `data-testid` com valor `page-profile-edit`;
+- A rota `/profile/edit` é uma rota existente e que renderiza um componente com o `data-testid` com valor `page-profile-edit`;
 
-- Será validado se existe uma página para rotas não mapeadas e que renderiza um componente com o `data-testid` com valor `page-not-found`;
+- Existe uma página para rotas não mapeadas e que renderiza um componente com o `data-testid` com valor `page-not-found`;
 
 ## 2. Crie um formulário para identificação
 
