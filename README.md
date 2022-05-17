@@ -609,7 +609,7 @@ Ao entrar na página com a lista de músicas de um álbum, na rota `/album/:id`,
 
 - A requisição para `getFavoriteSongs` é feita para recuperar as músicas favoritas;
 
-- Se, ao entrar na página, o número de checkboxes marcados como `checked` é correspondente ao número de músicas que já foram favoritadas;
+- Ao entrar na página, o número de checkboxes marcados como `checked` é correspondente ao número de músicas que já foram favoritadas;
 
 ![requisito-9](images/requisito9.gif)
 
