@@ -390,13 +390,13 @@ _Obs:_ Você verá nos requisitos mais a frente que você poderá passar outras 
 
 ### O que será verificado
 
-- Será validado se ao navegar para a rota `/`, o input e o botão especificados estão presentes;
+- Ao navegar para a rota `/`, o input e o botão especificados estão presentes;
 
-- Será validado se o botão só é habilitado se o input de nome tiver 3 ou mais caracteres;
+- O botão só é habilitado se o input de nome tiver 3 ou mais caracteres;
 
-- Será validado se, ao clicar no botão habilitado, a função `createUser` da `userAPI` é chamada;
+- Ao clicar no botão habilitado, a função `createUser` da `userAPI` é chamada;
 
-- Será validado se, ao clicar no botão, a mensagem `Carregando...` é exibida e após a resposta da API acontece o redirecionamento para a rota `/search`.
+- Ao clicar no botão, a mensagem `Carregando...` é exibida e após a resposta da API acontece o redirecionamento para a rota `/search`.
 
 ## 3. Crie um componente de cabeçalho
 
@@ -412,21 +412,21 @@ Crie um componente chamado `Header`, dentro da pasta `src/components`.
 
 ### O que será verificado
 
-- Será validado se o componente `Header` é renderizado na página `/search`;
+- O componente `Header` é renderizado na página `/search`;
 
-- Será validado se o componente `Header` é renderizado na página `/album/:id`;
+- O componente `Header` é renderizado na página `/album/:id`;
 
-- Será validado se o componente `Header` é renderizado na página `/favorites`;
+- O componente `Header` é renderizado na página `/favorites`;
 
-- Será validado se o componente `Header` é renderizado na página `/profile`;
+- O componente `Header` é renderizado na página `/profile`;
 
-- Será validado se o componente `Header` é renderizado na página `/profile/edit`;
+- O componente `Header` é renderizado na página `/profile/edit`;
 
-- Será validado se a função `getUser` é chamada ao renderizar o componente;
+- A função `getUser` é chamada ao renderizar o componente;
 
-- Será validado se a mensagem de `Carregando...` é exibida ao renderizar o componente e é removida após o retorno da API;
+- A mensagem de `Carregando...` é exibida ao renderizar o componente e é removida após o retorno da API;
 
-- Será validado se o nome da pessoa usuária está presente na tela após o retorno da API;
+- O nome da pessoa usuária está presente na tela após o retorno da API;
 
 ## 4. Crie os links de navegação no cabeçalho
 
@@ -438,39 +438,39 @@ Crie um componente chamado `Header`, dentro da pasta `src/components`.
 
 ### O que será verificado
 
-- Será validado se os links de navegação são exibidos na página de pesquisa;
+- Os links de navegação são exibidos na página de pesquisa;
 
-- Será validado se a navegação entre a página de pesquisa e a página de músicas favoritas ocorre corretamente;
+- A navegação entre a página de pesquisa e a página de músicas favoritas ocorre corretamente;
 
-- Será validado se a navegação entre a página de pesquisa e a página de exibição do perfil ocorre corretamente;
+- A navegação entre a página de pesquisa e a página de exibição do perfil ocorre corretamente;
 
-- Será validado se os links de navegação são exibidos na página do álbum;
+- Os links de navegação são exibidos na página do álbum;
 
-- Será validado se a navegação entre a página do álbum e a página de pesquisa ocorre corretamente;
+- A navegação entre a página do álbum e a página de pesquisa ocorre corretamente;
 
-- Será validado se a navegação entre a página do álbum e a página de músicas favoritas ocorre corretamente;
+- A navegação entre a página do álbum e a página de músicas favoritas ocorre corretamente;
 
-- Será validado se a navegação entre a página do álbum e a página de exibição do perfil ocorre corretamente;
+- A navegação entre a página do álbum e a página de exibição do perfil ocorre corretamente;
 
-- Será validado se os links de navegação são exibidos na página de músicas favoritas;
+- Os links de navegação são exibidos na página de músicas favoritas;
 
-- Será validado se a navegação entre a página de músicas favoritas e a página de pesquisa ocorre corretamente;
+- A navegação entre a página de músicas favoritas e a página de pesquisa ocorre corretamente;
 
-- Será validado se a navegação entre a página de músicas favoritas e a página de exibição perfil ocorre corretamente;
+- A navegação entre a página de músicas favoritas e a página de exibição perfil ocorre corretamente;
 
-- Será validado se os links de navegação são exibidos na página de exibição do perfil;
+- Os links de navegação são exibidos na página de exibição do perfil;
 
-- Será validado se a navegação entre a página de exibição do perfil e a página de pesquisa ocorre corretamente;
+- A navegação entre a página de exibição do perfil e a página de pesquisa ocorre corretamente;
 
-- Será validado se a navegação entre a página de exibição do perfil e a página de músicas favoritas ocorre corretamente;
+- A navegação entre a página de exibição do perfil e a página de músicas favoritas ocorre corretamente;
 
-- Será validado se os links de navegação são exibidos na página de edição do perfil;
+- Os links de navegação são exibidos na página de edição do perfil;
 
-- Será validado se a navegação entre a página de edição do perfil e a página de pesquisa ocorre corretamente;
+- A navegação entre a página de edição do perfil e a página de pesquisa ocorre corretamente;
 
-- Será validado se a navegação entre a página de edição do perfil e a página de músicas favoritas ocorre corretamente;
+- A navegação entre a página de edição do perfil e a página de músicas favoritas ocorre corretamente;
 
-- Será validado se a navegação entre a página de edição do perfil e a página de exibição do perfil ocorre corretamente.
+- A navegação entre a página de edição do perfil e a página de exibição do perfil ocorre corretamente.
 
 ## 5. Crie o formulário para pesquisar artistas
 
@@ -486,9 +486,9 @@ Este formulário deve conter um input e um botão para que seja possível pesqui
 
 ### O que será verificado
 
-- Será validado se ao navegar para a rota `/search`, o input e o botão estão presentes na tela;
+- Ao navegar para a rota `/search`, o input e o botão estão presentes na tela;
 
-- Será validado se o botão está habilitado somente se o input de nome tiver 2 ou mais caracteres;
+- O botão está habilitado somente se o input de nome tiver 2 ou mais caracteres;
 
 ## 6. Faça a requisição para pesquisar artistas
 
@@ -528,15 +528,15 @@ Com a estrutura da tela de pesquisa criada, agora é hora de fazer uma requisiç
 
 ### O que será verificado
 
-- Será validado se ao clicar em `pesquisar`, a requisição é feita usando a `searchAlbumsAPI`;
+- Ao clicar em `pesquisar`, a requisição é feita usando a `searchAlbumsAPI`;
 
-- Será validado se ao clicar no botão, o texto `Resultado de álbuns de: <artista>` aparece na tela;
+- Ao clicar no botão, o texto `Resultado de álbuns de: <artista>` aparece na tela;
 
-- Será validado se ao receber o retorno da API, os álbuns são listados na tela;
+- Ao receber o retorno da API, os álbuns são listados na tela;
 
-- Será validado se caso a API não retorne nenhum álbum, a mensagem `Nenhum álbum foi encontrado` é exibida;
+- Caso a API não retorne nenhum álbum, a mensagem `Nenhum álbum foi encontrado` é exibida;
 
-- Será validado se existe um link para cada álbum listado que redirecione para a rota `/album/:id`.
+- Existe um link para cada álbum listado que redirecione para a rota `/album/:id`.
 
 ## 7. Crie a lista de músicas do álbum selecionado
 
@@ -567,11 +567,11 @@ Para tocar o preview, você deve usar a tag `audio` do próprio HTML. Sua implem
 
 ### O que será verificado
 
-- Será validado se o serviço de `musicsAPI` está sendo chamado;
+- Se o serviço de `musicsAPI` está sendo chamado;
 
-- Será validado se o nome da banda ou artista e o nome do álbum são exibidos;
+- Se o nome da banda ou artista e o nome do álbum são exibidos;
 
-- Será validado se todas músicas retornadas pela API são listadas.
+- Se todas músicas retornadas pela API são listadas.
 
 ## 8. Crie o mecanismo para adicionar músicas na lista de músicas favoritas
 
@@ -585,11 +585,11 @@ Você já consegue listar as músicas dos álbuns, nessa etapa você poderá mar
 
 ### O que será verificado
 
-- Será validado se existe um checkbox para cada música da lista;
+- Se existe um checkbox para cada música da lista;
 
-- Será validado se a função `addSong` é chamada quando algum checkbox é clicado;
+- Se a função `addSong` é chamada quando algum checkbox é clicado;
 
-- Será validado se a mensagem `Carregando...` é exibida após clicar no checkbox e removida depois do retorno da API;
+- Se a mensagem `Carregando...` é exibida após clicar no checkbox e removida depois do retorno da API;
 
 ![requisito-8](images/requisito8.gif)
 
@@ -607,9 +607,9 @@ Ao entrar na página com a lista de músicas de um álbum, na rota `/album/:id`,
 
 ### O que será verificado
 
-- Será validado se a requisição para `getFavoriteSongs` é feita para recuperar as músicas favoritas;
+- A requisição para `getFavoriteSongs` é feita para recuperar as músicas favoritas;
 
-- Será validado se, ao entrar na página, o número de checkboxes marcados como `checked` é correspondente ao número de músicas que já foram favoritadas;
+- Se, ao entrar na página, o número de checkboxes marcados como `checked` é correspondente ao número de músicas que já foram favoritadas;
 
 ![requisito-9](images/requisito9.gif)
 
@@ -627,9 +627,9 @@ Após adicionar uma música na lista de favoritas usando a função `addSong` (r
 
 ### O que será verificado
 
-- Será validado se a requisição para `getFavoriteSongs` é feita após favoritar uma música;
+- A requisição para `getFavoriteSongs` é feita após favoritar uma música;
 
-- Será validado se o número de checkboxes marcados como `checked` aumenta quando um checkbox é clicado;
+- O número de checkboxes marcados como `checked` aumenta quando um checkbox é clicado;
 
 ## 11. Crie o mecanismo para remover músicas na lista de músicas favoritas
 
@@ -641,11 +641,11 @@ Depois de listar e favoritar as músicas de um álbum, você também deve poder 
 
 ### O que será verificado
 
-- Será validado se a função `removeSong` é chamada quando algum checkbox que já esteja marcado é clicado;
+- A função `removeSong` é chamada quando algum checkbox que já esteja marcado é clicado;
 
-- Será validado se a mensagem `Carregando...` é exibida após clicar no checkbox e removida depois do retorno da API;
+- A mensagem `Carregando...` é exibida após clicar no checkbox e removida depois do retorno da API;
 
-- Será validado se o número de checkboxes marcados como `checked` diminui quando um checkbox marcado é clicado;
+- O número de checkboxes marcados como `checked` diminui quando um checkbox marcado é clicado;
 
 ![requisito-11](images/requisito11.gif)
 
@@ -669,11 +669,11 @@ Crie a lista dentro do componente `Favorites`, que é renderizado na rota `/favo
 
 ### O que será verificado
 
-- Será validado se a requisição para `getFavoriteSongs` é feita para recuperar as músicas favoritas;
+- A requisição para `getFavoriteSongs` é feita para recuperar as músicas favoritas;
 
-- Será validado se é exibida a lista de músicas favoritas;
+- É exibida a lista de músicas favoritas;
 
-- Será validado se a lista de músicas favoritas é atualizada ao remover uma música da lista.
+- A lista de músicas favoritas é atualizada ao remover uma música da lista.
 
 ![requisito-12](images/requisito12.gif)
 
@@ -695,13 +695,13 @@ Crie a exibição do perfil dentro do componente `Profile`, que é renderizado n
 
 ### O que será verificado
 
-- Será validado se a API `getUser` é usada para recuperar as informações da pessoa logada;
+- A API `getUser` é usada para recuperar as informações da pessoa logada;
 
-- Será validado se as informações da pessoa logada são exibidas na tela;
+- As informações da pessoa logada são exibidas na tela;
 
-- Será validado se foi criado um link para a rota de edição de perfil com o texto `Editar perfil`;
+- Foi criado um link para a rota de edição de perfil com o texto `Editar perfil`;
 
-- Será validado se ao clicar no link `Editar perfil`, a navegação acontece corretamente.
+- Ao clicar no link `Editar perfil`, a navegação acontece corretamente.
 
 ## 14. Crie o formulário de edição de perfil
 
@@ -748,17 +748,17 @@ Crie o formulário de edição de perfil dentro do componente `ProfileEdit`, que
 
 ### O que será verificado
 
-- Será validado se é feita a requisição para `getUser` para recuperar as informações da pessoa logada;
+- É feita a requisição para `getUser` para recuperar as informações da pessoa logada;
 
-- Será validado se o formulário é renderizado já preenchido com as informações da pessoa logada;
+- O formulário é renderizado já preenchido com as informações da pessoa logada;
 
-- Será validado se é possível alterar os valores dos campos;
+- É possível alterar os valores dos campos;
 
-- Será validado se o botão `salvar` é habilitado somente se todos os campos estiverem válidos;
+- O botão `salvar` é habilitado somente se todos os campos estiverem válidos;
 
-- Será validado se as informações são enviadas usando a API `updateUser`;
+- As informações são enviadas usando a API `updateUser`;
 
-- Será validado se após salvar as informações a pessoa é redirecionada para a página de exibição de perfil.
+- Se, após salvar as informações, a pessoa é redirecionada para a página de exibição de perfil.
 
 ---
 
