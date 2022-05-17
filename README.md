@@ -585,7 +585,7 @@ Você já consegue listar as músicas dos álbuns, nessa etapa você poderá mar
 
 ### O que será verificado
 
-- Se existe um checkbox para cada música da lista;
+- Existe um checkbox para cada música da lista;
 
 - A função `addSong` é chamada quando algum checkbox é clicado;
 
