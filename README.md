@@ -394,7 +394,7 @@ _Obs:_ Você verá nos requisitos mais a frente que você poderá passar outras 
 
 - Será validado se o botão só é habilitado se o input de nome tiver 3 ou mais caracteres;
 
-- Será validado se ao clicar no botão habilitado, a função `createUser` da `userAPI` é chamada;
+- Será validado se, ao clicar no botão habilitado, a função `createUser` da `userAPI` é chamada;
 
 - Será validado se ao clicar no botão, a mensagem `Carregando...` é exibida e após a resposta da API acontece o redirecionamento para a rota `/search`.
 
