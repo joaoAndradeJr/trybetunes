@@ -587,7 +587,7 @@ Você já consegue listar as músicas dos álbuns, nessa etapa você poderá mar
 
 - Se existe um checkbox para cada música da lista;
 
-- Se a função `addSong` é chamada quando algum checkbox é clicado;
+- A função `addSong` é chamada quando algum checkbox é clicado;
 
 - A mensagem `Carregando...` é exibida após clicar no checkbox e removida depois do retorno da API;
 
