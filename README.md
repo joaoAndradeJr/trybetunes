@@ -396,7 +396,7 @@ _Obs:_ Você verá nos requisitos mais a frente que você poderá passar outras 
 
 - Será validado se, ao clicar no botão habilitado, a função `createUser` da `userAPI` é chamada;
 
-- Será validado se ao clicar no botão, a mensagem `Carregando...` é exibida e após a resposta da API acontece o redirecionamento para a rota `/search`.
+- Será validado se, ao clicar no botão, a mensagem `Carregando...` é exibida e após a resposta da API acontece o redirecionamento para a rota `/search`.
 
 ## 3. Crie um componente de cabeçalho
 
