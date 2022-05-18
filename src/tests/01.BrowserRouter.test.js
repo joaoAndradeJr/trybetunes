@@ -12,7 +12,7 @@ describe('1 - Crie as rotas necessárias para a aplicação', () => {
     jest.restoreAllMocks();
   });
 
-  it('Será validado que rota / é uma rota existente e que ela renderiza com data-testid page-login ser acessada',
+  it('A rota "/" é uma rota existente e que renderiza um componente com o "data-testid" com valor "page-login"',
     async () => {
       localStorage.clear();
       renderPath("/");
@@ -25,7 +25,7 @@ describe('1 - Crie as rotas necessárias para a aplicação', () => {
       expect(screen.getByTestId('page-login')).toBeInTheDocument();
   });
 
-  it('Será validado que rota /search é uma rota existente e que ela renderiza o componente com data-testid page-search',
+  it('A rota "/search" é uma rota existente e que renderiza um componente com o "data-testid" com valor "page-search"',
   async () => {
     renderPath("/search");
 
@@ -37,7 +37,7 @@ describe('1 - Crie as rotas necessárias para a aplicação', () => {
     expect(screen.getByTestId('page-search')).toBeInTheDocument();
   });
 
-  it('Será validado que rota /album/:id é uma rota existente e que ela renderiza o componente com data-testid page-album',
+  it('A rota "/album/:id" é uma rota existente e que renderiza um componente com o "data-testid" com valor "page-album"',
   async () => {
     localStorage.setItem('user', JSON.stringify(defaultUser));
     jest.spyOn(musicsAPI, 'default').mockImplementation(
@@ -54,7 +54,7 @@ describe('1 - Crie as rotas necessárias para a aplicação', () => {
     expect(screen.getByTestId('page-album')).toBeInTheDocument();
   });
 
-  it('Será validado que rota /favorites é uma rota existente e que ela renderiza o componente com data-testid page-favorites',
+  it('A rota "/favorites" é uma rota existente e que renderiza um componente com o "data-testid" com valor "page-favorites"',
   async () => {
     localStorage.setItem('favorite_songs', JSON.stringify([]));
 
@@ -68,7 +68,7 @@ describe('1 - Crie as rotas necessárias para a aplicação', () => {
     expect(screen.getByTestId('page-favorites')).toBeInTheDocument();
   });
 
-  it('Será validado que rota /profile é uma rota existente e que ela renderiza o componente com data-testid page-profile',
+  it('A rota "/profile" é uma rota existente e que renderiza um componente com o "data-testid" com valor "page-profile"',
   async () => {
     renderPath("/profile");
 
@@ -80,7 +80,7 @@ describe('1 - Crie as rotas necessárias para a aplicação', () => {
     expect(screen.getByTestId('page-profile')).toBeInTheDocument();
   });
 
-  it('Será validado que rota /profile/edit é uma rota existente e que ela renderiza o componente com data-testid page-profile-edit',
+  it('A rota "/profile/edit" é uma rota existente e que renderiza um componente com o "data-testid" com valor "page-profile-edit"',
   async () => {
     renderPath("/profile/edit");
 
@@ -92,7 +92,7 @@ describe('1 - Crie as rotas necessárias para a aplicação', () => {
     expect(screen.getByTestId('page-profile-edit')).toBeInTheDocument();
   });
 
-  it('Será validado se existe uma página para rotas não mapeadas e que renderiza um componente com o data-testid com valor page-not-found',
+  it('Existe uma página para rotas não mapeadas e que renderiza um componente com o "data-testid" com valor "page-not-found"',
   async () => {
     renderPath("/page/not/found");
 

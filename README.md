@@ -280,11 +280,11 @@ Ao iniciar este projeto, você concorda com as diretrizes do Código de Conduta 
   O arquivo `userAPI.js` será utilizado para manipular as informações da pessoa logada, dentro dele estarão as funções para recuperar e atualizar as informações da pessoa usuária, além de criar um novo perfil. Todas essas funções simulam o funcionamento de uma API.
 
   - Para recuperar as informações da pessoa usuária, utilize a função `getUser`. Ela retornará um objeto com as informações da pessoa logada caso exista.
-  **Atenção:** caso não encontre nenhuma informação da banda ou artista, a API retornará um objeto vazio.
+  **Atenção:** caso não encontre nenhuma informação da pessoa usuária, a API retornará um objeto vazio.
 
   - Para criar um novo perfil, utilize a função `createUser`, ela recebe como parâmetro o objeto que contém as informações da pessoa usuária. Esse objeto deverá conter a seguinte estrutura:
 
-  ```
+  ```javascript
   {
     name: '',
     email: '',
@@ -298,7 +298,7 @@ Ao iniciar este projeto, você concorda com as diretrizes do Código de Conduta 
 
   <details><summary><strong> <code>searchAlbumsAPI.js</code></strong></summary>
 
-  O arquivo `searchAlbumsAPI.js` contém uma função que faz uma requisição à uma API e retorna os álbuns de uma banda ou artista. Para essa função funcionar, ela recebe como parâmetro uma string, que deve ser o nome da banda ou artista. O retorno dessa função, quando encontra as informações, é um array com cada álbum dentro de um objeto.
+  O arquivo `searchAlbumsAPI.js` contém uma função que faz uma requisição a uma API e retorna os álbuns de uma banda ou artista. Para essa função funcionar, ela recebe como parâmetro uma string, que deve ser o nome da banda ou artista. O retorno dessa função, quando encontra as informações, é um array com cada álbum dentro de um objeto.
   **Atenção:** caso não encontre nenhuma informação da banda ou artista, a API retornará um array vazio.
   </details>
   <details><summary><strong> <code>favoriteSongsAPI.js</code></strong></summary>
@@ -309,13 +309,13 @@ Ao iniciar este projeto, você concorda com as diretrizes do Código de Conduta 
 
   A função `addSong` recebe um objeto que representa a música que você quer salvar como favorita e adiciona ao array já existente das músicas que já foram favoritadas.
 
-  A função `removeSong` também recebe um objeto que representa a música que você deseja remover da lista de músicas favoritas. 
+  A função `removeSong` também recebe um objeto que representa a música que você deseja remover da lista de músicas favoritas.
 
   **Atenção:** os objetos de música precisam ter a chave `trackId` para que as músicas sejam adicionadas e removidas corretamente.
   </details>
   <details><summary><strong> <code>musicsAPI.js</code></strong></summary>
 
-  O arquivo `musicsAPI.js` contém uma função que faz uma requisição à uma API e retorna os as músicas de um álbum, ela recebe como parâmetro uma string, que deve ser o id do álbum. O retorno dessa função, quando encontra as informações, é um array onde o primeiro elemento é um objeto com informações do álbum e o restante dos elementos são as músicas do álbum.
+  O arquivo `musicsAPI.js` contém a função `getMusics` que faz uma requisição a uma API e retorna os as músicas de um álbum. Ela recebe como parâmetro uma string, que deve ser o id do álbum. O retorno dessa função, quando encontra as informações, é um array onde o primeiro elemento é um objeto com informações do álbum e o restante dos elementos são as músicas do álbum.
   **Atenção:** caso não encontre nenhuma informação, a API retornará um array vazio.
   </details>
 </details>
@@ -382,19 +382,19 @@ Para qualquer outra rota não mapeada, deve ser renderizado um componente chamad
 <details>
   <summary><strong>O que será verificado</strong></summary><br />
   
-  - Será validado se a rota `/` é uma rota existente e que renderiza um componente com o `data-testid` com valor `page-login`;
-  
-  - Será validado se a rota `/search` é uma rota existente e que renderiza um componente com o `data-testid` com valor `page-search`;
-  
-  - Será validado se a rota `/album/:id` é uma rota existente e que renderiza um componente com o `data-testid` com valor `page-album`;
-  
-  - Será validado se a rota `/favorites` é uma rota existente e que renderiza um componente com o `data-testid` com valor `page-favorites`;
-  
-  - Será validado se a rota `/profile` é uma rota existente e que renderiza um componente com o `data-testid` com valor `page-profile`;
-  
-  - Será validado se a rota `/profile/edit` é uma rota existente e que renderiza um componente com o `data-testid` com valor `page-profile-edit`;
-  
-  - Será validado se existe uma página para rotas não mapeadas e que renderiza um componente com o `data-testid` com valor `page-not-found`;
+  - A rota `/` é uma rota existente e que renderiza um componente com o `data-testid` com valor `page-login`;
+
+  - A rota `/search` é uma rota existente e que renderiza um componente com o `data-testid` com valor `page-search`;
+
+  - A rota `/album/:id` é uma rota existente e que renderiza um componente com o `data-testid` com valor `page-album`;
+
+  - A rota `/favorites` é uma rota existente e que renderiza um componente com o `data-testid` com valor `page-favorites`;
+
+  - A rota `/profile` é uma rota existente e que renderiza um componente com o `data-testid` com valor `page-profile`;
+
+  - A rota `/profile/edit` é uma rota existente e que renderiza um componente com o `data-testid` com valor `page-profile-edit`;
+
+  - Existe uma página para rotas não mapeadas e que renderiza um componente com o `data-testid` com valor `page-not-found`;
 </details>
 
 ---
@@ -409,9 +409,11 @@ Para qualquer outra rota não mapeada, deve ser renderizado um componente chamad
   * O botão para entrar só deve ser habilitado caso o nome digitado tenha 3 ou mais caracteres.
 
   * Ao clicar no botão `Entrar`, utilize a função `createUser` da `userAPI` para salvar o nome digitado. A função `createUser` espera receber como argumento um objeto com as informações da pessoa: 
+  
+  ```javascript
+  createUser({ name: "Nome digitado" });
   ```
-  createUser({name: "Nome digitado"});
-  ```
+
   :bulb: *Obs:* Você verá nos requisitos mais a frente que você poderá passar outras informações para a `createUser`, mas não se preocupe com isso agora. Por enquanto você pode passar somente um objeto com a propriedade `name`.
 
   * Enquanto a informação da pessoa usuária é salva, uma mensagem com o texto `Carregando...` deve aparecer na tela. **:bulb: Dica:** Você precisará dessa mensagem várias vezes no futuro, então é uma boa ideia criar um componente para ela :wink:
