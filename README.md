@@ -33,10 +33,6 @@ Ao iniciar este projeto, você concorda com as diretrizes do Código de Conduta 
   - Ver o perfil da pessoa logada;
   - Editar o perfil da pessoa logada;
 
-  Para entregar o seu projeto você deverá criar um Pull Request neste repositório.
-
-  Lembre-se que você pode consultar nosso conteúdo sobre Git & GitHub no Course sempre que precisar!
-
   ### Protótipo do projeto
   Você pode acessar um protótipo no link abaixo:
 
@@ -46,23 +42,21 @@ Ao iniciar este projeto, você concorda com as diretrizes do Código de Conduta 
 <details>
   <summary><strong>:memo: Habilidades</strong></summary><br />
 
-  Neste projeto, verificamos se você é capaz de:
+Neste projeto, verificamos se você é capaz de:
 
-  * Fazer requisições e consumir dados vindos de uma `API`;
+- Fazer requisições e consumir dados vindos de uma `API`;
 
-  * Utilizar os ciclos de vida de um componente React;
+- Utilizar os ciclos de vida de um componente React;
 
-  * Utilizar a função `setState` de forma a garantir que um determinado código só é executado após o estado ser atualizado
-  
-  * Utilizar o componente `BrowserRouter` corretamente;
+- Utilizar a função `setState` de forma a garantir que um determinado código só é executado após o estado ser atualizado
 
-  * Criar rotas, mapeando o caminho da URL com o componente correspondente, via `Route`;
+- Utilizar o componente `BrowserRouter` corretamente;
 
-  * Utilizar o `Switch` do `React Router`
+- Criar rotas, mapeando o caminho da URL com o componente correspondente, via `Route`;
 
-  * Usar o componente `Redirect` pra redirecionar para uma rota específica;
+- Utilizar o `Switch` do `React Router`
 
-  * Criar links de navegação na aplicação com o componente `Link`;
+- Criar links de navegação na aplicação com o componente `Link`;
 </details>
 
 <details>
@@ -343,6 +337,7 @@ Ao finalizar e submeter o projeto, não se esqueça de avaliar sua experiência 
 :warning: Os gifs são meramente ilustrativos para visualizar o fluxo da aplicação, os nomes devem seguir os requisitos e não o gif. :warning:
 
 ## 1. Crie as rotas necessárias para a aplicação
+
 Você deve utilizar o `BrowserRouter` pra criar as rotas da sua aplicação e cada rota deverá renderizar um componente específico. Crie cada componente dentro da pasta `src/pages`, conforme o indicado abaixo:
 
 <details><summary> Rota <code>/</code></summary>
@@ -401,38 +396,39 @@ Para qualquer outra rota não mapeada, deve ser renderizado um componente chamad
 
 ## 2. Crie um formulário para identificação
 <details><summary>Dentro do componente <code>Login</code>, que é renderizado na rota <code>/</code>, crie um formulário para que a pessoa usuária se identifique com um nome:</summary>
+
+- Você deve criar um campo para que a pessoa usuária insira seu nome. Este campo deverá ter o atributo `data-testid="login-name-input"`.
+
+- Crie um botão com o texto `Entrar`. Este botão deverá ter o atributo `data-testid="login-submit-button"`.
+
+- O botão para entrar só deve estar habilitado caso o nome digitado tenha 3 ou mais caracteres.
+
+- Ao clicar no botão `Entrar`, utilize a função `createUser` da `userAPI` para salvar o nome digitado. A função `createUser` espera receber como argumento um objeto com as informações da pessoa: 
   
-  * Você deve criar um campo para que a pessoa usuária insira seu nome. Este campo deverá ter o atributo `data-testid="login-name-input"`.
+```javascript
+createUser({ name: "Nome digitado" });
+```
 
-  * Crie um botão com o texto `Entrar`. Este botão deverá ter o atributo `data-testid="login-submit-button"`.
+:bulb: *Obs:* Você verá nos requisitos mais a frente que você poderá passar outras informações para a `createUser`, mas não se preocupe com isso agora. Por enquanto você pode passar somente um objeto com a propriedade `name`.
 
-  * O botão para entrar só deve ser habilitado caso o nome digitado tenha 3 ou mais caracteres.
+- Enquanto a informação da pessoa usuária é salva, uma mensagem com o texto `Carregando...` deve aparecer na tela. **:bulb: Dica:** Você precisará dessa mensagem várias vezes no futuro, então é uma boa ideia criar um componente para ela :wink:
 
-  * Ao clicar no botão `Entrar`, utilize a função `createUser` da `userAPI` para salvar o nome digitado. A função `createUser` espera receber como argumento um objeto com as informações da pessoa: 
-  
-  ```javascript
-  createUser({ name: "Nome digitado" });
-  ```
+- Após a informação ter sido salva, faça um redirect para a rota `/search`.
 
-  :bulb: *Obs:* Você verá nos requisitos mais a frente que você poderá passar outras informações para a `createUser`, mas não se preocupe com isso agora. Por enquanto você pode passar somente um objeto com a propriedade `name`.
+![requisito-2](images/requisito2.gif)
 
-  * Enquanto a informação da pessoa usuária é salva, uma mensagem com o texto `Carregando...` deve aparecer na tela. **:bulb: Dica:** Você precisará dessa mensagem várias vezes no futuro, então é uma boa ideia criar um componente para ela :wink:
-
-  * Após a informação ter sido salva, faça um redirect para a rota `/search`.
-
-  ![requisito-2](images/requisito2.gif)
 </details><br />
 
 <details>
   <summary><strong>O que será verificado</strong></summary><br />
 
-  - Será validado se ao navegar para a rota `/`, o input e o botão especificados estão presentes;
+- Ao navegar para a rota `/`, o input e o botão especificados estão presentes;
 
-  - Será validado se o botão só é habilitado se o input de nome tiver 3 ou mais caracteres;
+- O botão só é habilitado se o input de nome tiver 3 ou mais caracteres;
 
-  - Será validado se ao clicar no botão habilitado, a função `createUser` da `userAPI` é chamada;
+- Ao clicar no botão habilitado, a função `createUser` da `userAPI` é chamada;
 
-  - Será validado se ao clicar no botão, a mensagem `Carregando...` é exibida e após a resposta da API acontece o redirecionamento para a rota `/search`.
+- Ao clicar no botão, a mensagem `Carregando...` é exibida e após a resposta da API acontece o redirecionamento para a rota `/search`.
 </details>
 
 ---
@@ -441,33 +437,33 @@ Para qualquer outra rota não mapeada, deve ser renderizado um componente chamad
 
 <details><summary>Crie um componente chamado <code>Header</code>, dentro da pasta <code>src/components</code>:</summary>
 
-  * Crie esse componente com a tag `header` envolvendo todo seu conteúdo e com o atributo `data-testid="header-component"`;
+- Crie esse componente com a tag `header` envolvendo todo seu conteúdo e com o atributo `data-testid="header-component"`;
 
-  * Renderize o componente de cabeçalho nas páginas das rotas `/search`, `/album/:id`, `/favorites`, `/profile` e `/profile/edit`; 
+- Renderize o componente de cabeçalho nas páginas das rotas `/search`, `/album/:id`, `/favorites`, `/profile` e `/profile/edit`;
 
-  * Utilize a função `getUser` da `userAPI` para recuperar o nome da pessoa logada e exiba essa informação na tela. Você pode usar qualquer tag HTML que faça sentido, desde que ela tenha o atributo `data-testid="header-user-name"`.
+- Utilize a função `getUser` da `userAPI` para recuperar o nome da pessoa logada e exiba essa informação na tela. Você pode usar qualquer tag HTML que faça sentido, desde que ela tenha o atributo `data-testid="header-user-name"`.
 
-  * Enquanto estiver aguardando a resposta da `getUser`, exiba apenas a mensagem de `Carregando...`.
+- Enquanto estiver aguardando a resposta da `getUser`, exiba apenas a mensagem de `Carregando...`.
 </details><br />
 
 <details>
   <summary><strong>O que será verificado</strong></summary><br />
- 
-  - Será validado se o componente `Header` é renderizado na página `/search`;
 
-  - Será validado se o componente `Header` é renderizado na página `/album/:id`;
+- O componente `Header` é renderizado na página `/search`;
 
-  - Será validado se o componente `Header` é renderizado na página `/favorites`;
+- O componente `Header` é renderizado na página `/album/:id`;
 
-  - Será validado se o componente `Header` é renderizado na página `/profile`;
+- O componente `Header` é renderizado na página `/favorites`;
 
-  - Será validado se o componente `Header` é renderizado na página `/profile/edit`;
+- O componente `Header` é renderizado na página `/profile`;
 
-  - Será validado se a função `getUser` é chamada ao renderizar o componente;
+- O componente `Header` é renderizado na página `/profile/edit`;
 
-  - Será validado se a mensagem de `Carregando...` é exibida ao renderizar o componente e é removida após o retorno da API;
+- A função `getUser` é chamada ao renderizar o componente;
 
-  - Será validado se o nome da pessoa usuária está presente na tela após o retorno da API.
+- A mensagem de `Carregando...` é exibida ao renderizar o componente e é removida após o retorno da API;
+
+- O nome da pessoa usuária está presente na tela após o retorno da API.
 </details>
 
 ---
@@ -492,39 +488,39 @@ Para qualquer outra rota não mapeada, deve ser renderizado um componente chamad
 <details>
   <summary><strong>O que será verificado</strong></summary><br />
 
-  - Será validado se os links de navegação são exibidos na página de pesquisa;
+  - Os links de navegação são exibidos na página de pesquisa;
   
-  - Será validado se a navegação entre a página de pesquisa e a página de músicas favoritas ocorre corretamente;
+  - A navegação entre a página de pesquisa e a página de músicas favoritas ocorre corretamente;
   
-  - Será validado se a navegação entre a página de pesquisa e a página de exibição do perfil ocorre corretamente;
+  - A navegação entre a página de pesquisa e a página de exibição do perfil ocorre corretamente;
   
-  - Será validado se os links de navegação são exibidos na página do álbum;
+  - Os links de navegação são exibidos na página do álbum;
   
-  - Será validado se a navegação entre a página do álbum e a página de pesquisa ocorre corretamente;
+  - A navegação entre a página do álbum e a página de pesquisa ocorre corretamente;
   
-  - Será validado se a navegação entre a página do álbum e a página de músicas favoritas ocorre corretamente;
+  - A navegação entre a página do álbum e a página de músicas favoritas ocorre corretamente;
   
-  - Será validado se a navegação entre a página do álbum e a página de exibição do perfil ocorre corretamente;
+  - A navegação entre a página do álbum e a página de exibição do perfil ocorre corretamente;
   
-  - Será validado se os links de navegação são exibidos na página de músicas favoritas;
+  - Os links de navegação são exibidos na página de músicas favoritas;
   
-  - Será validado se a navegação entre a página de músicas favoritas e a página de pesquisa ocorre corretamente;
+  - A navegação entre a página de músicas favoritas e a página de pesquisa ocorre corretamente;
   
-  - Será validado se a navegação entre a página de músicas favoritas e a página de exibição perfil ocorre corretamente;
+  - A navegação entre a página de músicas favoritas e a página de exibição perfil ocorre corretamente;
   
-  - Será validado se os links de navegação são exibidos na página de exibição do perfil;
+  - Os links de navegação são exibidos na página de exibição do perfil;
   
-  - Será validado se a navegação entre a página de exibição do perfil e a página de pesquisa ocorre corretamente;
+  - A navegação entre a página de exibição do perfil e a página de pesquisa ocorre corretamente;
   
-  - Será validado se a navegação entre a página de exibição do perfil e a página de músicas favoritas ocorre corretamente;
+  - A navegação entre a página de exibição do perfil e a página de músicas favoritas ocorre corretamente;
   
-  - Será validado se os links de navegação são exibidos na página de edição do perfil;
+  - Os links de navegação são exibidos na página de edição do perfil;
   
-  - Será validado se a navegação entre a página de edição do perfil e a página de pesquisa ocorre corretamente;
+  - A navegação entre a página de edição do perfil e a página de pesquisa ocorre corretamente;
   
-  - Será validado se a navegação entre a página de edição do perfil e a página de músicas favoritas ocorre corretamente;
+  - A navegação entre a página de edição do perfil e a página de músicas favoritas ocorre corretamente;
   
-  - Será validado se a navegação entre a página de edição do perfil e a página de exibição do perfil ocorre corretamente.
+  - A navegação entre a página de edição do perfil e a página de exibição do perfil ocorre corretamente.
 </details>
 
 ---
@@ -541,16 +537,15 @@ Este formulário deve conter um input e um botão para que seja possível pesqui
 
   * O botão só deve estar habilitado caso o nome do artista tenha 2 ou mais caracteres.
 
-
   ![requisito-5](images/requisito5.png)
 </details><br />
 
 <details>
   <summary><strong>O que será verificado</strong></summary><br />
 
-  - Será validado se ao navegar para a rota `/search`, o input e o botão estão presentes na tela;
+  - Ao navegar para a rota `/search`, o input e o botão estão presentes na tela;
 
-  - Será validado se o botão está habilitado somente se o input de nome tiver 2 ou mais caracteres.
+  - O botão está habilitado somente se o input de nome tiver 2 ou mais caracteres.
 </details>
 
 ---
@@ -601,15 +596,15 @@ Com a estrutura da tela de pesquisa criada, agora é hora de fazer uma requisiç
 <details>
   <summary><strong>O que será verificado</strong></summary><br />
 
-  - Será validado se ao clicar em `pesquisar`, a requisição é feita usando a `searchAlbumsAPI`;
+  - Ao clicar em `pesquisar`, a requisição é feita usando a `searchAlbumsAPI`;
 
-  - Será validado se ao clicar no botão, o texto `Resultado de álbuns de: <artista>` aparece na tela;
+  - Ao clicar no botão, o texto `Resultado de álbuns de: <artista>` aparece na tela;
 
-  - Será validado se ao receber o retorno da API, os álbuns são listados na tela;
-  
-  - Será validado se caso a API não retorne nenhum álbum, a mensagem `Nenhum álbum foi encontrado` é exibida;
+  - Ao receber o retorno da API, os álbuns são listados na tela;
 
-  - Será validado se existe um link para cada álbum listado que redirecione para a rota `/album/:id`.
+  - Caso a API não retorne nenhum álbum, a mensagem `Nenhum álbum foi encontrado` é exibida;
+
+  - Existe um link para cada álbum listado que redirecione para a rota `/album/:id`.
 </details>
 
 ---
@@ -619,23 +614,27 @@ Com a estrutura da tela de pesquisa criada, agora é hora de fazer uma requisiç
 Agora que está tudo pronto, você poderá exibir a lista de músicas do álbum selecionado. 
 
 <details><summary>Crie a lista dentro do componente <code>Album</code>, que é renderizado na rota <code>/album/:id</code>: </summary>
-  
-  * Ao entrar na página, faça uma requisição utilizando a função `getMusics` do arquivo `musicsAPI.js`. Lembre-se que essa função espera receber uma string com o id do álbum.
 
-  * Exiba o nome da banda ou artista na tela. Você pode usar qualquer tag HTML que faça sentido, desde que ela tenha o atributo `data-testid="artist-name"`.
+- Ao entrar na página, faça uma requisição utilizando a função `getMusics` do arquivo `musicsAPI.js`. Lembre-se que essa função espera receber uma string com o id do álbum.
 
-  * Exiba o nome do álbum e nome da banda ou artista na tela. Você pode usar qualquer tag HTML que faça sentido, desde que ela tenha o atributo `data-testid="album-name"`.
+- Exiba o nome da banda ou artista na tela. Você pode usar qualquer tag HTML que faça sentido, desde que ela tenha o atributo `data-testid="artist-name"`.
 
-  * Liste todas as músicas do álbum na tela. Para isso, crie um componente chamado `MusicCard` que deverá exibir o nome da música (propriedade `trackName` no objeto recebido pela API) e um player para tocar o preview da música (propriedade `previewUrl` no objeto recebido pela API).
+- Exiba o nome do álbum e nome da banda ou artista na tela. Você pode usar qualquer tag HTML que faça sentido, desde que ela tenha o atributo `data-testid="album-name"`.
 
-  Para tocar o preview, você deve usar a tag `audio` do próprio HTML. Sua implementação é assim: 
-  ```javascript
-  <audio data-testid="audio-component" src={ previewUrl } controls>
-    <track kind="captions" />
-      O seu navegador não suporta o elemento <code>audio</code>.
-  </audio>
-  ```
-  **Importante:** lembre-se de colocar o atributo `data-testid="audio-component"` na tag `audio` de cada música listada.
+- Liste todas as músicas do álbum na tela. Para isso, crie um componente chamado `MusicCard` que deverá exibir o nome da música (propriedade `trackName` no objeto recebido pela API) e um player para tocar o preview da música (propriedade `previewUrl` no objeto recebido pela API).
+
+:bulb: **Dica:** Lembre-se que o retorno da função `getMusics`, quando encontra as informações, é um array onde o primeiro elemento é um objeto com informações do álbum e o restante dos elementos são as músicas do álbum.
+
+Para tocar o preview, você deve usar a tag `audio` do próprio HTML. Sua implementação é assim:
+
+```html
+<audio data-testid="audio-component" src="{previewUrl}" controls>
+  <track kind="captions" />
+  O seu navegador não suporta o elemento{" "} <code>audio</code>.
+</audio>
+```
+
+**Importante:** lembre-se de colocar o atributo `data-testid="audio-component"` na tag `audio` de cada música listada.
 
   ![requisito-7](images/requisito7.gif)
 </details><br />
@@ -643,11 +642,11 @@ Agora que está tudo pronto, você poderá exibir a lista de músicas do álbum 
 <details>
   <summary><strong>O que será verificado</strong></summary><br />
   
-  - Será validado se o serviço de `musicsAPI` está sendo chamado;
+  - Se o serviço de `musicsAPI` está sendo chamado;
   
-  - Será validado se o nome da banda ou artista e o nome do álbum são exibidos;
+  - Se o nome da banda ou artista e o nome do álbum são exibidos;
   
-  - Será validado se todas músicas retornadas pela API são listadas.
+  - Se todas músicas retornadas pela API são listadas.
 </details>
 
 ---
@@ -674,11 +673,11 @@ Você já consegue listar as músicas dos álbuns. Nessa etapa você poderá mar
 <details>
   <summary><strong>O que será verificado</strong></summary><br />
 
-  - Será validado se existe um checkbox para cada música da lista;
+  - Existe um checkbox para cada música da lista;
 
-  - Será validado se a função `addSong` é chamada quando algum checkbox é clicado;
+  - A função `addSong` é chamada quando algum checkbox é clicado;
 
-  - Será validado se a mensagem `Carregando...` é exibida após clicar no checkbox e removida depois do retorno da API.
+  - A mensagem `Carregando...` é exibida após clicar no checkbox e removida depois do retorno da API.
 </details>
 
 ---
@@ -687,13 +686,13 @@ Você já consegue listar as músicas dos álbuns. Nessa etapa você poderá mar
 
 <details><summary> Ao entrar na página com a lista de músicas de um álbum, na rota <code>/album/:id</code>, as músicas que já foram favoritadas anteriormente devem estar com o checkbox marcado</summary>
 
-  * Ao entrar na página, utilize a função `getFavoriteSongs` da `favoriteSongsAPI` para recuperar a lista de músicas favoritas.
+- Ao entrar na página, utilize a função `getFavoriteSongs` da `favoriteSongsAPI` para recuperar a lista de músicas favoritas.
 
-  * Enquanto aguarda a resposta da API, exiba a mensagem `Carregando...`.
+- Enquanto aguarda a resposta da API, exiba a mensagem `Carregando...`.
 
-  * A lista recebida pela função `getFavoriteSongs` deve ser salva no estado da sua aplicação.
-  
-  * Após receber o retorno da função `getFavoriteSongs`, as músicas que já foram favoritadas devem estar com o checkbox marcado como `checked`.
+- A lista recebida pela função `getFavoriteSongs` deve ser salva no estado da sua aplicação.
+
+- Após receber o retorno da função `getFavoriteSongs`, as músicas que já foram favoritadas devem estar com o checkbox marcado como `checked`.
 
   ![requisito-9](images/requisito9.gif)
 </details><br />
@@ -701,9 +700,9 @@ Você já consegue listar as músicas dos álbuns. Nessa etapa você poderá mar
 <details>
   <summary><strong>O que será verificado</strong></summary><br />
 
-  - Será validado se a requisição para `getFavoriteSongs` é feita para recuperar as músicas favoritas;
+  - A requisição para `getFavoriteSongs` é feita para recuperar as músicas favoritas;
 
-  - Será validado se, ao entrar na página, o número de checkboxes marcados como `checked` é correspondente ao número de músicas que já foram favoritadas;
+  - Ao entrar na página, o número de checkboxes marcados como `checked` é correspondente ao número de músicas que já foram favoritadas;
 </details>
 
 ---
@@ -712,21 +711,21 @@ Você já consegue listar as músicas dos álbuns. Nessa etapa você poderá mar
 
 <details><summary> Após adicionar uma música na lista de favoritas usando a função <code>addSong</code> (Requisito 8), faça uma requisição usando a função <code>getFavoriteSongs</code> para atualizar a lista de músicas favoritas:</summary>
 
-  * Ao favoritar uma música, aguarde o retorno da função `addSong` (que já foi implementada no requisito 8) e utilize a função `getFavoriteSongs` da `favoriteSongsAPI` para recuperar a lista de músicas favoritas.
+- Ao favoritar uma música, aguarde o retorno da função `addSong` (que já foi implementada no requisito 8) e utilize a função `getFavoriteSongs` da `favoriteSongsAPI` para recuperar a lista de músicas favoritas.
 
-  * Enquanto aguarda a resposta da API, exiba a mensagem `Carregando...`.
+- Enquanto aguarda a resposta da API, exiba a mensagem `Carregando...`.
 
-  * Atualize o estado da aplicação com o valor recebido pelo retorno da função `getFavoriteSongs`.
+- Atualize o estado da aplicação com o valor recebido pelo retorno da função `getFavoriteSongs`.
   
-  * Após receber o retorno da função `getFavoriteSongs`, as músicas que já foram favoritadas devem estar com o checkbox marcado como `checked`.
+- Após receber o retorno da função `getFavoriteSongs`, as músicas que já foram favoritadas devem estar com o checkbox marcado como `checked`.
 </details><br />
 
 <details>
   <summary><strong>O que será verificado</strong></summary><br />
 
-  - Será validado se a requisição para `getFavoriteSongs` é feita após favoritar uma música;
+  - A requisição para `getFavoriteSongs` é feita após favoritar uma música;
 
-  - Será validado se o número de checkboxes marcados como `checked` aumenta quando um checkbox é clicado.
+  - O número de checkboxes marcados como `checked` aumenta quando um checkbox é clicado.
 </details>
 
 ---
@@ -745,11 +744,11 @@ Depois de listar e favoritar as músicas de um álbum, você também deve poder 
 <details>
   <summary><strong>O que será verificado</strong></summary><br />
 
-  - Será validado se a função `removeSong` é chamada quando algum checkbox que já esteja marcado é clicado;
+- A função `removeSong` é chamada quando algum checkbox que já esteja marcado é clicado;
 
-  - Será validado se a mensagem `Carregando...` é exibida após clicar no checkbox e removida depois do retorno da API;
+- A mensagem `Carregando...` é exibida após clicar no checkbox e removida depois do retorno da API;
 
-  - Será validado se o número de checkboxes marcados como `checked` diminui quando um checkbox marcado é clicado.
+- O número de checkboxes marcados como `checked` diminui quando um checkbox marcado é clicado;
 </details>
 
 ---
@@ -760,17 +759,17 @@ Depois de listar e favoritar as músicas de um álbum, você também deve poder 
 
 <details><summary> Crie a lista dentro do componente <code>Favorites</code>, que é renderizado na rota <code>/favorites</code>.</summary>
 
-  * Ao entrar na página, utilize a função `getFavoriteSongs` da `favoriteSongsAPI` para recuperar a lista de músicas favoritas.
+- Ao entrar na página, utilize a função `getFavoriteSongs` da `favoriteSongsAPI` para recuperar a lista de músicas favoritas.
 
-  * Enquanto aguarda a resposta da API, exiba a mensagem `Carregando...`.
+- Enquanto aguarda a resposta da API, exiba a mensagem `Carregando...`.
 
-  * Após receber o retorno da função `getFavoriteSongs`, utilize o  componente `MusicCard` para renderizar a lista de músicas favoritas.
+- Após receber o retorno da função `getFavoriteSongs`, utilize o componente `MusicCard` para renderizar a lista de músicas favoritas.
 
-  * Nesta página deve ser possível desfavoritar as músicas. Para isso utilize a função `removeSong` da `favoriteSongsAPI`.
+- Nesta página deve ser possível desfavoritar as músicas. Para isso utilize a função `removeSong` da `favoriteSongsAPI`.
 
-  * Enquanto aguarda a resposta da API, exiba a mensagem `Carregando...`.
+- Enquanto aguarda a resposta da API, exiba a mensagem `Carregando...`.
 
-  * Após remover a música, atualize a lista usando a função `getFavoriteSongs`. Lembre-se de exibir a mensagem `Carregando...` enquanto aguarda o retorno da API.
+- Após remover a música, atualize a lista usando a função `getFavoriteSongs`. Lembre-se de exibir a mensagem `Carregando...` enquanto aguarda o retorno da API.
 
   ![requisito-12](images/requisito12.gif)
 </details><br />
@@ -778,11 +777,11 @@ Depois de listar e favoritar as músicas de um álbum, você também deve poder 
 <details>
   <summary><strong>O que será verificado</strong></summary><br />
 
-  - Será validado se a requisição para `getFavoriteSongs` é feita para recuperar as músicas favoritas;
+- A requisição para `getFavoriteSongs` é feita para recuperar as músicas favoritas;
 
-  - Será validado se é exibida a lista de músicas favoritas;
+- É exibida a lista de músicas favoritas;
 
-  - Será validado se a lista de músicas favoritas é atualizada ao remover uma música da lista.
+- A lista de músicas favoritas é atualizada ao remover uma música da lista.
 </details>
 
 ---
@@ -791,15 +790,15 @@ Depois de listar e favoritar as músicas de um álbum, você também deve poder 
 
 <details><summary> Crie a exibição do perfil dentro do componente <code>Profile</code>, que é renderizado na rota <code>/profile</code></summary>
 
-  * Utilize a função `getUser` da `userAPI` para recuperar as informações da pessoa logada.
+- Utilize a função `getUser` da `userAPI` para recuperar as informações da pessoa logada.
 
-  * Enquanto aguarda a resposta da API, exiba a mensagem `Carregando...`.
+- Enquanto aguarda a resposta da API, exiba a mensagem `Carregando...`.
 
-  * Após receber o retorno da `getUser`, exiba o nome, o email, a descrição e a imagem da pessoa logada.
+- Após receber o retorno da `getUser`, exiba o nome, o email, a descrição e a imagem da pessoa logada.
 
-  * Para exibir a imagem, use a tag HTML `img` com o atributo `data-testid="profile-image"`;
+- Para exibir a imagem, use a tag HTML `img` com o atributo `data-testid="profile-image"`;
 
-  * Crie um link que redirecione para a página de edição de perfil (rota `/profile/edit`). Este link deve ter o texto `Editar perfil`.
+- Crie um link que redirecione para a página de edição de perfil (rota `/profile/edit`). Este link deve ter o texto `Editar perfil`.
 
   ![requisito-13](images/requisito13.gif)
 </details><br />
@@ -807,13 +806,13 @@ Depois de listar e favoritar as músicas de um álbum, você também deve poder 
 <details>
   <summary><strong>O que será verificado</strong></summary><br />
 
-  - Será validado se a API `getUser` é usada para recuperar as informações da pessoa logada;
+- A API `getUser` é usada para recuperar as informações da pessoa logada;
 
-  - Será validado se as informações da pessoa logada são exibidas na tela;
+- As informações da pessoa logada são exibidas na tela;
 
-  - Será validado se foi criado um link para a rota de edição de perfil com o texto `Editar perfil`;
+- Foi criado um link para a rota de edição de perfil com o texto `Editar perfil`;
 
-  - Será validado se ao clicar no link `Editar perfil`, a navegação acontece corretamente.
+- Ao clicar no link `Editar perfil`, a navegação acontece corretamente.
 </details>
 
 ---
@@ -829,15 +828,15 @@ Crie o formulário de edição de perfil dentro do componente <code>ProfileEdit<
 
   * <details><summary> Após receber as informações da pessoa logada, renderize um formulário já preenchido com os seguintes campos:</summary>
 
-    * Um campo para alterar o nome da pessoa usuária. Este campo precisa ter o atributo `data-testid="edit-input-name"`;
+    - Um campo para alterar o nome da pessoa usuária. Este campo precisa ter o atributo `data-testid="edit-input-name"`;
 
-    * Um campo para alterar o email da pessoa usuária. Este campo precisa ter o atributo `data-testid="edit-input-email"`;
+    - Um campo para alterar o email da pessoa usuária. Este campo precisa ter o atributo `data-testid="edit-input-email"`;
 
-    * Um campo para alterar a descrição da pessoa usuária. Este campo precisa ter o atributo `data-testid="edit-input-description"`;
+    - Um campo para alterar a descrição da pessoa usuária. Este campo precisa ter o atributo `data-testid="edit-input-description"`;
 
-    * Um campo para alterar a foto da pessoa usuária. Este campo precisa ter o atributo `data-testid="edit-input-image"`;
+    - Um campo para alterar a foto da pessoa usuária. Este campo precisa ter o atributo `data-testid="edit-input-image"`;
 
-    * Um botão para salvar as informações alteradas. Este botão precisa ter o atributo `data-testid="edit-button-save"`.
+    - Um botão para salvar as informações alteradas. Este botão precisa ter o atributo `data-testid="edit-button-save"`.
     </details>
 
   * <details><summary>Para poder habilitar o botão de enviar, todos os campos precisam estar preenchidos (não podem estar vazios): </summary>
@@ -871,17 +870,17 @@ Crie o formulário de edição de perfil dentro do componente <code>ProfileEdit<
 <details>
   <summary><strong>O que será verificado</strong></summary><br />
 
-  - Será validado se é feita a requisição para `getUser` para recuperar as informações da pessoa logada; 
+  - É feita a requisição para `getUser` para recuperar as informações da pessoa logada; 
 
-  - Será validado se o formulário é renderizado já preenchido com as informações da pessoa logada;
+  - O formulário é renderizado já preenchido com as informações da pessoa logada;
 
-  - Será validado se é possível alterar os valores dos campos;
+  - É possível alterar os valores dos campos;
 
-  - Será validado se o botão `salvar` é habilitado somente se todos os campos estiverem válidos;
+  - O botão `salvar` é habilitado somente se todos os campos estiverem válidos;
 
-  - Será validado se as informações são enviadas usando a API `updateUser`;
+  - As informações são enviadas usando a API `updateUser`;
 
-  - Será validado se após salvar as informações a pessoa é redirecionada para a página de exibição de perfil.
+  - Após salvar as informações a pessoa é redirecionada para a página de exibição de perfil.
 </details>
 
 ---
