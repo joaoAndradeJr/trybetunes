@@ -14,7 +14,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: betrybe/eslint-linter-action
-          ref: v3
+          ref: v3.2
           token: ${{ secrets.GIT_HUB_PAT }}
           path: .github/actions/eslint-evaluator
 
@@ -38,7 +38,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: betrybe/jest-evaluator-action
-          ref: v9.1
+          ref: v9.3
           token: ${{ secrets.GIT_HUB_PAT }}
           path: .github/actions/jest-evaluator
 
