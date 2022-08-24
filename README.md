@@ -33,10 +33,19 @@ Ao iniciar este projeto, você concorda com as diretrizes do Código de Conduta 
   - Ver o perfil da pessoa logada;
   - Editar o perfil da pessoa logada;
 
-  ### Protótipo do projeto
-  Você pode acessar um protótipo no link abaixo:
+</details>
 
-  https://www.figma.com/file/BDQgAJvOe4KNUjmrYh5t68/TrybeTunes-Figma
+<details>
+  <summary><strong>💻 Protótipo do Figma</strong></summary><br />
+
+  Além da qualidade do código e do atendimento aos requisitos, um bom layout é um dos aspectos responsáveis por melhorar a usabilidade de uma aplicação e turbinar seu portfólio!
+
+  Você pode estar se perguntando: *"Como deixo meu projeto com um layout mais atrativo?"* 🤔
+
+  Para isso, disponibilizamos esse [protótipo do Figma](https://www.figma.com/file/pkocuFSMsqmUqvMUbsfcRp/%5BProjeto%5D%5BFrontend%5D-Trybetunes?node-id=0%3A1) para lhe ajudar !
+
+  ⚠️ A estilização de sua aplicação não será avaliada nesse projeto, portanto o uso do protótipo é **opcional**.
+
 </details>
 
 <details>
