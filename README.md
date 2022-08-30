@@ -36,19 +36,6 @@ Ao iniciar este projeto, você concorda com as diretrizes do Código de Conduta 
 </details>
 
 <details>
-  <summary><strong>💻 Protótipo do Figma</strong></summary><br />
-
-  Além da qualidade do código e do atendimento aos requisitos, um bom layout é um dos aspectos responsáveis por melhorar a usabilidade de uma aplicação e turbinar seu portfólio!
-
-  Você pode estar se perguntando: *"Como deixo meu projeto com um layout mais atrativo?"* 🤔
-
-  Para isso, disponibilizamos esse [protótipo do Figma](https://www.figma.com/file/pkocuFSMsqmUqvMUbsfcRp/%5BProjeto%5D%5BFrontend%5D-Trybetunes?node-id=0%3A1) para lhe ajudar !
-
-  ⚠️ A estilização de sua aplicação não será avaliada nesse projeto, portanto o uso do protótipo é **opcional**.
-
-</details>
-
-<details>
   <summary><strong>:memo: Habilidades</strong></summary><br />
 
 Neste projeto, verificamos se você é capaz de:
@@ -326,6 +313,19 @@ Ao finalizar e submeter o projeto, não se esqueça de avaliar sua experiência 
 **Leva menos de 3 minutos!**
 
 [FORMULÁRIO DE AVALIAÇÃO DE PROJETO](https://be-trybe.typeform.com/to/ZTeR4IbH)
+
+</details>
+
+<details>
+  <summary><strong>💻 Protótipo do projeto no Figma</strong></summary><br />
+
+  Além da qualidade do código e do atendimento aos requisitos, um bom layout é um dos aspectos responsáveis por melhorar a usabilidade de uma aplicação e turbinar seu portfólio!
+
+  Você pode estar se perguntando: *"Como deixo meu projeto com um layout mais atrativo?"* 🤔
+
+  Para isso, disponibilizamos esse [protótipo do Figma](https://www.figma.com/file/pkocuFSMsqmUqvMUbsfcRp/%5BProjeto%5D%5BFrontend%5D-Trybetunes?node-id=0%3A1) para lhe ajudar !
+
+  ⚠️ A estilização de sua aplicação não será avaliada nesse projeto, portanto esse protótipo é apenas uma **sugestão** e seu uso é **opcional**. Sinta-se à vontade para modificar o layout e deixá-lo do seu jeito.
 
 </details>
 
